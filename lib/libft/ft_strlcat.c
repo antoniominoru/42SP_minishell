@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/11/28 23:25:37 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/04/13 11:57:56 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/04/13 14:47:45 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	char *string;
-    char ex;
+	size_t	l_d;
+	size_t	i;
 
-    ex = 'a';
-    string = &ex;
-	while(*string != 'b')
+	l_d = ft_strlen(dest);
+	if (size <= l_d)
+		return (size + ft_strlen(src));
+	i = 0;
+	while (src[i] && l_d < size - 1)
 	{
-		string = readline(">>>>>>>>>");
-        printf("%s\n", string);
+		dest[l_d] = src[i];
+		l_d++;
+		i++;
 	}
-    free(string);
+	dest[l_d] = '\0';
+	return (ft_strlen(dest) + ft_strlen(&src[i]));
 }
-//gcc -o minishell minishell.c -lreadline -lncurses
-//TEste
