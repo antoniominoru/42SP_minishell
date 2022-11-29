@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/11/29 00:05:25 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/11/28 20:58:14 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ LIBFTPATH = ./lib/libft/
 LIBFT = ./lib/libft/libft.a
 
 CC = gcc
+READFLAGS = -lreadline -lncurses
 CFLAG = -Wall -Werror -Wextra
 INCS = -I ./include/
 SRCS = 	./src/minishell.c \
@@ -26,7 +27,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJS} 
 			make -C $(LIBFTPATH)
-			${CC} -o ${NAME} ${CFLAG} ${OBJS} ${LIBFT}
+			${CC} -o ${NAME} ${CFLAG} ${OBJS} ${LIBFT} ${READFLAGS}
 
 .c.o:
 			${CC} ${CFLAG} ${INCS} -c $< -o ${<:.c=.o}
