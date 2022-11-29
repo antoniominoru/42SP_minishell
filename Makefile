@@ -6,7 +6,7 @@
 #    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/11/28 20:58:14 by jvictor-         ###   ########.fr        #
+#    Updated: 2022/11/28 21:10:16 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = minishell
 
 LIBFTPATH = ./lib/libft/
 LIBFT = ./lib/libft/libft.a
-
 CC = gcc
 READFLAGS = -lreadline -lncurses
 CFLAG = -Wall -Werror -Wextra
