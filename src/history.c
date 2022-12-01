@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   history.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 16:59:25 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/11/30 21:43:57 by jvictor-         ###   ########.fr       */
+/*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
+/*   Updated: 2022/11/30 22:05:26 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-t_list	*ft_lstnew(char *content)
+void    print_list(t_list *lst)
 {
-	t_list	*obj;
+    while (lst->next)
+    {
+        printf("%s\n", lst->content);
+        lst = lst->next;
+    }
+    printf("%s\n", lst->content);
+}
 
-	obj = malloc(sizeof(t_list));
-	if (obj == NULL)
-		return (0);
-	obj->content = content;
-	obj->next = NULL;
-	return (obj);
+int	ft_add_history(char *cmd)
+{
+    static t_list *history;
+
+    if (history == NULL)
+        history = ft_lstnew(cmd);
+    else
+        ft_lstadd_back(&history, ft_lstnew(cmd));
+    //print_list(history);
+    return (0);
 }

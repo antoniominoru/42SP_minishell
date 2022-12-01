@@ -6,7 +6,7 @@
 #    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/11/28 21:39:35 by jvictor-         ###   ########.fr        #
+#    Updated: 2022/11/30 21:23:30 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ READFLAGS = -lreadline -lncurses
 CFLAG = -Wall -Werror -Wextra
 INCS = -I ./include/
 SRCS = 	./src/minishell.c \
+		./src/history.c
 
 OBJS = ${SRCS:.c=.o}
 
