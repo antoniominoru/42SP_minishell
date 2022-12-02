@@ -6,7 +6,7 @@
 #    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/01 20:53:44 by jvictor-         ###   ########.fr        #
+#    Updated: 2022/12/01 21:10:19 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CFLAG = -Wall -Werror -Wextra
 INCS = -I ./include/
 SRCS = 	./src/minishell.c \
 		./src/history.c \
-		./src/env_to_lst.c
+		./src/env_to_lst.c \
+		./src/print_list.c
 
 OBJS = ${SRCS:.c=.o}
 
