@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/11/30 21:38:57 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:54:05 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 # include <stdlib.h>
 
 int	ft_add_history(char *cmd);
+t_list  env_to_lst(char *envp[]);
 
 #endif
