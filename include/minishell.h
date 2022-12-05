@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/01 21:15:48 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/05 23:11:04 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <readline/history.h>
 # include <stdlib.h>
 
-int	ft_add_history(char *cmd);
-t_list  *env_to_lst(char *envp[]);
+int		ft_add_history(char *cmd);
+t_list	*env_to_lst(char *envp[]);
 void	print_list(t_list *lst);
 
 #endif
