@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/06 02:11:01 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/06 22:36:20 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS = 	./src/minishell.c \
 		./src/builtin_all.c \
 		./src/builtin_env.c \
 		./src/builtin_export.c  \
+		./src/builin_unset.c  \
 		./src/exit.c
 
 OBJS = ${SRCS:.c=.o}
