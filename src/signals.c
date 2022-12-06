@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_to_lst.c                                       :+:      :+:    :+:   */
+/*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/06 01:34:13 by jvictor-         ###   ########.fr       */
+/*   Created: 2022/12/06 03:06:22 by jvictor-          #+#    #+#             */
+/*   Updated: 2022/12/06 03:13:20 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_list	*env_to_lst(char *envp[])
-{
-	t_list	*to_lst;
-	int		i;
+//FALTA DEFINIR TRATAMENTO DE SINAIS PARA EXECS, SUBJECT PEDE OUTRO TRATAMENTO
 
-	i = 0;
-	to_lst = NULL;
-	while (envp[i])
+void	sig_handler(int signal)
+{
+	if (signal == SIGINT)
 	{
-		if (to_lst == NULL)
-			to_lst = ft_lstnew(envp[i]);
-		else
-			{
-				ft_lstadd_back(&to_lst, ft_lstnew(envp[i]));
-				i++;
-			}
+		write(1, "\n", 1);
+		rl_replace_line("", 0);
+		rl_on_new_line();
+		rl_redisplay();
 	}
-	return (to_lst);
+}
+
+void	define_signals(void)
+{
+	signal(SIGINT, sig_handler);
+	signal(SIGQUIT, SIG_IGN);
 }
