@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   builin_unset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 20:16:55 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/06 02:12:42 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/12/06 01:53:42 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/12/06 02:31:44 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int builtin_unset(t_list *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	
 }

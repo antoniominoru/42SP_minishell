@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   builtin_export.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 20:16:55 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/06 02:12:42 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/12/06 02:32:05 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int builtin_export(char *cmd, t_list *envp)
 {
-	new->next = *lst;
-	*lst = new;
+	ft_lstadd_back(&envp, ft_lstnew(cmd));
+	return (1);
 }
