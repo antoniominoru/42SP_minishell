@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_to_lst.c                                       :+:      :+:    :+:   */
+/*   builtin_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/06 01:02:18 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/12/06 00:52:58 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/12/06 01:03:04 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_list	*env_to_lst(char *envp[])
+int builtin_env(t_list *lst)
 {
-	t_list	*to_lst;
-	int		i;
-
-	i = 0;
-	to_lst = NULL;
-	while (envp[i])
-	{
-		if (to_lst == NULL)
-			to_lst = ft_lstnew(envp[i]);
-		else
-			ft_lstadd_back(&to_lst, ft_lstnew(envp[i]));
-		i++;
-	}
-	return (to_lst);
+	print_list(lst);
+	return (1);
 }
