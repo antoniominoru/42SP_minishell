@@ -6,15 +6,15 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/06 01:06:55 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/07 02:17:26 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int builtin_exit(char *cmd)
+int	builtin_exit(char *cmd)
 {
 	if (!cmd)
 		return (0);
-    return (0);
+	return (0);
 }

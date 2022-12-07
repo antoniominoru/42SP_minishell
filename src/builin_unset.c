@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:53:42 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/07 02:10:58 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/07 02:28:03 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ void	ft_del(char *content)
 	(void)content;
 }
 
-int builtin_unset(char *cmd, t_list **envp)
+int	builtin_unset(char *cmd, t_list **envp)
 {
 	t_list	*tmp;
 	t_list	*to_remove;
 
 	tmp = *envp;
 	to_remove = NULL;
-	if (ft_strlen(cmd) > 2 && ft_strncmp(tmp->content, cmd, ft_strlen(cmd)) == 0)
+	if (ft_strlen(cmd) > 2 && \
+	ft_strncmp(tmp->content, cmd, ft_strlen(cmd)) == 0)
 	{
 		*envp = tmp->next;
 		to_remove = tmp;
@@ -35,7 +36,7 @@ int builtin_unset(char *cmd, t_list **envp)
 	while (tmp->next->next)
 	{
 		if (ft_strncmp(tmp->next->content, cmd, ft_strlen(cmd)) == 0)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	to_remove = tmp->next;
