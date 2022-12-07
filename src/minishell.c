@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/06 03:10:08 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/07 02:40:07 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,13 @@ int	main(int argc, char *argv[], char *envp[])
 	while (status)
 	{
 		cmd = readline("MiniHELL>>");
-		ft_add_history(cmd);
-		status = builtin_all(cmd);
+		if (cmd == NULL)
+			status = 0;
+		else
+		{
+			add_history(cmd);
+			status = builtin_all(cmd);
+		}
 	}
-	free(cmd);
+	free_all(&lst_env, cmd);
 }

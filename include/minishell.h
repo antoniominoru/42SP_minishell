@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/06 03:13:33 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/07 02:40:02 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@
 # include <stdlib.h>
 # include <signal.h>
 
-int		ft_add_history(char *cmd);
 t_list	*env_to_lst(char *envp[]);
 void	print_list(t_list *lst);
 int		builtin_all(char *cmd);
 int		builtin_exit(char *cmd);
 void	define_signals(void);
 void	sig_handler(int signal);
+void	free_all(t_list **lst_env, char *cmd);
+void	free_lst_env(t_list **lst_env);
 
 #endif

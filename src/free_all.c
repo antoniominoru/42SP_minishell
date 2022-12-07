@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   history.c                                          :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/01 21:08:48 by jvictor-         ###   ########.fr       */
+/*   Created: 2022/12/07 02:38:52 by jvictor-          #+#    #+#             */
+/*   Updated: 2022/12/07 02:40:04 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_add_history(char *cmd)
+void	free_lst_env(t_list **lst_env)
 {
-	static t_list	*history;
+	t_list	*aux;
+	t_list	*temp;
 
-	if (history == NULL)
-		history = ft_lstnew(cmd);
-	else
-		ft_lstadd_back(&history, ft_lstnew(cmd));
-	return (0);
+	aux = *lst_env;
+	if (aux == NULL)
+		return ;
+	while (aux != NULL)
+	{
+		temp = aux->next;
+		free(aux);
+		aux = temp;
+	}
+	*lst_env = NULL;
+}
+
+void	free_all(t_list **lst_env, char *cmd)
+{
+	free_lst_env(lst_env);
+	free(cmd);
 }
