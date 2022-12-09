@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_to_lst.c                                       :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/06 01:34:13 by jvictor-         ###   ########.fr       */
+/*   Created: 2022/12/07 02:38:52 by jvictor-          #+#    #+#             */
+/*   Updated: 2022/12/07 02:40:04 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_list	*env_to_lst(char *envp[])
+void	free_lst_env(t_list **lst_env)
 {
-	t_list	*to_lst;
-	int		i;
+	t_list	*aux;
+	t_list	*temp;
 
-	i = 0;
-	to_lst = NULL;
-	while (envp[i])
+	aux = *lst_env;
+	if (aux == NULL)
+		return ;
+	while (aux != NULL)
 	{
-		if (to_lst == NULL)
-			to_lst = ft_lstnew(envp[i]);
-		else
-			{
-				ft_lstadd_back(&to_lst, ft_lstnew(envp[i]));
-				i++;
-			}
+		temp = aux->next;
+		free(aux);
+		aux = temp;
 	}
-	return (to_lst);
+	*lst_env = NULL;
+}
+
+void	free_all(t_list **lst_env, char *cmd)
+{
+	free_lst_env(lst_env);
+	free(cmd);
 }

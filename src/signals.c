@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   history.c                                          :+:      :+:    :+:   */
+/*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/01 21:08:48 by jvictor-         ###   ########.fr       */
+/*   Created: 2022/12/06 03:06:22 by jvictor-          #+#    #+#             */
+/*   Updated: 2022/12/06 03:13:20 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_add_history(char *cmd)
-{
-	static t_list	*history;
+//FALTA DEFINIR TRATAMENTO DE SINAIS PARA EXECS, SUBJECT PEDE OUTRO TRATAMENTO
 
-	if (history == NULL)
-		history = ft_lstnew(cmd);
-	else
-		ft_lstadd_back(&history, ft_lstnew(cmd));
-	return (0);
+void	sig_handler(int signal)
+{
+	if (signal == SIGINT)
+	{
+		write(1, "\n", 1);
+		rl_replace_line("", 0);
+		rl_on_new_line();
+		rl_redisplay();
+	}
+}
+
+void	define_signals(void)
+{
+	signal(SIGINT, sig_handler);
+	signal(SIGQUIT, SIG_IGN);
 }

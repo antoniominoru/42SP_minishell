@@ -6,7 +6,7 @@
 #    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/01 21:10:19 by jvictor-         ###   ########.fr        #
+#    Updated: 2022/12/07 02:41:50 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,15 @@ LIBFTPATH = ./lib/libft/
 LIBFT = ./lib/libft/libft.a
 CC = gcc
 READFLAGS = -lreadline -lncurses
-CFLAG = -Wall -Werror -Wextra
+CFLAG = -Wall -Werror -Wextra -g3
 INCS = -I ./include/
 SRCS = 	./src/minishell.c \
-		./src/history.c \
 		./src/env_to_lst.c \
-		./src/print_list.c
+		./src/print_list.c \
+		./src/builtin_all.c \
+		./src/exit.c \
+		./src/signals.c \
+		./src/free_all.c
 
 OBJS = ${SRCS:.c=.o}
 
