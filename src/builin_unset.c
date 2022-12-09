@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:53:42 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/08 23:12:33 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/09 01:01:31 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ int	builtin_unset_2(char *cmd, t_list *tmp, t_list *to_remove)
 {
 	while (tmp->next->next)
 	{
-		if (ft_strncmp(tmp->next->content, cmd, ft_strlen(cmd)) == 0)
+		if (ft_strlen(cmd) > 1 && \
+		ft_strncmp(tmp->next->content, cmd, ft_strlen(cmd)) == 0)
 			break ;
 		tmp = tmp->next;
 	}
 	to_remove = tmp->next;
-	if (ft_strncmp(to_remove->content, cmd, ft_strlen(cmd)) == 0)
+	if (ft_strlen(cmd) > 1 && \
+	ft_strncmp(to_remove->content, cmd, ft_strlen(cmd)) == 0)
 	{
 		tmp->next = tmp->next->next;
 		ft_del(to_remove->content);
@@ -44,7 +46,7 @@ int	builtin_unset(char *cmd, t_list **envp)
 
 	tmp = *envp;
 	to_remove = NULL;
-	if (ft_strlen(cmd) > 2 && \
+	if (ft_strlen(cmd) > 1 && \
 	ft_strncmp(tmp->content, cmd, ft_strlen(cmd)) == 0)
 	{
 		*envp = tmp->next;

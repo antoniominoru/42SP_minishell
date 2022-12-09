@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/07 02:19:38 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/09 01:03:21 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int		builtin_exit(char *cmd);
 int		builtin_env(t_list *lst);
 int		builtin_export(char *cmd, t_list *envp);
 int		builtin_unset(char *cmd, t_list **envp);
-int		builtin_all(char *cmd, t_list **envp);
+int		builtin_all(char *cmd, t_list **envp, int status);
 
 #endif
