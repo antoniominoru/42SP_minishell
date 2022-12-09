@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/05 20:15:53 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/07 02:17:26 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int builtin_exit(char *cmd)
+int	builtin_exit(char *cmd)
 {
-    return (!(ft_strncmp(cmd, "exit", 4) == 0));
+	if (!cmd)
+		return (0);
+	return (0);
 }

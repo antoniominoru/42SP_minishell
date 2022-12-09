@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   builtin_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 20:16:55 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/06 02:12:42 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/12/06 00:52:58 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/12/07 02:18:53 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	builtin_env(t_list *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	print_list(lst);
+	return (1);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/07 02:41:50 by jvictor-         ###   ########.fr        #
+#    Updated: 2022/12/09 02:48:18 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,12 @@ SRCS = 	./src/minishell.c \
 		./src/env_to_lst.c \
 		./src/print_list.c \
 		./src/builtin_all.c \
-		./src/exit.c \
 		./src/signals.c \
-		./src/free_all.c
+		./src/free_all.c \
+		./src/builtin_env.c \
+		./src/builtin_export.c  \
+		./src/builin_unset.c  \
+		./src/exit.c
 
 OBJS = ${SRCS:.c=.o}
 
