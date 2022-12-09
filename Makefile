@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/09 02:48:18 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/09 20:39:58 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,11 +42,19 @@ ${NAME}: ${OBJS}
 
 clean:
 			make clean -C ./lib/libft
+			make clean -C ./test_minunit
 			rm -f ${OBJS}
 
 fclean: clean
 			make fclean -C ./lib/libft
+			make fclean -C ./test_minunit
 			rm -f ${NAME}
+
+test:
+			make
+			make -C ./test_minunit
+			clear
+			./test_minunit/run_test
 
 re: fclean all
 
