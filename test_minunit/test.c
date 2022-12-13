@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/13 23:59:49 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/14 00:13:15 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,21 @@ static char	*test_builtin_export(void)
 	return (0);
 }
 
+static char	*test_builtin_exit(void)
+{
+	int result = builtin_exit();
+	
+	mu_assert("ERROR: builtin_exit()", (result == 0));
+	return (0);
+}
+
 static char *all_tests(void)
 {
 	mu_run_test(test_builtin_export);
 	mu_run_test(test_builtin_unset_initial);
 	mu_run_test(test_builtin_unset_between);
 	mu_run_test(test_builtin_unset_finish);
+	mu_run_test(test_builtin_exit);
 	return (0);
 }
 

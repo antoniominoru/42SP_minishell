@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/10 04:03:02 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/14 00:09:45 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	sig_handler(int signal);
 void	free_all(t_list **lst_env, char *cmd);
 void	free_lst_env(t_list **lst_env);
 void	ft_add_history(char *cmd);
-int		builtin_exit(char *cmd);
+int		builtin_exit(void);
 int		builtin_env(t_list *lst);
 int		builtin_export(char *cmd, t_list *envp);
 int		builtin_unset(char *cmd, t_list **envp);
