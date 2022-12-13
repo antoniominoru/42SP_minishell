@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all.c                                         :+:      :+:    :+:   */
+/*   builtin_pwd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 02:38:52 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/10 03:18:11 by jvictor-         ###   ########.fr       */
+/*   Created: 2022/12/10 03:53:15 by jvictor-          #+#    #+#             */
+/*   Updated: 2022/12/10 03:53:55 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	free_lst_env(t_list **lst_env)
+int	builtin_pwd(void)
 {
-	t_list	*aux;
-	t_list	*temp;
+	char	*pwd;
 
-	aux = *lst_env;
-	if (aux == NULL)
-		return ;
-	while (aux != NULL)
+	pwd = getcwd(NULL, 0);
+	if (pwd)
 	{
-		temp = aux->next;
-		free(aux);
-		aux = temp;
+		printf("%s\n", pwd);
+		return (1);
 	}
-	*lst_env = NULL;
-}
-
-void	free_all(t_list **lst_env, char *cmd)
-{
-	rl_clear_history();
-	free_lst_env(lst_env);
-	free(cmd);
+	return (0);
 }
