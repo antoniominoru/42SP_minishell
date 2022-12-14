@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/14 00:12:50 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/14 01:08:34 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ LIBFTPATH = ../lib/libft/
 LIBFT = ../lib/libft/libft.a
 SRCS = test.c \
 		../src/builtin_export.c \
+		../src/builtin_env.c \
+		../src/print_list.c \
 		../src/builtin_unset.c \
 		../src/builtin_exit.c 
 
