@@ -6,13 +6,13 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 23:08:09 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/20 23:22:16 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/20 23:43:42 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
 
-static char	*test_builtin_export(void)
+char	*test_builtin_export(void)
 {
 	t_list *lst1 = ft_lstnew("TESTE=teste");
 	builtin_export("FAST=fast", lst1);

@@ -6,15 +6,14 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/20 23:22:54 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/20 23:43:59 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
-#include "test_builtin_export.c"
-
 
 int tests_run = 0;
+
 // Arrage
 static char	*test_builtin_unset_initial(void)
 {

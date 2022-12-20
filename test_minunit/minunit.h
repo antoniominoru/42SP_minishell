@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:18:23 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/20 23:11:44 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/20 23:43:25 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "../lib/libft/get_next_line.h"
 # include "../include/minishell.h"
 
+char	*test_builtin_export(void);
 
 /* file: minunit.h */
  #define mu_assert(message, test) do { if (!(test)) return message; } while (0)

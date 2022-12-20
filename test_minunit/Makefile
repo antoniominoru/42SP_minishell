@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/14 01:51:56 by jvictor-         ###   ########.fr        #
+#    Updated: 2022/12/20 23:30:05 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = run_test
 LIBFTPATH = ../lib/libft/
 LIBFT = ../lib/libft/libft.a
 SRCS = test.c \
+		test_builtin_export.c \
 		../src/builtin_export.c \
 		../src/builtin_env.c \
 		../src/print_list.c \
