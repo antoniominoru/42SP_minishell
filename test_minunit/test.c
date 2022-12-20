@@ -6,19 +6,12 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/20 01:34:06 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/20 23:09:13 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <unistd.h>
-# include<stdlib.h>
 #include "minunit.h"
-#include "../include/minishell.h"
-# include "../lib/libft/libft.h"
-# include "../lib/libft/get_next_line.h"
+
 
 int tests_run = 0;
 // Arrage
