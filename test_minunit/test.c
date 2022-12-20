@@ -6,11 +6,12 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/20 23:09:13 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/20 23:22:54 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
+#include "test_builtin_export.c"
 
 
 int tests_run = 0;
@@ -51,15 +52,6 @@ static char	*test_builtin_unset_finish(void)
 	
 	mu_assert("ERROR: builtin_unset_finish()", !strcmp(lst1->content, "First"));
 	mu_assert("ERROR: builtin_unset_finish()", !strcmp(lst1->next->content, "Second"));
-	return (0);
-}
-
-static char	*test_builtin_export(void)
-{
-	t_list *lst1 = ft_lstnew("TESTE=teste");
-	builtin_export("FAST=fast", lst1);
-	mu_assert("ERROR: builtin_export()", !strcmp(lst1->content, "TESTE=teste"));
-	mu_assert("ERROR: builtin_export()", !strcmp(lst1->next->content, "FAST=fast"));
 	return (0);
 }
 

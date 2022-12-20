@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/14 00:05:43 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/20 23:23:42 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,12 @@ test:
 			clear
 			./test_minunit/run_test
 			norminette -R CheckForbiddenSourceHeader ./src/ ./include/ ./lib/
+
+test2:
+			make
+			make -C ./test_minunit
+			clear
+			./test_minunit/run_test
 
 re: fclean all
 
