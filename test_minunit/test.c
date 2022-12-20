@@ -6,53 +6,13 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/20 23:43:59 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/20 23:45:41 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
 
 int tests_run = 0;
-
-// Arrage
-static char	*test_builtin_unset_initial(void)
-{
-	t_list *lst1 = ft_lstnew("First");
-
-	// act
-	builtin_export("Second", lst1);
-	builtin_export("Third", lst1);
-	builtin_unset("First", &lst1);
-	
-	//assert
-	mu_assert("ERROR: builtin_unset_initial()", !strcmp(lst1->content, "Second"));
-	mu_assert("ERROR: builtin_unset_initial()", !strcmp(lst1->next->content, "Third"));
-	return (0);
-}
-
-static char	*test_builtin_unset_between(void)
-{
-	t_list *lst1 = ft_lstnew("First");
-	builtin_export("Second", lst1);
-	builtin_export("Third", lst1);
-	builtin_unset("Second", &lst1);
-	
-	mu_assert("ERROR: builtin_unset_between()", !strcmp(lst1->content, "First"));
-	mu_assert("ERROR: builtin_unset_between()", !strcmp(lst1->next->content, "Third"));
-	return (0);
-}
-
-static char	*test_builtin_unset_finish(void)
-{
-	t_list *lst1 = ft_lstnew("First");
-	builtin_export("Second", lst1);
-	builtin_export("Third", lst1);
-	builtin_unset("Third", &lst1);
-	
-	mu_assert("ERROR: builtin_unset_finish()", !strcmp(lst1->content, "First"));
-	mu_assert("ERROR: builtin_unset_finish()", !strcmp(lst1->next->content, "Second"));
-	return (0);
-}
 
 static char	*test_builtin_exit(void)
 {
