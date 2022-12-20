@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/21 00:25:55 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/21 00:28:04 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = test.c \
 		test_builtin_unset.c  \
 		test_builtin_exit.c \
 		test_builtin_env.c \
+		test_builtin_pwd.c \
 		../src/builtin_export.c \
 		../src/builtin_env.c \
 		../src/print_list.c \
