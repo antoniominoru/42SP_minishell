@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_cd.c                                       :+:      :+:    :+:   */
+/*   test_builtin_cd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 01:43:33 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/21 00:53:41 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/12/21 00:48:28 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/12/21 00:53:20 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "minunit.h"
 
-int	builtin_cd(char *cmd, t_list *envp)
+char	*test_builtin_cd(void)
 {
-	ft_lstadd_back(&envp, ft_lstnew(cmd));
-	return (1);
+	// int result = builtin_exit();
+	// builtin_cd(char *cmd, t_list *envp)
+	
+	// mu_assert("ERROR: builtin_exit()", (result == 0));
+	return (0);
 }
