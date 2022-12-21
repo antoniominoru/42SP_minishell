@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/21 00:28:04 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/21 02:50:21 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,25 +14,29 @@ NAME = run_test
 
 LIBFTPATH = ../lib/libft/
 LIBFT = ../lib/libft/libft.a
+INCS = -I ../include/
 SRCS = test.c \
 		test_builtin_export.c \
 		test_builtin_unset.c  \
 		test_builtin_exit.c \
 		test_builtin_env.c \
 		test_builtin_pwd.c \
+		test_builtin_echo.c \
 		../src/builtin_export.c \
 		../src/builtin_env.c \
 		../src/print_list.c \
 		../src/builtin_unset.c \
 		../src/builtin_exit.c \
-		../src/builtin_pwd.c
+		../src/builtin_pwd.c \
+		../src/builtin_echo.c
+		
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} ${INCS} -c $< -o ${<:.c=.o}
 
 all:		${NAME}
 

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_builtin_pwd.c                                 :+:      :+:    :+:   */
+/*   test_builtin_echo.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 00:27:17 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/21 02:57:58 by jvictor-         ###   ########.fr       */
+/*   Created: 2022/12/21 02:25:38 by jvictor-          #+#    #+#             */
+/*   Updated: 2022/12/21 03:07:04 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
 
-char	*test_builtin_pwd(void)
+char	*test_builtin_echo(void)
 {
-	char *buffer_pwd;
-	char *join;
-	char test[40];
+	char *cmd = "test";
+	char test[10];
 	int		fd[2];
 	int	saved_stdout = dup(STDOUT_FILENO);
 
@@ -24,12 +23,13 @@ char	*test_builtin_pwd(void)
 		printf("pipex error");
   	dup2(fd[1], STDOUT_FILENO);
     close(fd[1]);
-	builtin_pwd();
+	builtin_echo(cmd);
 	fflush(stdout);
-	read(fd[0], test, 40);
+	read(fd[0], test, 11);
 	dup2(saved_stdout, STDOUT_FILENO);
-	buffer_pwd = getcwd(NULL, 0);
-	join = ft_strjoin(buffer_pwd, "\n");
-	mu_assert("ERROR: builtin_pwd()", !strcmp(test, join));
+	//printf("%s\n",cmd);
+	//printf("%s\n",test);
+	mu_assert("ERROR: builtin_echo()", !strcmp(test, "test\n"));
+	
 	return (0);
 }
