@@ -6,17 +6,21 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:48:28 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/21 00:53:20 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/22 02:01:02 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
-
+// # Arrage
 char	*test_builtin_cd(void)
 {
-	// int result = builtin_exit();
-	// builtin_cd(char *cmd, t_list *envp)
+	t_list *lst1 = ft_lstnew("First");
+	int		test;
+	int		espec = 1;
 	
-	// mu_assert("ERROR: builtin_exit()", (result == 0));
+	// # Act
+	test = builtin_cd("teste", &lst1);
+	// # Assert
+	mu_assert("ERROR: builtin_cd()", (test == espec));
 	return (0);
 }
