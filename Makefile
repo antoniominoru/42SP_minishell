@@ -3,14 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2022/12/21 02:02:13 by jvictor-         ###   ########.fr        #
-=======
-#    Updated: 2022/12/22 23:28:48 by aminoru-         ###   ########.fr        #
->>>>>>> test_cd
+#    Updated: 2022/12/23 00:27:50 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,12 +30,9 @@ SRCS = 	./src/minishell.c \
 		./src/builtin_unset.c  \
 		./src/builtin_exit.c \
 		./src/builtin_pwd.c \
-<<<<<<< HEAD
-		./src/builtin_echo.c
-=======
+		./src/builtin_echo.c \
 		./src/builtin_cd.c \
 		./src/take_value_of_env.c
->>>>>>> test_cd
 
 OBJS = ${SRCS:.c=.o}
 

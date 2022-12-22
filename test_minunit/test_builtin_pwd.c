@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:27:17 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/23 00:14:26 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/23 00:54:53 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ char	*test_builtin_pwd(void)
 	buffer_pwd = getcwd(NULL, 0);
 	join = ft_strjoin(buffer_pwd, "\n");
 	mu_assert("ERROR: builtin_pwd()", !strcmp(test, join));
+	free(buffer_pwd);
+	free(join);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:25:10 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/21 00:25:44 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/23 00:54:38 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ char	*test_builtin_env(void)
 	read(fd[0], test, 11);
 	dup2(saved_stdout, STDOUT_FILENO);
 	mu_assert("ERROR: builtin_env()", !strcmp(test, "First\n"));
-	
+	free(lst1);
 	return (0);
 }

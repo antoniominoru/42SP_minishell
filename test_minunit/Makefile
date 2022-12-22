@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/23 00:15:54 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/23 00:28:11 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ SRCS = test.c \
 		../src/builtin_unset.c \
 		../src/builtin_exit.c \
 		../src/builtin_pwd.c \
-		../src/builtin_echo.c
-		
+		../src/builtin_echo.c \
 		../src/builtin_cd.c \
 		../src/take_value_of_env.c
 
