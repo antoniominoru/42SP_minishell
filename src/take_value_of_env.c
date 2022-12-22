@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_builtin_exit.c                                :+:      :+:    :+:   */
+/*   take_value_of_env.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 23:49:47 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/21 23:58:21 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/12/22 23:26:30 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/12/22 23:28:07 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minunit.h"
+#include "minishell.h"
 
-char	*test_builtin_exit(void)
+char	*take_value_of_env(char *cmd, t_list **envp)
 {
-	int result = builtin_exit();
-	
-	mu_assert("ERROR: builtin_exit()", (result == 0));
-	return (0);
+	t_list	*tmp;
+	char	*value;
+
+	tmp = *envp;
+	value = NULL;
+	if (ft_strncmp(cmd, tmp->content, ft_strlen(cmd)) == 0)
+		value = tmp->content + ft_strlen(cmd) + 1;
+	while (tmp->next)
+	{
+		if (ft_strncmp(cmd, tmp->content, ft_strlen(cmd)) == 0)
+			value = tmp->content + ft_strlen(cmd) + 1;
+		tmp = tmp->next;
+	}
+	return (value);
 }

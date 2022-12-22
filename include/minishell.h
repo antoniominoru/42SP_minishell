@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/21 02:09:48 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/23 00:16:37 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int		builtin_unset(char *cmd, t_list **envp);
 int		builtin_all(char *cmd, t_list **envp, int status);
 int		builtin_pwd(void);
 void	builtin_echo(char *cmd);
+int		builtin_cd(char *cmd, t_list **envp);
+char	*take_value_of_env(char *cmd, t_list **envp);
 
 #endif
