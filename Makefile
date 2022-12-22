@@ -6,7 +6,7 @@
 #    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/21 02:02:13 by jvictor-         ###   ########.fr        #
+#    Updated: 2022/12/23 00:07:48 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS = 	./src/minishell.c \
 		./src/builtin_unset.c  \
 		./src/builtin_exit.c \
 		./src/builtin_pwd.c \
-		./src/builtin_echo.c
+		./src/builtin_echo.c \
+		./src/tokenizer.c
 
 OBJS = ${SRCS:.c=.o}
 
