@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2022/12/21 00:50:40 by aminoru-         ###   ########.fr        #
+#    Updated: 2022/12/22 23:33:46 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,15 @@ SRCS = test.c \
 		test_builtin_env.c \
 		test_builtin_pwd.c \
 		test_builtin_cd.c \
+		test_take_value_of_env.c \
 		../src/builtin_export.c \
 		../src/builtin_env.c \
 		../src/print_list.c \
 		../src/builtin_unset.c \
 		../src/builtin_exit.c \
 		../src/builtin_pwd.c \
-		../src/builtin_cd.c
+		../src/builtin_cd.c \
+		../src/take_value_of_env.c
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc

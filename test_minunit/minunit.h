@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:18:23 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/21 00:52:29 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:34:26 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*test_builtin_exit(void);
 char	*test_builtin_env(void);
 char	*test_builtin_pwd(void);
 char	*test_builtin_cd(void);
+char	*test_take_value_of_env(void);
 
 /* file: minunit.h */
  #define mu_assert(message, test) do { if (!(test)) return message; } while (0)

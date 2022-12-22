@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_builtin_cd.c                                  :+:      :+:    :+:   */
+/*   take_value_of_env.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 00:48:28 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/22 23:16:39 by aminoru-         ###   ########.fr       */
+/*   Created: 2022/12/22 23:26:30 by aminoru-          #+#    #+#             */
+/*   Updated: 2022/12/22 23:28:07 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minunit.h"
-// # Arrage
-char	*test_builtin_cd(void)
+#include "minishell.h"
+
+char	*take_value_of_env(char *cmd, t_list **envp)
 {
-	t_list	*lst1 = ft_lstnew("TEST=teste");
-	int		test;
-	int		espec = 1;
-	
-	// # Act
-	test = builtin_cd("TEST", &lst1);
-	// # Assert
-	mu_assert("ERROR: builtin_cd()", (test == espec));
-	return (0);
+	t_list	*tmp;
+	char	*value;
+
+	tmp = *envp;
+	value = NULL;
+	if (ft_strncmp(cmd, tmp->content, ft_strlen(cmd)) == 0)
+		value = tmp->content + ft_strlen(cmd) + 1;
+	while (tmp->next)
+	{
+		if (ft_strncmp(cmd, tmp->content, ft_strlen(cmd)) == 0)
+			value = tmp->content + ft_strlen(cmd) + 1;
+		tmp = tmp->next;
+	}
+	return (value);
 }
