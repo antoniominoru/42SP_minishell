@@ -3,73 +3,109 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:30:25 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/04/22 23:14:17 by aminoru-         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:33:19 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_cont_words(char const *s, char c)
+static size_t	length_word(char const *s, char c)
 {
-	int	i;
-	int	trigger;
-
-	i = 0;
-	trigger = 0;
-	while (*s)
-	{
-		if (*s != c && trigger == 0)
-		{
-			trigger = 1;
-			i++;
-		}
-		if (*s == c)
-			trigger = 0;
-		s++;
-	}
-	return (i);
-}
-
-static size_t	ft_wordlen(char const *s, char c)
-{
+	size_t	counter;
 	size_t	i;
 
+	counter = 0;
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && s[i] == c)
 		i++;
-	return (i);
+	while (s[i] && s[i] != c)
+	{
+		i++;
+		counter++;
+	}
+	return (counter);
 }
 
-static char	*next_w(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
-	while (*s && *s == c)
-		s++;
-	return ((char *)s);
+	int	is_word;
+	int	how_many;
+	int	i;
+
+	i = 0;
+	is_word = 0;
+	how_many = 0;
+	while (s[i])
+	{
+		if (is_word == 0 && s[i] != c)
+		{
+			is_word = 1;
+			how_many++;
+		}
+		else if (is_word && s[i] == c)
+			is_word = 0;
+		i++;
+	}
+	return (how_many);
+}
+
+static void	free_table(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
+
+static char	**allocates(char const *s, char c, char **table, char **table2)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			i++;
+			continue ;
+		}
+		if (s[i] != c)
+		{
+			*table = ft_substr(&s[i], 0, length_word(&s[i], c));
+			if (!table)
+			{
+				free_table(table);
+				return (NULL);
+			}
+			i += length_word(&s[i], c);
+			table++;
+		}
+	}
+	*table = NULL;
+	return (table2);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
+	char	**table;
 	size_t	words;
-	size_t	word;
 
 	if (!s)
 		return (NULL);
-	words = ft_cont_words(s, c);
-	result = malloc((words + 1) * sizeof(char *));
-	if (!result)
+	words = count_words(s, c);
+	table = malloc((words + 1) * sizeof(char *));
+	if (!table)
 		return (NULL);
-	word = 0;
-	while (word < words)
-	{
-		s = next_w(s, c);
-		result[word] = ft_substr(s, 0, ft_wordlen(s, c));
-		s += ft_wordlen(s, c);
-		word++;
-	}
-	result[words] = NULL;
-	return (result);
+	table = allocates(s, c, table, table);
+	if (!table)
+		return (NULL);
+	return (table);
 }

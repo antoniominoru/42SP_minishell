@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/10 04:02:49 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/23 00:09:05 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 int	main(int argc, char *argv[], char *envp[])
 {
 	char	*cmd;
+	char	**cmd_tkn;
 	t_list	*lst_env;
 	int		status;
 
+	cmd_tkn = NULL;
 	cmd = NULL;
 	lst_env = NULL;
 	status = 1;
@@ -35,6 +37,7 @@ int	main(int argc, char *argv[], char *envp[])
 		else
 		{
 			ft_add_history(cmd);
+			cmd_tkn = tokenizer(cmd);
 			status = builtin_all(cmd, &lst_env, status);
 		}
 	}

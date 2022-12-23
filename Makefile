@@ -6,7 +6,11 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2022/12/23 00:27:50 by aminoru-         ###   ########.fr        #
+=======
+#    Updated: 2022/12/23 00:07:48 by jvictor-         ###   ########.fr        #
+>>>>>>> 83c5728997feb5f54637da5babe13a8c3dbdb98b
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +35,12 @@ SRCS = 	./src/minishell.c \
 		./src/builtin_exit.c \
 		./src/builtin_pwd.c \
 		./src/builtin_echo.c \
+<<<<<<< HEAD
 		./src/builtin_cd.c \
 		./src/take_value_of_env.c
+=======
+		./src/tokenizer.c
+>>>>>>> 83c5728997feb5f54637da5babe13a8c3dbdb98b
 
 OBJS = ${SRCS:.c=.o}
 
