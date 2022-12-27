@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/23 00:09:05 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/27 02:58:46 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[], char *envp[])
 	t_list	*lst_env;
 	int		status;
 
+	//fazer funcao que inicializa funcoes
 	cmd_tkn = NULL;
 	cmd = NULL;
 	lst_env = NULL;
@@ -37,9 +38,9 @@ int	main(int argc, char *argv[], char *envp[])
 		else
 		{
 			ft_add_history(cmd);
-			cmd_tkn = tokenizer(cmd);
+			cmd_tkn = tokenizer(cmd, cmd_tkn);
 			status = builtin_all(cmd, &lst_env, status);
 		}
 	}
-	free_all(&lst_env, cmd);
+	free_all(&lst_env, cmd, cmd_tkn);
 }

@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:30:25 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/22 23:33:19 by jvictor-         ###   ########.fr       */
+/*   Updated: 2022/12/27 02:31:53 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	free_table(char **s)
 	free(s);
 }
 
-static char	**allocates(char const *s, char c, char **table, char **table2)
+static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 {
 	int	i;
 
@@ -90,7 +90,7 @@ static char	**allocates(char const *s, char c, char **table, char **table2)
 		}
 	}
 	*table = NULL;
-	return (table2);
+	return (table_ptr);
 }
 
 char	**ft_split(char const *s, char c)
