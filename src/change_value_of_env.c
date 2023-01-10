@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_cd.c                                       :+:      :+:    :+:   */
+/*   change_value_of_env.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 01:43:33 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/10 01:41:57 by aminoru-         ###   ########.fr       */
+/*   Created: 2023/01/10 01:41:41 by aminoru-          #+#    #+#             */
+/*   Updated: 2023/01/10 01:44:13 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtin_cd(t_list **envp)
+int	change_value_of_env(char *cmd, char *val, t_list **envp)
 {
-	if (take_value_of_env("HOME", envp) == NULL)
-		return (0);
-	// change_value_of_env(char *cmd, char *val, t_list **envp)
+	t_list	*tmp;
+	char	*value;
+
+	tmp = *envp;
+	value = ft_strjoin(cmd, ft_strjoin("=", val));
+	if (ft_strncmp(cmd, tmp->content, ft_strlen(cmd)) == 0)
+		tmp->content = value;
+	while (tmp->next)
+	{
+		if (ft_strncmp(cmd, tmp->content, ft_strlen(cmd)) == 0)
+			tmp->content = value;
+		tmp = tmp->next;
+	}
 	return (1);
 }

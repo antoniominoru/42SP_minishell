@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/23 00:55:43 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/10 01:22:05 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static char *all_tests(void)
 	mu_run_test(test_builtin_cd);
 	mu_run_test(test_take_value_of_env);
 	mu_run_test(test_builtin_echo);
+	mu_run_test(test_change_value_of_env);
 	return (0);
 }
 

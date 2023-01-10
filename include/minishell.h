@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/23 01:03:47 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/10 01:25:56 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int		builtin_unset(char *cmd, t_list **envp);
 int		builtin_all(char *cmd, t_list **envp, int status);
 int		builtin_pwd(void);
 void	builtin_echo(char *cmd);
-int		builtin_cd(char *cmd, t_list **envp);
+int		builtin_cd(t_list **envp);
 char	*take_value_of_env(char *cmd, t_list **envp);
+int		change_value_of_env(char *cmd, char *value, t_list **envp);
 char	**tokenizer(char *cmd);
 
 #endif
