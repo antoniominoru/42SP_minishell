@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2023/01/10 01:42:24 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/01/10 23:37:36 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS = test.c \
 		test_builtin_cd.c \
 		test_take_value_of_env.c \
 		test_change_value_of_env.c \
+		test_tokenizer.c \
 		../src/builtin_export.c \
 		../src/builtin_env.c \
 		../src/print_list.c \
@@ -34,7 +35,9 @@ SRCS = test.c \
 		../src/builtin_echo.c \
 		../src/builtin_cd.c \
 		../src/take_value_of_env.c \
-		../src/change_value_of_env.c
+		../src/change_value_of_env.c \
+		../src/tokenizer.c
+		
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc
