@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/10 01:28:37 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/11 00:42:07 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	builtin_all(char *cmd, t_list **envp, int status)
 	if (ft_strncmp(cmd, "echo", 4) == 0)
 		builtin_echo(cmd + 5);
 	if (ft_strncmp(cmd, "cd", 2) == 0)
-		status = builtin_cd(envp);
+		status = builtin_cd(cmd + 3, envp);
 	return (status);
 }
