@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/10 23:14:43 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/12 00:23:40 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char *argv[], char *envp[])
 	char	**cmd_tkn;
 	t_list	*lst_env;
 	int		status;
+	char	buffer[2048];
 
 	//fazer funcao que inicializa funcoes
 	cmd_tkn = NULL;
@@ -32,7 +33,7 @@ int	main(int argc, char *argv[], char *envp[])
 	define_signals();
 	while (status)
 	{
-		cmd = readline("MiniHELL>>");
+		cmd = readline(ft_strjoin(getcwd(buffer, 2048), "|--HELL-->"));
 		if (cmd == NULL)
 			status = 0;
 		else
