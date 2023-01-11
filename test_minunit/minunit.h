@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:18:23 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/10 23:38:25 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/11 00:55:08 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*test_builtin_cd(void);
 char	*test_take_value_of_env(void);
 char	*test_change_value_of_env(void);
 char	*test_tokenizer(void);
+char	*test_builtin_cd2(void);
 
 
 /* file: minunit.h */
