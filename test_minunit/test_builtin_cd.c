@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:48:28 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/11 01:31:10 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:46:57 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 // # Arrage
 char	*test_builtin_cd(void)
 {
-	t_list	*lst1 = ft_lstnew("HOME=/home/coder/01_minisHELL");
+	t_list	*lst1 = ft_lstnew(ft_strjoin("HOME=",getenv("HOME")));
 	char	*test;
-	char	*espec = "/home/coder/01_minisHELL";
+	char	*espec = getenv("HOME");
 	char	buffer[2048];
 	
 	// # Act
@@ -30,14 +30,14 @@ char	*test_builtin_cd(void)
 
 char	*test_builtin_cd2(void)
 {
-	t_list	*lst1 = ft_lstnew("OLDPWD=/home/coder/01_minisHELL/test_minunit");
-	char	*test = "erro";
-	char	*espec = "/home/coder/01_minisHELL/test_minunit";
+	t_list	*lst1 = ft_lstnew(ft_strjoin("OLDPWD=",getenv("OLDPWD")));
+	char	*test;
+	char	*espec = getenv("OLDPWD");
 	char	buffer[2048];
 	
 	// # Act
-	if (builtin_cd("-", &lst1) != 0)
-		test = getcwd(buffer, 2048);
+	builtin_cd("-", &lst1);
+	test = getcwd(buffer, 2048);
 	// # Assert
 	mu_assert("ERROR: builtin_cd() flag - ", !strcmp(test, espec));
 	free(lst1);
