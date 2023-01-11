@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 01:43:33 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/11 01:41:18 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:57:42 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	builtin_cd(char *cmd, t_list **envp)
 		tmp = getcwd(buffer, 2048);
 		change_value_of_env("OLDPWD", tmp, envp);
 		if (chdir(take_value_of_env("HOME", envp)) != 0)
-			return(0);
+			printf("Error\n");
 		tmp = getcwd(buffer, 2048);
 		change_value_of_env("PWD", tmp, envp);
 	}
@@ -33,9 +33,17 @@ int	builtin_cd(char *cmd, t_list **envp)
 	{
 		tmp2 = take_value_of_env("OLDPWD", envp);
 		if (tmp2 == NULL)
-			return (0);
+			printf("Error\n");
 		printf("%s\n", tmp2);
 		chdir(tmp2);
+	}
+	else{
+		tmp = getcwd(buffer, 2048);
+		change_value_of_env("OLDPWD", tmp, envp);
+		if (chdir(cmd) != 0)
+			printf("Error\n");
+		tmp = getcwd(buffer, 2048);
+		change_value_of_env("PWD", tmp, envp);
 	}
 	return (1);
 }

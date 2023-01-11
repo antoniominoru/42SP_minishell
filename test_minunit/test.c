@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/11 23:46:26 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/12 00:14:52 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static char *all_tests(void)
 	mu_run_test(test_tokenizer);
 	mu_run_test(test_builtin_cd);
 	mu_run_test(test_builtin_cd2);
+	mu_run_test(test_builtin_cd3);
 	
 	return (0);
 }
