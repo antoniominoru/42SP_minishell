@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:18:34 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/12 01:42:32 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/12 01:49:38 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*test_builtin_other(void)
 {
 	t_list	*lst1 = ft_lstnew(ft_strjoin("PATH=",getenv("PATH")));
-	char	*espec = "teste";
+	char	*espec = "other func\n";
 	char test[40];
 	int		fd[2];
 	int	saved_stdout = dup(STDOUT_FILENO);
@@ -26,8 +26,7 @@ char	*test_builtin_other(void)
     close(fd[1]);
 	
 	// # Act
-	// builtin_other("cat test.txt", &lst1);
-	printf("teste");
+	builtin_other("cat test.txt", &lst1);
 		
 	fflush(stdout);
 	read(fd[0], test, 40);

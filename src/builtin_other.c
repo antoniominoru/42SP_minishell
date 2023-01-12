@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/12 01:34:38 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/12 01:49:11 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int	builtin_other(char *cmd, t_list **envp)
 		return (0);
 	if (ft_lstsize(*envp) == 0)
 		return (0);
+	printf("other func\n");
 	return (1);
 }
