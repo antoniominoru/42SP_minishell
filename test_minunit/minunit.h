@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:18:23 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/12 00:14:28 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/12 01:28:41 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*test_change_value_of_env(void);
 char	*test_tokenizer(void);
 char	*test_builtin_cd2(void);
 char	*test_builtin_cd3(void);
+char	*test_builtin_other(void);
 
 
 /* file: minunit.h */
