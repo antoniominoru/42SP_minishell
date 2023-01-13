@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/10 23:14:43 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/11 00:32:13 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[], char *envp[])
 		{
 			ft_add_history(cmd);
 			cmd_tkn = tokenizer(cmd, cmd_tkn);
-			status = builtin_all(cmd, &lst_env, status);
+			status = builtin_all(cmd, &lst_env, status, cmd_tkn);
 		}
 	}
 	free_all(&lst_env, cmd, cmd_tkn);

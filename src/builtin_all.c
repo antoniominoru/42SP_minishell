@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/10 01:28:37 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/11 00:43:35 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtin_all(char *cmd, t_list **envp, int status)
+int	builtin_all(char *cmd, t_list **envp, int status, char **cmd_tkn)
 {
 	if (ft_strncmp(cmd, "export", 6) == 0)
 		status = builtin_export((cmd + 7), *envp);
@@ -25,7 +25,7 @@ int	builtin_all(char *cmd, t_list **envp, int status)
 	if (ft_strncmp(cmd, "pwd", 3) == 0)
 		status = builtin_pwd();
 	if (ft_strncmp(cmd, "echo", 4) == 0)
-		builtin_echo(cmd + 5);
+		builtin_echo(cmd_tkn, envp);
 	if (ft_strncmp(cmd, "cd", 2) == 0)
 		status = builtin_cd(envp);
 	return (status);

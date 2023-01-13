@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/10 23:16:08 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/11 00:43:09 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int		builtin_exit(void);
 int		builtin_env(t_list *lst);
 int		builtin_export(char *cmd, t_list *envp);
 int		builtin_unset(char *cmd, t_list **envp);
-int		builtin_all(char *cmd, t_list **envp, int status);
+int		builtin_all(char *cmd, t_list **envp, int status, char **cmd_tkn);
 int		builtin_pwd(void);
-void	builtin_echo(char *cmd);
+void	builtin_echo(char **cmd_tkn, t_list **envp);
 int		builtin_cd(t_list **envp);
 char	*take_value_of_env(char *cmd, t_list **envp);
 char	**tokenizer(char *cmd, char **cmd_tkn);
