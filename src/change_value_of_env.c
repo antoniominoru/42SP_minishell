@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 01:41:41 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/10 01:44:13 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:33:44 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ int	change_value_of_env(char *cmd, char *val, t_list **envp)
 	while (tmp->next)
 	{
 		if (ft_strncmp(cmd, tmp->content, ft_strlen(cmd)) == 0)
+		{
 			tmp->content = value;
+			return (1);
+		}
 		tmp = tmp->next;
 	}
-	return (1);
+	return (0);
 }
