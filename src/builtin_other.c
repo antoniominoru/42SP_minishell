@@ -6,13 +6,11 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/13 02:49:22 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/17 23:06:41 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <sys/types.h>
-#include <sys/wait.h>
 
 char	*get_cmd(char *cmd, char **paths)
 {

@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/17 01:21:50 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/17 23:06:54 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include <stdlib.h>
 # include <signal.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 
 t_list	*env_to_lst(char *envp[]);
 void	print_list(t_list *lst);
