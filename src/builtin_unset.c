@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builin_unset.c                                     :+:      :+:    :+:   */
+/*   builtin_unset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:53:42 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/10 03:56:52 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/16 23:55:57 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int	builtin_unset_2(char *cmd, t_list *tmp, t_list *to_remove)
 		ft_del(to_remove->content);
 		free(to_remove);
 	}
-	else
-		printf("Error!\n");
 	return (1);
 }
 
