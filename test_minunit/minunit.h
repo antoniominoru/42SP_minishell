@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:18:23 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/12 01:28:41 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/18 00:50:04 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*test_tokenizer(void);
 char	*test_builtin_cd2(void);
 char	*test_builtin_cd3(void);
 char	*test_builtin_other(void);
+char	*test_builtin_cd_ft_ispipe(void);
 
 
 /* file: minunit.h */

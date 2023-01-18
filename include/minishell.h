@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/17 23:06:54 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/18 01:00:30 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ char	*take_value_of_env(char *cmd, t_list **envp);
 char	**tokenizer(char *cmd, char **cmd_tkn);
 int		change_value_of_env(char *cmd, char *value, t_list **envp);
 int		builtin_other(char *cmd, t_list **envp);
+int		ft_ispipe(char *cmd);
+int		builtin_pipe_to_all(char *cmd, t_list **envp, int status);
 
 #endif

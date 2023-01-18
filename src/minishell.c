@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/17 01:18:20 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/18 01:52:49 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int	main(int argc, char *argv[], char *envp[])
 		else
 		{
 			ft_add_history(cmd);
-			cmd_tkn = tokenizer(cmd, cmd_tkn);
-			status = builtin_all(cmd, &lst_env, status, cmd_tkn);
+			// cmd_tkn = tokenizer(cmd, cmd_tkn);
+			// status = builtin_all(cmd, &lst_env, status, cmd_tkn);
+			status = builtin_pipe_to_all(cmd, &lst_env, status);
 		}
 	}
 	free_all(&lst_env, cmd, cmd_tkn);

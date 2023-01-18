@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/01/12 01:32:46 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/01/18 01:01:02 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ SRCS = 	./src/minishell.c \
 		./src/take_value_of_env.c \
 		./src/tokenizer.c \
 		./src/change_value_of_env.c \
-		./src/builtin_other.c 
+		./src/builtin_other.c  \
+		./src/builtin_pipe_to_all.c 
 
 OBJS = ${SRCS:.c=.o}
 
