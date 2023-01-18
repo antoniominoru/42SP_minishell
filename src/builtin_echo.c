@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 01:53:57 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/13 02:14:11 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/18 01:24:19 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ static	void	print_echo(char **cmd_tkn)
 			break ;
 		}
 		else
-			printf("%s ", cmd_tkn[i]);
+			if (cmd_tkn[i + 1] == NULL)
+				printf("%s", cmd_tkn[i]);
+			else
+				printf("%s ", cmd_tkn[i]);
 	}
 }
 

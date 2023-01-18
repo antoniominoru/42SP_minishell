@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_builtin_other.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:18:34 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/13 02:30:39 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/18 01:47:18 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*test_builtin_other(void)
   	dup2(fd[1], STDOUT_FILENO);
     close(fd[1]);	
 	// # Act
-	builtin_other("cat /home/coder/01_minisHELL/test_minunit/test.txt", &lst1);
+	builtin_other("cat /home/coder/minishell/test_minunit/test.txt", &lst1);
 		
 	fflush(stdout);
 	read(fd[0], test, 8);
