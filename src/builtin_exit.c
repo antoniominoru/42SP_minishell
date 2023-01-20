@@ -6,13 +6,14 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/14 00:13:34 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:44:08 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtin_exit(void)
+void	builtin_exit(void)
 {
-	return (0);
+	printf("exit\n");
+	exit(133);
 }

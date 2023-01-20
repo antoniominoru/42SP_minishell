@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 02:38:52 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/27 02:59:10 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/19 23:50:48 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn)
 {
 	rl_clear_history();
 	free_lst_env(lst_env);
-	if (cmd != NULL)
+	if (cmd_tkn != NULL)
 		free_tkn(cmd_tkn);
 	free(cmd);
 }

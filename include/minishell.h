@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/18 01:00:30 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:46:29 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	sig_handler(int signal);
 void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn);
 void	free_tkn(char **cmd_tkn);
 void	ft_add_history(char *cmd);
-int		builtin_exit(void);
+void	builtin_exit(void);
 int		builtin_env(t_list *lst);
 int		builtin_export(char *cmd, t_list **envp);
 int		builtin_unset(char *cmd, t_list **envp);
