@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/19 23:49:20 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/24 00:35:09 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	builtin_all(char *cmd, t_list **envp, int status, char **cmd_tkn)
 	else if (ft_strncmp(cmd_tkn[0], "env", 3) == 0)
 		status = builtin_env(*envp);
 	else if (ft_strncmp(cmd_tkn[0], "exit", 4) == 0)
-		status = builtin_exit();
+		builtin_exit();
 	else if (ft_strncmp(cmd_tkn[0], "pwd", 3) == 0)
 		status = builtin_pwd();
 	else if (ft_strncmp(cmd_tkn[0], "echo", 4) == 0)
