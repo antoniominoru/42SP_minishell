@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:30:25 by aminoru-          #+#    #+#             */
-/*   Updated: 2022/12/27 02:31:53 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/27 00:03:57 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	length_word(char const *s, char c)
 	return (counter);
 }
 
-static int	count_words(char const *s, char c)
+int	count_words(char const *s, char c)
 {
 	int	is_word;
 	int	how_many;

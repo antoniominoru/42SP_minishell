@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 01:53:57 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/18 01:24:19 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/20 01:45:52 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,41 +66,10 @@ static	void	print_echo(char **cmd_tkn)
 	}
 }
 
-static	char	**env_var(char **cmd_tkn, t_list **envp)
+void	builtin_echo(char **cmd_tkn)
 {
-	int		i;
-	char	**cmd_tkn_env;
-	char	*swap_cmd;
-
-	i = 0;
-	cmd_tkn_env = cmd_tkn;
-	while (cmd_tkn_env[i])
-	{
-		if (!ft_strncmp(cmd_tkn_env[i], "$", 1)
-			&& ft_strlen(cmd_tkn_env[i]) > 1)
-		{
-			if (take_value_of_env(&cmd_tkn_env[i][1], envp))
-			{
-				swap_cmd = ft_strdup(&cmd_tkn_env[i][1]);
-				free(cmd_tkn_env[i]);
-				cmd_tkn_env[i] = ft_strdup(take_value_of_env(swap_cmd, envp));
-				free(swap_cmd);
-			}
-		}
-		i++;
-	}
-	return (cmd_tkn_env);
-}
-
-void	builtin_echo(char **cmd_tkn, t_list **envp)
-{
-	char	**cmd_tkn_env;
-
-	if (envp == NULL)
-		return ;
 	if (echo_is_empty(cmd_tkn))
 		return ;
-	cmd_tkn_env = env_var(cmd_tkn, envp);
 	if (ft_strncmp(cmd_tkn[1], "-n\0", 3) == 0)
 		print_echo_flag_n(cmd_tkn);
 	else

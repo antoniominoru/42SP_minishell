@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/17 01:20:00 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:56:51 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	builtin_all(char *cmd, t_list **envp, int status, char **cmd_tkn)
 	else if (ft_strncmp(cmd, "pwd", 3) == 0)
 		status = builtin_pwd();
 	else if (ft_strncmp(cmd, "echo", 4) == 0)
-		builtin_echo(cmd_tkn, envp);
+		builtin_echo(cmd_tkn);
 	else if (ft_strncmp(cmd, "cd", 2) == 0)
 		status = builtin_cd(cmd + 3, envp);
-	else
-		status = builtin_other(cmd, envp);
+	// else
+	// 	status = builtin_other(cmd, envp);
 	return (status);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/17 01:18:20 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:41:38 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ int	main(int argc, char *argv[], char *envp[])
 		else
 		{
 			ft_add_history(cmd);
-			cmd_tkn = tokenizer(cmd, cmd_tkn);
+			cmd_tkn = tokenizer(cmd, cmd_tkn, &lst_env);
 			status = builtin_all(cmd, &lst_env, status, cmd_tkn);
 		}
 	}
 	free_all(&lst_env, cmd, cmd_tkn);
 }
+//quando da enter buga o readline
