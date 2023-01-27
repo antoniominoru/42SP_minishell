@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/24 02:43:28 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/27 02:15:54 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ int	ft_ispipe(char *cmd)
 	return (0);
 }
 
-static void	old_in(int	*fd)
-{
-	*fd = 0;
-}
-
 static void	save_fd(int *fd)
 {
 	fd[0] = dup(STDIN_FILENO);
@@ -45,54 +40,65 @@ static void	restore_fd(int *fd)
 	close(fd[1]);
 }
 
-int	builtin_pipe(char *cmd, t_list **envp, int status, int *old_in)
+static void pipe_create(int *old_in, int last)
 {
-	if (cmd == NULL && envp == NULL)
-		return (0);
-// Salvar FD originais
-	int	fd_saved[2];
-	save_fd(fd_saved);
-	
-// criar pipe
-	int	new_pipe[2];
+	int	pipe_new[2];
+
 	dup2(*old_in, STDIN_FILENO);
 	if (*old_in != 0)
 		close(*old_in);
-	pipe(new_pipe);
-	dup2(new_pipe[1], STDOUT_FILENO);
-	close(new_pipe[1]);
-	*old_in = dup(new_pipe[0]);
-	close(new_pipe[0]);
-
-	// builtin_env(*envp);
-	char test[4];
-	fflush(stdout);
-	read(new_pipe[0], test, 5);
-	
-// restaurar FD
-	restore_fd(fd_saved);
-
-	printf("\nFuncionou!! - %s|\n", test);
-
-	return (status);
+	if (last)
+		return ;
+	pipe(pipe_new);
+	dup2(pipe_new[1], STDOUT_FILENO);
+	close(pipe_new[1]);
+	*old_in = dup(pipe_new[0]);
+	close(pipe_new[0]);
 }
 
-
-
-int	builtin_pipe_to_all(char *cmd, t_list **envp, int status)
+static void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 {
-	int	fd_in;
+	if (!old_in)
+		printf("%i\n", *old_in);
+// Salvar FD originais
+	int	fd_saved[2];
+	save_fd(fd_saved);
+// criar pipe
+	pipe_create(old_in, last);
+	char	**cmd_tkn = NULL;
+	cmd_tkn = tokenizer(cmd, cmd_tkn);
+	builtin_all(cmd, envp, cmd_tkn);
+// restaurar FD
+	restore_fd(fd_saved);
+}
 
-	old_in(&fd_in);
-	if (ft_ispipe(cmd))
+static void line_in_pipe(char *cmd, t_list **envp, int *old_in)
+{
+	int	i = 0;
+	char	**split_token;
+
+	while(cmd[i])
 	{
-		status = builtin_pipe(cmd, envp, status, &fd_in);
+		if (cmd[i] == '|')
+		{
+			split_token = ft_split(cmd, '|');
+			builtin_pipe(split_token[0], envp, old_in, 0);
+			line_in_pipe(split_token[1], envp, old_in);
+			break;
+		}
+		i++;
 	}
-	else
-	{
-		char	**cmd_tkn = NULL;
-		cmd_tkn = tokenizer(cmd, cmd_tkn);
-		status = builtin_all(cmd, envp, status, cmd_tkn);	
-	}
-	return (status = 1);
+	if (!ft_ispipe(cmd))
+		builtin_pipe(cmd, envp, old_in, 1);
+}
+
+int	builtin_pipe_to_all(char *cmd, t_list **envp)
+{
+	int	old_in;
+
+	old_in = 0;
+	line_in_pipe(cmd, envp, &old_in);
+	if (old_in != 0)
+		close(old_in);
+	return (1);
 }

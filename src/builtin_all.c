@@ -6,14 +6,16 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/24 00:35:09 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/27 01:09:32 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtin_all(char *cmd, t_list **envp, int status, char **cmd_tkn)
+int	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 {
+	int status = 1;
+	
 	if (ft_strncmp(cmd_tkn[0], "export", 6) == 0)
 		status = builtin_export(cmd_tkn[1], envp);
 	else if (ft_strncmp(cmd_tkn[0], "unset", 5) == 0)
