@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/20 02:34:07 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 00:18:59 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	builtin_other_int(char *cmd, t_list **envp)
 	return (1);
 }
 
-int	builtin_other(char *cmd, t_list **envp)
+void	builtin_other(char *cmd, t_list **envp)
 {
 	int		pid;
 
@@ -55,5 +55,4 @@ int	builtin_other(char *cmd, t_list **envp)
 	if (pid == 0)
 		builtin_other_int(cmd, envp);
 	waitpid(pid, NULL, 0);
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 01:43:33 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/17 02:00:18 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 00:18:19 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	change_dir(char *cmd, t_list **envp)
 	change_value_of_env("PWD", tmp, envp);
 }
 
-int	builtin_cd(char *cmd, t_list **envp)
+void	builtin_cd(char *cmd, t_list **envp)
 {
 	char	*tmp;
 
@@ -44,5 +44,4 @@ int	builtin_cd(char *cmd, t_list **envp)
 	}
 	else
 		change_dir(cmd, envp);
-	return (1);
 }
