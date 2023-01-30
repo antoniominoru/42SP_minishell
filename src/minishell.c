@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 00:13:11 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 00:32:07 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	main(int argc, char *argv[], char *envp[])
 			builtin_pipe_to_all(cmd, &lst_env);
 		}
 	}
-	free_all(&lst_env, cmd);
+	free_part(&lst_env, cmd);
 }

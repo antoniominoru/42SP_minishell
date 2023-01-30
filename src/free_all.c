@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 02:38:52 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 00:17:07 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 00:31:53 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ void	free_tkn(char **cmd_tkn)
 	free(cmd_tkn);
 }
 
-void	free_all(t_list **lst_env, char *cmd)
+void	free_part(t_list **lst_env, char *cmd)
 {
 	rl_clear_history();
 	free_lst_env(lst_env);
 	free(cmd);
 }
 
-// void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn)
-// {
-// 	rl_clear_history();
-// 	free_lst_env(lst_env);
-// 	if (cmd_tkn != NULL)
-// 		free_tkn(cmd_tkn);
-// 	free(cmd);
-// }
+void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn)
+{
+	rl_clear_history();
+	free_lst_env(lst_env);
+	if (cmd_tkn != NULL)
+		free_tkn(cmd_tkn);
+	free(cmd);
+}
