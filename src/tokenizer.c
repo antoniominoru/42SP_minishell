@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 01:21:09 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/31 01:35:22 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@ static char	**allocate(char **s, int *j, int how_many, char **other)
 	return (other);
 }
 
+static	char	**reallocate_cmd(char **s, int *j, int how_many)
+{
+	char	**other;
+
+	other = malloc(how_many * sizeof(char *));
+	if (!other)
+		return (NULL);
+	other = allocate(s, j, how_many, other);
+	s = other;
+	return (s);
+}
+
 static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 {
 	int		i;
@@ -63,16 +75,12 @@ static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 			}
 			else
 			{
-				char **other = malloc(how_many * sizeof(char *));
-				if (!other)
-					return (NULL);
-				other = allocate(cmd_tkn_env, &i, how_many--, other);
-				cmd_tkn_env = other;
+				cmd_tkn_env = reallocate_cmd(cmd_tkn_env, &i, how_many--);
 			}
 		}
 		i++;
 	}
-	return(cmd_tkn_env);
+	return (cmd_tkn_env);
 }
 
 char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp)
