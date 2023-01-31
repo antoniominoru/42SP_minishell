@@ -6,26 +6,25 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/27 02:49:53 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/31 01:21:09 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	**allocate(char **s, int j, int how_many, char **other)
+static char	**allocate(char **s, int *j, int how_many, char **other)
 {
 	int	i;
-	int k;
+	int	k;
 
 	i = 0;
 	k = 0;
 	while (i < how_many - 1)
 	{
-		if (i == j)
+		if (i == *j)
 		{
 			k++;
 		}
-		printf("i: %i, k: %i\n", i, k);
 		other[i] = ft_substr(s[k], 0, ft_strlen(s[k]));
 		if (!other)
 		{
@@ -35,6 +34,7 @@ static char	**allocate(char **s, int j, int how_many, char **other)
 		i++;
 		k++;
 	}
+	--*j;
 	other[i] = NULL;
 	return (other);
 }
@@ -66,9 +66,9 @@ static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 				char **other = malloc(how_many * sizeof(char *));
 				if (!other)
 					return (NULL);
-				other = allocate(cmd_tkn_env, i, how_many--, other);
+				other = allocate(cmd_tkn_env, &i, how_many--, other);
 				cmd_tkn_env = other;
-				}
+			}
 		}
 		i++;
 	}
@@ -85,8 +85,3 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp)
 	cmd_tkn_new = env_var(cmd_tkn_new, envp, count_words(cmd, ' '));
 	return (cmd_tkn_new);
 }
-
-// resolver vazamentos de memoria
-// tratar problema de mais de uma variavel de ambiente inexistente
-// variaveis de ambiente que existem com nao existentes
-// verificar outras funcoes com variaveis de ambiente que n existem
