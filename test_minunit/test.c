@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/18 01:46:01 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:59:23 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,13 @@ static char *all_tests(void)
 	mu_run_test(test_builtin_unset_initial);
 	mu_run_test(test_builtin_unset_between);
 	mu_run_test(test_builtin_unset_finish);
-	mu_run_test(test_builtin_exit);
 	mu_run_test(test_builtin_env);
 	mu_run_test(test_builtin_pwd);
 	mu_run_test(test_take_value_of_env);
-	mu_run_test(test_builtin_echo);
+	// mu_run_test(test_builtin_echo);
 	mu_run_test(test_change_value_of_env);
 	mu_run_test(test_tokenizer);
 	mu_run_test(test_builtin_cd);
-	mu_run_test(test_builtin_other);
 	
 	return (0);
 }

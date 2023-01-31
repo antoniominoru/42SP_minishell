@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pwd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 03:53:15 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/14 01:39:44 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/31 00:19:26 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtin_pwd(void)
+void	builtin_pwd(void)
 {
 	char	*pwd;
 
@@ -21,5 +21,4 @@ int	builtin_pwd(void)
 		printf("%s\n", pwd);
 	else
 		printf("Error: PWD");
-	return (1);
 }

@@ -1,3 +1,4 @@
 *.a
 *.o
 minishell
+test_minunit/run_test

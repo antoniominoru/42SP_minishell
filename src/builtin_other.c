@@ -6,13 +6,11 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/13 02:49:22 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 00:18:59 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <sys/types.h>
-#include <sys/wait.h>
 
 char	*get_cmd(char *cmd, char **paths)
 {
@@ -48,13 +46,13 @@ int	builtin_other_int(char *cmd, t_list **envp)
 	return (1);
 }
 
-int	builtin_other(char *cmd, t_list **envp)
+void	builtin_other(char *cmd, t_list **envp)
 {
 	int		pid;
 
+	define_signals();
 	pid = fork();
 	if (pid == 0)
 		builtin_other_int(cmd, envp);
-	waitpid(pid, 0, 0);
-	return (1);
+	waitpid(pid, NULL, 0);
 }
