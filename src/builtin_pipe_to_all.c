@@ -6,19 +6,11 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/31 00:19:15 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:34:30 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-static void	restore_fd(int *fd)
-{
-	dup2(fd[0], STDIN_FILENO);
-	close(fd[0]);
-	dup2(fd[1], STDOUT_FILENO);
-	close(fd[1]);
-}
 
 static void	pipe_create(int *old_in, int last)
 {
@@ -42,14 +34,16 @@ static void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 	char	**cmd_tkn;
 
 	cmd_tkn = NULL;
-	if (!old_in)
-		printf("%i\n", *old_in);
 	fd_saved[0] = dup(STDIN_FILENO);
 	fd_saved[1] = dup(STDOUT_FILENO);
 	pipe_create(old_in, last);
 	cmd_tkn = tokenizer(cmd, cmd_tkn);
+	// check_redirects
 	builtin_all(cmd, envp, cmd_tkn);
-	restore_fd(fd_saved);
+	dup2(fd_saved[0], STDIN_FILENO);
+	close(fd_saved[0]);
+	dup2(fd_saved[1], STDOUT_FILENO);
+	close(fd_saved[1]);
 }
 
 static void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
