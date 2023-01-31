@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 15:58:26 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:07:20 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 	else if (ft_strncmp(cmd_tkn[0], "pwd", 3) == 0)
 		builtin_pwd();
 	else if (ft_strncmp(cmd_tkn[0], "echo", 4) == 0)
-		builtin_echo(cmd_tkn, envp);
+		builtin_echo(cmd_tkn);
 	else if (ft_strncmp(cmd_tkn[0], "cd", 2) == 0)
 		builtin_cd(cmd_tkn[1], envp);
 	else

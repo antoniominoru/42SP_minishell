@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/01/27 00:04:13 by jvictor-         ###   ########.fr       */
-=======
-/*   Updated: 2023/01/31 00:33:04 by aminoru-         ###   ########.fr       */
->>>>>>> ant_dev
+/*   Updated: 2023/01/31 16:04:37 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +35,16 @@ void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn);
 void	free_part(t_list **lst_env, char *cmd);
 void	free_tkn(char **cmd_tkn);
 void	ft_add_history(char *cmd);
+
 void	builtin_exit(t_list **lst_env, char *cmd, char **cmd_tkn);
 void	builtin_env(t_list *lst);
 void	builtin_export(char *cmd, t_list **envp);
 int		builtin_unset(char *cmd, t_list **envp);
-<<<<<<< HEAD
-int		builtin_all(char *cmd, t_list **envp, int status, char **cmd_tkn);
-int		builtin_pwd(void);
-int		builtin_cd(char *cmd, t_list **envp);
-void	builtin_echo(char **cmd_tkn);
-=======
 void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn);
 void	builtin_pwd(void);
 void	builtin_cd(char *cmd, t_list **envp);
-void	builtin_echo(char **cmd_tkn, t_list **envp);
->>>>>>> ant_dev
+void	builtin_echo(char **cmd_tkn);
+
 char	*take_value_of_env(char *cmd, t_list **envp);
 char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp);
 int		count_words(char const *s, char c);

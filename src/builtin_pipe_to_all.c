@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/31 15:55:13 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:06:28 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 	fd_saved[1] = dup(STDOUT_FILENO);
 	pipe_create(old_in, last);
 	// redirect_verify(cmd, old_in);//trabalhando aqui
-	cmd_tkn = tokenizer(cmd, cmd_tkn);
+	cmd_tkn = tokenizer(cmd, cmd_tkn, envp);
 	builtin_all(cmd, envp, cmd_tkn);
 	dup2(fd_saved[0], STDIN_FILENO);
 	close(fd_saved[0]);
