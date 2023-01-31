@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/31 00:18:59 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 23:27:32 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ int	builtin_other_int(char *cmd, t_list **envp)
 	cmd_args = ft_split(cmd, ' ');
 	comand = get_cmd(cmd_args[0], path_env);
 	if (!comand)
-		printf("first command not found");
+	{
+		printf("first command not found\n");
+		exit(0);
+	}
 	execve(comand, cmd_args, path_env);
 	return (1);
 }
