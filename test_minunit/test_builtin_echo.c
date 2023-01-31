@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 02:25:38 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 02:52:50 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/31 03:08:15 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*test_builtin_echo(void)
 {
-	char *cmd = "echo joao victor shrek     $HOME";
+	char *cmd = "echo joao victor shrek   $asdasd  $HOME";
 	char **pp_cmd = NULL;
 	char test[100];
 	int		fd[2];
