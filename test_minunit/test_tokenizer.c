@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_tokenizer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 01:42:23 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/17 01:28:17 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/01/31 02:57:53 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ char	*test_tokenizer(void)
 	char **multiple_spaces;
 	int qtd_normal;
 	int qtd_multiple;
+	t_list	*lst1 = ft_lstnew("HOME=teste");
 
 	normal = NULL;
 	multiple_spaces = NULL;
 	qtd_normal = 0;
 	qtd_multiple = 0;
-	normal = tokenizer("esse teste tem espaços unicos entre as palavras", normal);
-	multiple_spaces = tokenizer("esse         teste  tem. varios espaços     entre as palavras", multiple_spaces);
+	normal = tokenizer("esse teste tem espaços unicos entre as palavras", normal, &lst1);
+	multiple_spaces = tokenizer("esse         teste  tem. varios espaços     entre as palavras", multiple_spaces, &lst1);
 	while (normal[qtd_normal])
 		qtd_normal++;
 	while (multiple_spaces[qtd_multiple])
