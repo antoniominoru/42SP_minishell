@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 23:52:37 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/01/31 23:55:53 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char *argv[], char *envp[])
 		cmd = readline(ft_strjoin(getcwd(buffer, 2048), "|--HELL-->"));
 		if (cmd == NULL)
 			break ;
-		else
+		else if (ft_strlen(cmd) > 0)
 		{
 			ft_add_history(cmd);
 			builtin_pipe_to_all(cmd, &lst_env);
