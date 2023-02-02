@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME = minishell
 
 LIBFTPATH = ./lib/libft/
@@ -24,6 +23,7 @@ SRCS = 	./src/minishell.c \
 		./src/print_list.c \
 		./src/builtin_all.c \
 		./src/signals.c \
+		./src/have_cmd.c \
 		./src/ft_add_history.c \
 		./src/free_all.c \
 		./src/builtin_env.c \

@@ -34,6 +34,7 @@ void	sig_handler(int signal);
 void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn);
 void	free_part(t_list **lst_env, char *cmd);
 void	free_tkn(char **cmd_tkn);
+int		have_cmd(char *cmd);
 void	ft_add_history(char *cmd);
 
 void	builtin_exit(t_list **lst_env, char *cmd, char **cmd_tkn);

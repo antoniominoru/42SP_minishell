@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 23:55:53 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/03 00:03:38 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	main(int argc, char *argv[], char *envp[])
 	define_signals();
 	while (1)
 	{
-		cmd = readline(ft_strjoin(getcwd(buffer, 2048), "|--HELL-->"));
+		cmd = readline(ft_strjoin(getcwd(buffer, 2048), "|--HELL--> "));
 		if (cmd == NULL)
 			break ;
-		else if (ft_strlen(cmd) > 0)
+		else if (have_cmd(cmd))
 		{
 			ft_add_history(cmd);
 			builtin_pipe_to_all(cmd, &lst_env);
