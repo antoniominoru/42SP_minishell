@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/01/18 01:01:02 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/03 21:24:53 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CC = gcc
 READFLAGS = -lreadline -lncurses
 CFLAG = -Wall -Werror -Wextra -g3
 INCS = -I ./include/
-SRCS = 	./src/minishell.c \
+SRCS = 	./src/main.c \
+		./src/minishell.c \
 		./src/env_to_lst.c \
 		./src/print_list.c \
 		./src/builtin_all.c \

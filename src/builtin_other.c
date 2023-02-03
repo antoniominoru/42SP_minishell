@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/01 01:23:06 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:51:13 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ int	builtin_other_int(char *cmd, t_list **envp)
 	char	**cmd_args;
 	char	*comand;
 	char	**path_env;
+	char	*tmp;
 
 	path_env = NULL;
-	path_env = ft_split(ft_strdup(take_value_of_env("PATH", envp)), ':');
+	tmp = ft_strdup(take_value_of_env("PATH", envp));
+	path_env = ft_split(tmp, ':');
 	cmd_args = ft_split(cmd, ' ');
 	comand = get_cmd(cmd_args[0], path_env);
 	if (!comand)
@@ -46,6 +48,10 @@ int	builtin_other_int(char *cmd, t_list **envp)
 		exit(0);
 	}
 	execve(comand, cmd_args, path_env);
+	free_tkn(cmd_args);
+	free_tkn(path_env);
+	free(comand);
+	free(tmp);
 	return (1);
 }
 

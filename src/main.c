@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/03 21:24:05 by jvictor-         ###   ########.fr       */
+/*   Created: 2023/02/03 21:23:46 by jvictor-          #+#    #+#             */
+/*   Updated: 2023/02/03 21:25:34 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	minishell(char	*cmd, t_list *lst_env, char buffer[2048], char *path)
+int	main(int argc, char *argv[], char *envp[])
 {
-	while (1)
-	{
-		if (path)
-			free(path);
-		path = ft_strjoin(getcwd(buffer, 2048), " | (~~miniHELL~~)> ");
-		cmd = readline(path);
-		if (cmd == NULL)
-			break ;
-		else if (have_cmd(cmd))
-		{
-			ft_add_history(cmd);
-			builtin_pipe_to_all(cmd, &lst_env);
-		}
-	}
+	char	*cmd;
+	t_list	*lst_env;
+	char	buffer[2048];
+	char	*path;
+
+	cmd = NULL;
+	path = NULL;
+	lst_env = env_to_lst(envp);
+	if (argc > 1 && argv && envp)
+		return (printf("erro ao executar, correto é: ./minishell\n"), 1);
+	if (lst_env == NULL)
+		printf("erro");
+	define_signals();
+	minishell(cmd, lst_env, buffer, path);
+	free_part(&lst_env, cmd, path);
 }
