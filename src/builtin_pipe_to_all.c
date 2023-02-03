@@ -68,6 +68,7 @@ static void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 	close(fd_saved[0]);
 	dup2(fd_saved[1], STDOUT_FILENO);
 	close(fd_saved[1]);
+	free_tkn(cmd_tkn);
 }
 
 static void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
@@ -91,4 +92,5 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 	line_in_pipe(split_token, envp, &old_in, 0);
 	if (old_in != 0)
 		close(old_in);
+	free_tkn(split_token);
 }
