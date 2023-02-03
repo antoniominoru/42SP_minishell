@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/03 21:24:16 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:12:59 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@
 
 # define ERROR 1
 
-void	minishell(char	*cmd, t_list *lst_env, char buffer[2048], char *path);
+void	minishell(char	*cmd, t_list *lst_env, char **path);
 t_list	*env_to_lst(char *envp[]);
 void	print_list(t_list *lst);
 void	define_signals(void);
 void	sig_handler(int signal);
 void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn);
-void	free_part(t_list **lst_env, char *cmd, char *path);
+void	free_part(t_list **lst_env, char **cmd, char **path);
 void	free_tkn(char **cmd_tkn);
 int		have_cmd(char *cmd);
 void	ft_add_history(char *cmd);
