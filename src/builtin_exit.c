@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/04 21:42:53 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/05 00:57:02 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static	int	count_args(char **cmd_tkn)
 
 static int arg_not_num(char *cmd_tkn)
 {
+	if (!cmd_tkn)
+		return (0);
 	while (*cmd_tkn)
 		if (!ft_isdigit(*cmd_tkn++))
 			return (1);
