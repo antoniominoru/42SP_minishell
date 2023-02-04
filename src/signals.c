@@ -6,13 +6,11 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 03:06:22 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/03 21:53:38 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:16:29 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-//FALTA DEFINIR TRATAMENTO DE SINAIS PARA EXECS, SUBJECT PEDE OUTRO TRATAMENTO
 
 void	sig_handler(int signal)
 {
