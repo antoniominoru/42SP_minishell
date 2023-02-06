@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/05 01:20:10 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:31:44 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	int	count_args(char **cmd_tkn)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (cmd_tkn[i])
@@ -22,7 +22,7 @@ static	int	count_args(char **cmd_tkn)
 	return (i);
 }
 
-static int arg_not_num(char *cmd_tkn)
+static	int	arg_not_num(char *cmd_tkn)
 {
 	if (!cmd_tkn)
 		return (0);
@@ -32,7 +32,8 @@ static int arg_not_num(char *cmd_tkn)
 	return (0);
 }
 
-static	void	exit_minishell(t_list **lst_env, char *cmd, char **cmd_tkn, int arg_exit)
+void	exit_minishell(t_list **lst_env, char *cmd,
+								char **cmd_tkn, int arg_exit)
 {
 	free_all(lst_env, cmd, cmd_tkn);
 	printf("exit\n");
@@ -42,10 +43,8 @@ static	void	exit_minishell(t_list **lst_env, char *cmd, char **cmd_tkn, int arg_
 void	builtin_exit(t_list **lst_env, char *cmd, char **cmd_tkn)
 {
 	int	argc;
-	int arg_exit;
-	
+
 	argc = count_args(cmd_tkn);
-	arg_exit = 0;
 	if (arg_not_num(cmd_tkn[1]))
 	{
 		printf("exit: error, numeric argument required.\n");
@@ -57,6 +56,6 @@ void	builtin_exit(t_list **lst_env, char *cmd, char **cmd_tkn)
 		return ;
 	}
 	if (cmd_tkn[1])
-		arg_exit = atoi(cmd_tkn[1]);
-	exit_minishell(lst_env, cmd, cmd_tkn, arg_exit);
+		g_current_status = atoi(cmd_tkn[1]);
+	exit_minishell(lst_env, cmd, cmd_tkn, g_current_status);
 }

@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 03:53:15 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/04 01:12:51 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:47:08 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ void	builtin_pwd(void)
 {
 	char	*pwd;
 
+	g_current_status = NO_ERROR;
 	pwd = getcwd(NULL, 0);
 	if (pwd)
 		printf("%s\n", pwd);
 	else
-		printf("Error: PWD");
+		status_error("Error: PWD", ERROR);
 	free(pwd);
 }

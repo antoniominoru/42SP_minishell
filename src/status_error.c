@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_export.c                                   :+:      :+:    :+:   */
+/*   status_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/06 01:45:14 by jvictor-         ###   ########.fr       */
+/*   Created: 2023/02/03 21:23:46 by jvictor-          #+#    #+#             */
+/*   Updated: 2023/02/06 00:53:10 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	builtin_export(char *cmd, t_list **envp)
+void	status_error(char *msg, int error_status)
 {
-	char	**cmd_args;
-	char	*tmp;
-	char	*tmp2;
+	char		*msg_error;
 
-	tmp = NULL;
-	tmp2 = NULL;
-	cmd_args = ft_split(cmd, '=');
-	builtin_unset(cmd_args[0], envp);
-	tmp = ft_strjoin("=", cmd_args[1]);
-	tmp2 = ft_strjoin(cmd_args[0], tmp);
-	ft_lstadd_back(envp, ft_lstnew(tmp2));
-	free_tkn(cmd_args);
-	free(tmp);
-	free(tmp2);
-	g_current_status = NO_ERROR;
+	if (msg)
+	{
+		msg_error = ft_strjoin("(miniHELL error): ", msg);
+		printf("%s\n", msg_error);
+		free(msg_error);
+	}
+	g_current_status = error_status;
 }

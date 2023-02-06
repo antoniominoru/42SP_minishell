@@ -27,6 +27,7 @@ SRCS = 	./src/main.c \
 		./src/have_cmd.c \
 		./src/ft_add_history.c \
 		./src/free_all.c \
+		./src/status_error.c \
 		./src/builtin_env.c \
 		./src/builtin_export.c  \
 		./src/builtin_unset.c  \

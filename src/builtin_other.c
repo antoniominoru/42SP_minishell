@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/03 20:51:13 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:45:26 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	builtin_other_int(char *cmd, t_list **envp)
 	comand = get_cmd(cmd_args[0], path_env);
 	if (!comand)
 	{
-		printf("first command not found\n");
-		exit(0);
+		status_error("First command not found", ERROR);
+		exit(ERROR);
 	}
 	execve(comand, cmd_args, path_env);
 	free_tkn(cmd_args);
@@ -59,6 +59,7 @@ void	builtin_other(char *cmd, t_list **envp)
 {
 	int		pid;
 
+	g_current_status = NO_ERROR;
 	define_signals();
 	pid = fork();
 	if (pid == 0)

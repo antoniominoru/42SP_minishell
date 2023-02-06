@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/05 00:11:22 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:14:06 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 # include <sys/wait.h>
 
 # define ERROR 1
+# define NO_ERROR 0
+
+extern int	g_current_status;
 
 void	minishell(char	*cmd, t_list *lst_env, char **path);
 t_list	*env_to_lst(char *envp[]);
@@ -39,8 +42,11 @@ void	free_part(t_list **lst_env, char **cmd, char **path);
 void	free_tkn(char **cmd_tkn);
 int		have_cmd(char *cmd);
 void	ft_add_history(char *cmd);
+void	status_error(char *msg, int error_status);
 
 void	builtin_exit(t_list **lst_env, char *cmd, char **cmd_tkn);
+void	exit_minishell(t_list **lst_env, char *cmd,
+								char **cmd_tkn, int arg_exit);
 void	builtin_env(t_list *lst);
 void	builtin_export(char *cmd, t_list **envp);
 int		builtin_unset(char *cmd, t_list **envp);
