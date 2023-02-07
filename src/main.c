@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_export.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 00:05:13 by jvictor-         ###   ########.fr       */
+/*   Created: 2023/02/03 21:23:46 by jvictor-          #+#    #+#             */
+/*   Updated: 2023/02/07 00:56:23 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	builtin_export(char *cmd, t_list **envp)
-{
-	char	**cmd_args;
-	char	*tmp;
-	char	*tmp2;
+int	g_current_status;
 
-	g_current_status = NO_ERROR;
-	//precisa colocar os possiveis erros (tem card no kanban)
-	tmp = NULL;
-	tmp2 = NULL;
-	cmd_args = ft_split(cmd, '=');
-	builtin_unset(cmd_args[0], envp);
-	tmp = ft_strjoin("=", cmd_args[1]);
-	tmp2 = ft_strjoin(cmd_args[0], tmp);
-	ft_lstadd_back(envp, ft_lstnew(tmp2));
-	free_tkn(cmd_args);
-	free(tmp);
-	free(tmp2);
+int	main(int argc, char *argv[], char *envp[])
+{
+	char	*cmd;
+	t_list	*lst_env;
+	char	*path;
+
+	cmd = NULL;
+	path = NULL;
+	status_error(NULL, NO_ERROR);
+	lst_env = env_to_lst(envp);
+	if (argc > 1 && argv && envp)
+		return (status_error("too many arguments. correct is: ./minishell",
+				ERROR), 1);
+	if (lst_env == NULL)
+		printf("erro");
+	minishell(cmd, lst_env, &path);
+	free_part(&lst_env, &cmd, &path);
 }

@@ -43,12 +43,13 @@ static	char	**reallocate_cmd(char **s, int *j, int how_many)
 {
 	char	**other;
 
+	other = NULL;
 	other = malloc(how_many * sizeof(char *));
 	if (!other)
 		return (NULL);
 	other = allocate(s, j, how_many, other);
-	s = other;
-	return (s);
+	free_tkn(s);
+	return (other);
 }
 
 static void	swap_env(char **cmd_tkn_env, t_list **envp, int i)

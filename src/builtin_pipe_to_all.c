@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 00:04:07 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/08 00:17:54 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ static void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 	close(fd_saved[0]);
 	dup2(fd_saved[1], STDOUT_FILENO);
 	close(fd_saved[1]);
+	free_tkn(cmd_tkn);
 }
 
 static void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
@@ -216,4 +217,5 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 	line_in_pipe(split_token, envp, &old_in, 0);
 	if (old_in != 0)
 		close(old_in);
+	free_tkn(split_token);
 }

@@ -6,13 +6,15 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:53:44 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/31 15:59:23 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/08 00:26:22 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
 
 int tests_run = 0;
+
+int	g_current_status;
 
 static char *all_tests(void)
 {

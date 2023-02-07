@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/07 23:46:27 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/08 00:29:57 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,25 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 
+# define ERROR 1
+# define NO_ERROR 0
+
+extern int	g_current_status;
+
+void	minishell(char	*cmd, t_list *lst_env, char **path);
 t_list	*env_to_lst(char *envp[]);
 void	print_list(t_list *lst);
 void	define_signals(void);
 void	sig_handler(int signal);
 void	free_all(t_list **lst_env, char *cmd, char **cmd_tkn);
-void	free_part(t_list **lst_env, char *cmd);
+void	free_part(t_list **lst_env, char **cmd, char **path);
 void	free_tkn(char **cmd_tkn);
+int		have_cmd(char *cmd);
 void	ft_add_history(char *cmd);
+void	status_error(char *msg, int error_status);
 
 void	builtin_exit(t_list **lst_env, char *cmd, char **cmd_tkn);
+void	exit_m_sh(t_list **lst_env, char *cmd, char **cmd_tkn, int arg_exit);
 void	builtin_env(t_list *lst);
 void	builtin_export(char *cmd, t_list **envp);
 int		builtin_unset(char *cmd, t_list **envp);

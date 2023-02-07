@@ -6,18 +6,17 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 03:06:22 by jvictor-          #+#    #+#             */
-/*   Updated: 2022/12/06 03:13:20 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:05:59 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-//FALTA DEFINIR TRATAMENTO DE SINAIS PARA EXECS, SUBJECT PEDE OUTRO TRATAMENTO
-
 void	sig_handler(int signal)
 {
 	if (signal == SIGINT)
 	{
+		g_current_status = 130;
 		write(1, "\n", 1);
 		rl_replace_line("", 0);
 		rl_on_new_line();

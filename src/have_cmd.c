@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_export.c                                   :+:      :+:    :+:   */
+/*   have_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 00:05:13 by jvictor-         ###   ########.fr       */
+/*   Created: 2023/02/02 23:56:29 by jvictor-          #+#    #+#             */
+/*   Updated: 2023/02/02 23:56:34 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	builtin_export(char *cmd, t_list **envp)
+static int	ft_is_cmd(int c)
 {
-	char	**cmd_args;
-	char	*tmp;
-	char	*tmp2;
+	if (c > ' ' && c <= '~')
+		return (1);
+	return (0);
+}
 
-	g_current_status = NO_ERROR;
-	//precisa colocar os possiveis erros (tem card no kanban)
-	tmp = NULL;
-	tmp2 = NULL;
-	cmd_args = ft_split(cmd, '=');
-	builtin_unset(cmd_args[0], envp);
-	tmp = ft_strjoin("=", cmd_args[1]);
-	tmp2 = ft_strjoin(cmd_args[0], tmp);
-	ft_lstadd_back(envp, ft_lstnew(tmp2));
-	free_tkn(cmd_args);
-	free(tmp);
-	free(tmp2);
+int	have_cmd(char *cmd)
+{
+	while (*cmd)
+	{
+		if (ft_is_cmd(*cmd) == 1)
+			return (1);
+		cmd++;
+	}
+	return (0);
 }

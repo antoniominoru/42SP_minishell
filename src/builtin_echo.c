@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 01:53:57 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 01:15:58 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:44:40 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ void	builtin_echo(char **cmd_tkn)
 		print_echo_flag_n(cmd_tkn);
 	else
 		print_echo(cmd_tkn);
+	g_current_status = NO_ERROR;
 }

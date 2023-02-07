@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2023/01/31 00:00:24 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/08 00:25:11 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS = test.c \
 		../src/builtin_echo.c \
 		../src/builtin_cd.c \
 		../src/take_value_of_env.c \
+		../src/status_error.c \
 		../src/change_value_of_env.c \
 		../src/tokenizer.c 
 		

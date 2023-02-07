@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:18:23 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/31 00:04:40 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/08 00:25:38 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 # include "../lib/libft/libft.h"
 # include "../lib/libft/get_next_line.h"
 # include "../include/minishell.h"
+
+# define ERROR 1
+# define NO_ERROR 0
+
+extern int	g_current_status;
 
 char	*test_builtin_export(void);
 char	*test_builtin_unset_initial(void);
