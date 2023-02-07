@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 00:05:13 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/08 00:51:40 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,14 @@ void	builtin_export(char *cmd, t_list **envp)
 {
 	char	**cmd_args;
 	char	*tmp;
-	char	*tmp2;
 
 	g_current_status = NO_ERROR;
 	//precisa colocar os possiveis erros (tem card no kanban)
 	tmp = NULL;
-	tmp2 = NULL;
 	cmd_args = ft_split(cmd, '=');
 	builtin_unset(cmd_args[0], envp);
 	tmp = ft_strjoin("=", cmd_args[1]);
-	tmp2 = ft_strjoin(cmd_args[0], tmp);
-	ft_lstadd_back(envp, ft_lstnew(tmp2));
+	ft_lstadd_back(envp, ft_lstnew(ft_strjoin(cmd_args[0], tmp)));
 	free_tkn(cmd_args);
 	free(tmp);
-	free(tmp2);
 }
