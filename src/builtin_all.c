@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 16:07:20 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/07 23:44:43 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 	else if (ft_strncmp(cmd_tkn[0], "cd", 2) == 0)
 		builtin_cd(cmd_tkn[1], envp);
 	else
-		builtin_other(cmd, envp);
+		builtin_other(cmd_tkn, envp);
 }
