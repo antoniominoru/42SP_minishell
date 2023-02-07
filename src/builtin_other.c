@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/31 23:27:32 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/07 23:49:01 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*get_cmd(char *cmd, char **paths)
 	return (NULL);
 }
 
-int	builtin_other_int(char *cmd, t_list **envp)
+int	builtin_other_int(char **cmd, t_list **envp)
 {
 	char	**cmd_args;
 	char	*comand;
@@ -38,7 +38,7 @@ int	builtin_other_int(char *cmd, t_list **envp)
 
 	path_env = NULL;
 	path_env = ft_split(ft_strdup(take_value_of_env("PATH", envp)), ':');
-	cmd_args = ft_split(cmd, ' ');
+	cmd_args = cmd;
 	comand = get_cmd(cmd_args[0], path_env);
 	if (!comand)
 	{
@@ -49,7 +49,7 @@ int	builtin_other_int(char *cmd, t_list **envp)
 	return (1);
 }
 
-void	builtin_other(char *cmd, t_list **envp)
+void	builtin_other(char **cmd, t_list **envp)
 {
 	int		pid;
 

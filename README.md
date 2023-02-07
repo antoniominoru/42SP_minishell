@@ -1,5 +1,3 @@
 # minishell by Joao e Antonio
 
-
-teste 
-- Mesclagem de avanco rapido
+Este projeto simula um Shell com funcoes builtins proprias

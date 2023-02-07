@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/01/31 16:04:37 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/07 23:46:27 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/wait.h>
+# include <fcntl.h>
 
 t_list	*env_to_lst(char *envp[]);
 void	print_list(t_list *lst);
@@ -49,7 +50,7 @@ char	*take_value_of_env(char *cmd, t_list **envp);
 char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp);
 int		count_words(char const *s, char c);
 int		change_value_of_env(char *cmd, char *value, t_list **envp);
-void	builtin_other(char *cmd, t_list **envp);
+void	builtin_other(char **cmd, t_list **envp);
 int		ft_ispipe(char *cmd);
 void	builtin_pipe_to_all(char *cmd, t_list **envp);
 
