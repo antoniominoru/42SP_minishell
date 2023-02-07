@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/06 01:45:14 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/08 00:05:13 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	builtin_export(char *cmd, t_list **envp)
 	char	*tmp;
 	char	*tmp2;
 
+	g_current_status = NO_ERROR;
+	//precisa colocar os possiveis erros (tem card no kanban)
 	tmp = NULL;
 	tmp2 = NULL;
 	cmd_args = ft_split(cmd, '=');
@@ -28,5 +30,4 @@ void	builtin_export(char *cmd, t_list **envp)
 	free_tkn(cmd_args);
 	free(tmp);
 	free(tmp2);
-	g_current_status = NO_ERROR;
 }

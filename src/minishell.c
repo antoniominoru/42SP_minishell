@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/06 01:14:33 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/07 00:56:38 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	minishell(char	*cmd, t_list *lst_env, char **path)
 
 	while (1)
 	{
+		define_signals();
 		if (*path)
 			free(*path);
 		*path = ft_strjoin(getcwd(buffer, 2048), " | (~~miniHELL~~)> ");

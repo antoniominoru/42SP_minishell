@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:23:46 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/06 00:51:01 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/07 00:56:23 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char *argv[], char *envp[])
 				ERROR), 1);
 	if (lst_env == NULL)
 		printf("erro");
-	define_signals();
 	minishell(cmd, lst_env, &path);
 	free_part(&lst_env, &cmd, &path);
 }
