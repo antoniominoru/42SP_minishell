@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 02:46:42 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:00:34 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	**allocate(char **s, int *j, int how_many, char **other)
+char	**allocate(char **s, int *j, int how_many, char **other)
 {
 	int	i;
 	int	k;
@@ -39,7 +39,7 @@ static char	**allocate(char **s, int *j, int how_many, char **other)
 	return (other);
 }
 
-static	char	**reallocate_cmd(char **s, int *j, int how_many)
+char	**reallocate_cmd(char **s, int *j, int how_many)
 {
 	char	**other;
 

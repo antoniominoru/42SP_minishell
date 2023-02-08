@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 00:29:57 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:07:54 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,9 @@ int		change_value_of_env(char *cmd, char *value, t_list **envp);
 void	builtin_other(char **cmd, t_list **envp);
 int		ft_ispipe(char *cmd);
 void	builtin_pipe_to_all(char *cmd, t_list **envp);
+
+char	**reallocate_cmd(char **s, int *j, int how_many);
+char	**allocate(char **s, int *j, int how_many, char **other);
+char	**redirect_verify(char **cmd, int *old_in);
 
 #endif
