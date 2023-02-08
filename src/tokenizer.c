@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/01/31 02:46:42 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:19:36 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 		{
 			if (take_value_of_env(&cmd_tkn_env[i][1], envp))
 				swap_env(cmd_tkn_env, envp, i);
+			else if (!ft_strncmp(cmd_tkn_env[i], "$?", 2))
+				{
+					free(cmd_tkn_env[i]);
+					cmd_tkn_env[i] = ft_itoa(g_current_status);
+				}
 			else
 				cmd_tkn_env = reallocate_cmd(cmd_tkn_env, &i, how_many--);
 		}

@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 01:43:33 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/06 02:00:55 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/08 01:46:35 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	builtin_cd(char *cmd, t_list **envp)
 	{
 		tmp = take_value_of_env("OLDPWD", envp);
 		if (tmp == NULL)
-			status_error("Error CD", ERROR);
+			status_error("Error CD OLDPWD", ERROR);
 		printf("%s\n", tmp);
 		chdir(tmp);
 	}
