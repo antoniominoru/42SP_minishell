@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 01:55:37 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:49:38 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	ft_tknredirect(char **cmd, char *redirect, int flag)
 	return (0);
 }
 
-static int	count_tkn(char **cmd)
+int	count_vector(char **cmd)
 {
 	int		i;
 	char	**tmp;
@@ -98,8 +98,8 @@ char	**redirect_verify(char **cmd, int *old_in)
 		printf("redirect_verify - <<\n");
 	if (pos != 0)
 	{
-		cmd = reallocate_cmd(cmd, &pos, count_tkn(cmd));
-		cmd = reallocate_cmd(cmd, &pos, count_tkn(cmd));
+		cmd = reallocate_cmd(cmd, &pos, count_vector(cmd));
+		cmd = reallocate_cmd(cmd, &pos, count_vector(cmd));
 	}
 	return (cmd);
 }

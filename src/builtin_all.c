@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/08 00:16:54 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:04:07 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 
 void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 {
+	char	**new_cmd;
+	int		last;
+
+	if (ft_strncmp(cmd_tkn[0], "\\", 1))
+	{
+		new_cmd = ft_split(cmd_tkn[0], '/');
+		last = count_vector(new_cmd) - 1;
+		cmd_tkn[0] = new_cmd[last];
+	}
 	if (ft_strncmp(cmd_tkn[0], "export", 6) == 0)
 		builtin_export(cmd_tkn[1], envp);
 	else if (ft_strncmp(cmd_tkn[0], "unset", 5) == 0)

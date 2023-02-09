@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 01:07:54 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:49:58 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp);
 char	**reallocate_cmd(char **s, int *j, int how_many);
 char	**allocate(char **s, int *j, int how_many, char **other);
 char	**redirect_verify(char **cmd, int *old_in);
+int		count_vector(char **cmd);
 
 #endif
