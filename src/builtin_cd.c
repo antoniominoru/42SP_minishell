@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 01:43:33 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 01:46:35 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/08 02:49:06 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ void	change_dir(char *cmd, t_list **envp)
 	char	*tmp;
 
 	tmp = getcwd(buffer, 2048);
-	change_value_of_env("OLDPWD", tmp, envp);
+	change_value_of_env("OLDPWD", tmp, envp, F_INTERN);
 	if (chdir(cmd) != 0)
 		status_error("Error CD", ERROR);
 	tmp = getcwd(buffer, 2048);
-	change_value_of_env("PWD", tmp, envp);
+	//criar uma flag que indique qual tipo da chamada dessa funcao
+	change_value_of_env("PWD", tmp, envp, F_INTERN);
 }
 
 void	builtin_cd(char *cmd, t_list **envp)

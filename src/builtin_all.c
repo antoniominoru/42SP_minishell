@@ -15,9 +15,9 @@
 void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 {
 	if (ft_strncmp(cmd_tkn[0], "export", 6) == 0)
-		builtin_export(cmd_tkn[1], envp);
+		builtin_export(cmd_tkn[1], envp, F_BUILTIN);
 	else if (ft_strncmp(cmd_tkn[0], "unset", 5) == 0)
-		builtin_unset(cmd_tkn[1], envp);
+		builtin_unset(cmd_tkn[1], envp, F_BUILTIN);
 	else if (ft_strncmp(cmd_tkn[0], "env", 3) == 0)
 		builtin_env(*envp);
 	else if (ft_strncmp(cmd_tkn[0], "exit", 4) == 0)

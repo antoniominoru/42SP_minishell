@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_other.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/08 00:20:54 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/11 00:50:30 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ int	builtin_other_int(char **cmd, t_list **envp)
 	comand = get_cmd(cmd_args[0], path_env);
 	if (!comand)
 	{
-		status_error("First command not found", ERROR);
-		exit(ERROR);
+		status_error("First command not found", 127);
+		exit(127);
 	}
+	//resolver erro de quando o comando n é encontrado (processo filho n altera o do processo pai)
 	execve(comand, cmd_args, path_env);
 	free_tkn(cmd_args);
 	free_tkn(path_env);
@@ -57,7 +58,7 @@ void	builtin_other(char **cmd, t_list **envp)
 	int		pid;
 
 	g_current_status = NO_ERROR;
-	define_signals();
+	define_signals_fork();
 	pid = fork();
 	if (pid == 0)
 		builtin_other_int(cmd, envp);

@@ -12,16 +12,17 @@
 
 #include "minishell.h"
 
-void	builtin_export(char *cmd, t_list **envp)
+void	builtin_export(char *cmd, t_list **envp, int flag)
 {
 	char	**cmd_args;
 	char	*tmp;
 
-	g_current_status = NO_ERROR;
+	if (flag == F_BUILTIN)
+		g_current_status = NO_ERROR;
 	//precisa colocar os possiveis erros (tem card no kanban)
 	tmp = NULL;
 	cmd_args = ft_split(cmd, '=');
-	builtin_unset(cmd_args[0], envp);
+	builtin_unset(cmd_args[0], envp, flag);
 	tmp = ft_strjoin("=", cmd_args[1]);
 	ft_lstadd_back(envp, ft_lstnew(ft_strjoin(cmd_args[0], tmp)));
 	free_tkn(cmd_args);

@@ -12,8 +12,8 @@
 
 #include "minishell.h"
 
-int	change_value_of_env(char *cmd, char *val, t_list **envp)
+int	change_value_of_env(char *cmd, char *val, t_list **envp, int flag)
 {
-	builtin_export(ft_strjoin(cmd, ft_strjoin("=", val)), envp);
+	builtin_export(ft_strjoin(cmd, ft_strjoin("=", val)), envp, flag);
 	return (1);
 }

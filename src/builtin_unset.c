@@ -37,12 +37,13 @@ int	builtin_unset_2(char *cmd, t_list *tmp, t_list *to_remove)
 	return (1);
 }
 
-int	builtin_unset(char *cmd, t_list **envp)
+int	builtin_unset(char *cmd, t_list **envp, int flag)
 {
 	t_list	*tmp;
 	t_list	*to_remove;
 
-	g_current_status = NO_ERROR;
+	if (flag == F_BUILTIN)
+		g_current_status = NO_ERROR;
 	tmp = *envp;
 	to_remove = NULL;
 	if (ft_strlen(cmd) > 1 && \
