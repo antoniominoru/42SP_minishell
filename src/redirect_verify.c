@@ -6,28 +6,28 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/09 23:49:38 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:39:21 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	ft_isredirect(char *cmd, char *redirect)
+int	ft_is_caract(char *cmd, char *caract)
 {
 	int	i;
 
 	i = 0;
 	while (cmd[i])
 	{
-		if (cmd[i] == redirect[0] && \
-			cmd[i - 1] != redirect[0] && \
-			cmd[i + 1] != redirect[0]
+		if (cmd[i] == caract[0] && \
+			cmd[i - 1] != caract[0] && \
+			cmd[i + 1] != caract[0]
 		)
 			return (1);
-		if (cmd[i] == redirect[0] && \
-			cmd[i - 1] != redirect[0] && \
-			cmd[i + 1] == redirect[0] && \
-			cmd[i + 2] != redirect[0]
+		if (cmd[i] == caract[0] && \
+			cmd[i - 1] != caract[0] && \
+			cmd[i + 1] == caract[0] && \
+			cmd[i + 2] != caract[0]
 		)
 			return (2);
 		i++;
@@ -35,7 +35,7 @@ static int	ft_isredirect(char *cmd, char *redirect)
 	return (0);
 }
 
-static int	ft_tknredirect(char **cmd, char *redirect, int flag)
+static int	ft_tknredirect(char **cmd, char *caract, int flag)
 {
 	int		i;
 	char	**tmp;
@@ -44,9 +44,9 @@ static int	ft_tknredirect(char **cmd, char *redirect, int flag)
 	tmp = cmd;
 	while (tmp[i])
 	{
-		if (ft_isredirect(tmp[i], redirect) && flag == 0)
-			return (ft_isredirect(tmp[i], redirect));
-		if (ft_isredirect(tmp[i], redirect) && flag == 1)
+		if (ft_is_caract(tmp[i], caract) && flag == 0)
+			return (ft_is_caract(tmp[i], caract));
+		if (ft_is_caract(tmp[i], caract) && flag == 1)
 			return (i);
 		i++;
 	}
