@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_other.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/11 01:11:07 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:40:30 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*get_cmd(char *cmd, char **paths)
 	return (NULL);
 }
 
-int	builtin_other_int(char **cmd, t_list **envp)
+int	builtin_other_int(char **cmd, t_list **envp, pid_t pid_dad)
 {
 	char	**cmd_args;
 	char	*comand;
@@ -42,7 +42,7 @@ int	builtin_other_int(char **cmd, t_list **envp)
 	comand = get_cmd(cmd_args[0], path_env);
 	if (!comand)
 	{
-		status_error("Command not found", 127);
+		kill(pid_dad, SIGUSR1);
 		exit(127);
 	}
 	execve(comand, cmd_args, path_env);
@@ -55,11 +55,13 @@ int	builtin_other_int(char **cmd, t_list **envp)
 void	builtin_other(char **cmd, t_list **envp)
 {
 	int		pid;
+	pid_t	pid_dad;
 
 	g_current_status = NO_ERROR;
+	pid_dad = getpid();
 	define_signals_fork();
 	pid = fork();
 	if (pid == 0)
-		builtin_other_int(cmd, envp);
+		builtin_other_int(cmd, envp, pid_dad);
 	waitpid(pid, NULL, 0);
 }

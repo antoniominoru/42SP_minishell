@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 03:06:22 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/11 00:50:53 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:39:43 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	sig_handler_fork(int signal)
 		g_current_status = 131;
 		printf("Quit (core dumped)\n");
 	}
+	else if (signal == SIGUSR1)
+	{
+		status_error("Command not found", 127);
+	}
 }
 
 void	define_signals(void)
@@ -48,4 +52,5 @@ void	define_signals_fork(void)
 {
 	signal(SIGINT, sig_handler_fork);
 	signal(SIGQUIT, sig_handler_fork);
+	signal(SIGUSR1, sig_handler_fork);
 }

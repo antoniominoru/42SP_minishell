@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:53:42 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/06 01:47:29 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:32:29 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	builtin_unset(char *cmd, t_list **envp, int flag)
 
 	if (flag == F_BUILTIN)
 		g_current_status = NO_ERROR;
+	if (!cmd)
+		return (0);
 	tmp = *envp;
 	to_remove = NULL;
 	if (ft_strlen(cmd) > 1 && \
