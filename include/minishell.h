@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/11 00:51:23 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/11 00:58:56 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,13 @@ int		change_value_of_env(char *cmd, char *val, t_list **envp, int flag);
 void	builtin_other(char **cmd, t_list **envp);
 int		ft_ispipe(char *cmd);
 void	builtin_pipe_to_all(char *cmd, t_list **envp);
+
+char	**reallocate_cmd(char **s, int *j, int how_many);
+char	**allocate(char **s, int *j, int how_many, char **other);
+char	**redirect_verify(char **cmd, int *old_in);
+int		count_vector(char **cmd);
+char	*get_cmd(char *cmd, char **paths);
+void	print_env(t_list *lst);
+int		ft_is_caract(char *cmd, char *caract);
 
 #endif

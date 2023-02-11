@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/03 21:24:53 by jvictor-         ###   ########.fr        #
+#    Updated: 2023/02/08 01:47:54 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS = 	./src/main.c \
 		./src/tokenizer.c \
 		./src/change_value_of_env.c \
 		./src/builtin_other.c  \
+		./src/redirect_verify.c  \
 		./src/builtin_pipe_to_all.c 
 
 OBJS = ${SRCS:.c=.o}
@@ -62,7 +63,7 @@ fclean: clean
 			make fclean -C ./test_minunit
 			rm -f ${NAME}
 
-test:
+test1:
 			make
 			make -C ./test_minunit
 			clear
