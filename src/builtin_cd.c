@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 01:43:33 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/11 20:11:14 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:17:41 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ void	builtin_cd(char *cmd, t_list **envp)
 	char	*tmp;
 
 	g_current_status = NO_ERROR;
-	if (!ft_strncmp(cmd, "~", 1))
+	if (!cmd)
+	{
+		tmp = take_value_of_env("HOME", envp);
+		change_dir(tmp, envp);
+	}
+	else if (!ft_strncmp(cmd, "~", 1))
 	{
 		tmp = take_value_of_env("HOME", envp);
 		change_dir(tmp, envp);
