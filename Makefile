@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/12 15:12:23 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/12 19:54:27 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,15 +65,15 @@ fclean: clean
 			rm -f ${NAME}
 
 test1:
-			make
-			make -C ./test_minunit
+			make re
+			make re -C ./test_minunit
 			clear
 			./test_minunit/run_test
 			norminette -R CheckForbiddenSourceHeader ./src/ ./include/ ./lib/
 
 test2:
-			make
-			make -C ./test_minunit
+			make re
+			make re -C ./test_minunit
 			clear
 			./test_minunit/run_test
 

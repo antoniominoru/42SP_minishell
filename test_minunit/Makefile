@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/12 19:48:53 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/12 19:52:49 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRCS = test.c \
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g3 -lreadline -lncurses
+CFLAGS = -Wall -Werror -Wextra -g3
+READFLAGS = -lreadline -lncurses
 
 .c.o:
 			${CC} ${CFLAGS} ${INCS} -c $< -o ${<:.c=.o}
@@ -51,7 +52,7 @@ all:		${NAME}
 
 ${NAME}:	${OBJS}
 			make -C $(LIBFTPATH)
-			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT}
+			${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT} ${READFLAGS}
 				
 clean:
 			rm -f ${OBJS}
