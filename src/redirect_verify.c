@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/10 15:39:21 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:35:32 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_is_caract(char *cmd, char *caract)
 	return (0);
 }
 
-static int	ft_tknredirect(char **cmd, char *caract, int flag)
+int	ft_tknredirect(char **cmd, char *caract, int flag)
 {
 	int		i;
 	char	**tmp;
@@ -95,7 +95,7 @@ char	**redirect_verify(char **cmd, int *old_in)
 	else if (ft_tknredirect(cmd, "<", 0) == 1)
 		pos = io_redirect(cmd, O_RDONLY | O_CREAT, 0, "<");
 	else if (ft_tknredirect(cmd, "<<", 0) == 2)
-		printf("redirect_verify - <<\n");
+		pos = here_doc_main(old_in, cmd, "<<");
 	if (pos != 0)
 	{
 		cmd = reallocate_cmd(cmd, &pos, count_vector(cmd));

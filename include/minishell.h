@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/11 00:58:56 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:33:37 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ int		count_vector(char **cmd);
 char	*get_cmd(char *cmd, char **paths);
 void	print_env(t_list *lst);
 int		ft_is_caract(char *cmd, char *caract);
-
+void	here_doc(int *fd, char *eof);
+int		ft_tknredirect(char **cmd, char *caract, int flag);
+int		here_doc_main(int *fd, char **eof, char *redic);
 #endif

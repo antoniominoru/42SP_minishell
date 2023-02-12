@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:18:23 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/11 01:07:22 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:34:48 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 # define MINUNIT_H
 
 # include <stdio.h>
-# include <ctype.h>
-# include <string.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdlib.h>
-# include <signal.h>
-# include <sys/types.h>
-# include <sys/wait.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <stdlib.h>
+# include <signal.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <fcntl.h>
+# include <ctype.h>
+# include <string.h>
+
+
 # include "../lib/libft/libft.h"
 # include "../lib/libft/get_next_line.h"
 # include "../include/minishell.h"
