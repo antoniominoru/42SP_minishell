@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/11 19:40:30 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:21:46 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ int	builtin_other_int(char **cmd, t_list **envp, pid_t pid_dad)
 void	builtin_other(char **cmd, t_list **envp)
 {
 	int		pid;
+	int		status;
 	pid_t	pid_dad;
+
 
 	g_current_status = NO_ERROR;
 	pid_dad = getpid();
@@ -63,5 +65,10 @@ void	builtin_other(char **cmd, t_list **envp)
 	pid = fork();
 	if (pid == 0)
 		builtin_other_int(cmd, envp, pid_dad);
-	waitpid(pid, NULL, 0);
+	waitpid(pid, &status, 0);
+	if (WIFEXITED(status))
+	{
+		status	= WEXITSTATUS(status);
+		status_error(NULL, status);
+	}
 }
