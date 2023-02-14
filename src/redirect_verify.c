@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/12 15:35:32 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/14 23:37:27 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,13 @@ static int	io_redirect(char **cmd, int config, int io_re, char *redic)
 {
 	int	fd;
 	int	pos;
+	char	*command;
 
 	pos = ft_tknredirect(cmd, redic, 1) + 1;
-	fd = 0;
+	command = ft_strjoin("/bin/", cmd[0]);
+	if (access(command, 0) != 0)
+		return (pos);
+	fd = 0;;
 	if (io_re == 0)
 		fd = open(cmd[pos], config);
 	else if (io_re == 1)
