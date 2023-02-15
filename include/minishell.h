@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/12 19:33:37 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/15 01:53:13 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # include <fcntl.h>
 
 # define ERROR 127
+# define ERROR_ONE 1
+# define ERROR_TWO 2
 # define NO_ERROR 0
 
 //EXECUTION FLAGS
@@ -79,4 +81,11 @@ int		ft_is_caract(char *cmd, char *caract);
 void	here_doc(int *fd, char *eof);
 int		ft_tknredirect(char **cmd, char *caract, int flag);
 int		here_doc_main(int *fd, char **eof, char *redic);
+
+void	quotes_pipe_to_all(char *cmd, t_list **envp);
+char	**split_quotes(char const *s, char c);
+int		have_two_quotes(char *cmd);
+void	position_quotes(int pos, char q);
+void	remove_quotes(char **cmd);
+
 #endif

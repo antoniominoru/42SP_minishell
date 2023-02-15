@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/12 19:54:27 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/15 01:51:02 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,9 @@ SRCS = 	./src/main.c \
 		./src/builtin_other.c  \
 		./src/redirect_verify.c  \
 		./src/builtin_pipe_to_all.c \
-		./src/here_doc.c
+		./src/here_doc.c \
+		./src/quotes.c \
+		./src/quotes_pipe_to_all.c
 
 OBJS = ${SRCS:.c=.o}
 
