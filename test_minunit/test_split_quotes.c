@@ -3,7 +3,7 @@
 // # Arrage
 char	*test_split_quotes(void)
 {
-	char 	*teste = "eu sou \"maluco \" etc \" jjj\" pra \"caramba\"";
+	char 	*teste = "\"eu\" \"sou\" \"maluco\" \"etc\" \"jjj\" \"pra\" \"caramba\"";
 	char 	**quotes;
 	int		i;
 	int		j;

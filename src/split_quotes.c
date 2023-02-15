@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_quotes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:03:59 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/15 02:05:30 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/15 02:17:55 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,20 @@ static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 	while (s[i])
 	{
 		if (s[i] != c)
+		{
 			*table = ft_substr(&s[i], 0, length_word(&s[i], c));
-		else if (s[i] == c && s[i + 1] != ' ')
-			*table = ft_substr(&s[i], 0, length_word_2(&s[i], c));
+			i += length_word(&s[i], c);
+		}
 		else
-			*table = ft_substr(&s[i], 1, length_word(&s[i], c) - 1);
+		{
+			*table = ft_substr(&s[i], 0, length_word_2(&s[i], c));
+			i += length_word_2(&s[i], c);
+		}
 		if (!table)
 		{
 			free_table(table);
 			return (NULL);
 		}
-		i += length_word(&s[i], c);
 		table++;
 	}
 	*table = NULL;
