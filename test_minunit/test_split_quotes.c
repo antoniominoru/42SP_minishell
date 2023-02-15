@@ -3,7 +3,7 @@
 // # Arrage
 char	*test_split_quotes(void)
 {
-	char 	*teste = "eu sou \"maluco etc jjj\" pra \"caramba\"";
+	char 	*teste = "eu sou \"maluco \" etc \" jjj\" pra \"caramba\"";
 	char 	**quotes;
 	int		i;
 	int		j;
@@ -15,8 +15,6 @@ char	*test_split_quotes(void)
 	printf("string: %s\n\n", teste);
 	while (quotes[i])
 		printf("posição [%i] ->%s\n\n", j++, quotes[i++]);
-		
-
 
 	// // # Assert
 	// mu_assert("ERROR: test_split_quotes", !strcmp(teste, quotes[1]));
