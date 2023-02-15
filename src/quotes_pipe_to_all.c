@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_pipe_to_all.c                              :+:      :+:    :+:   */
+/*   quotes_pipe_to_all.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/14 16:13:33 by jvictor-         ###   ########.fr       */
+/*   Created: 2023/02/14 16:36:16 by jvictor-          #+#    #+#             */
+/*   Updated: 2023/02/14 16:39:27 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "minishell.h"
 
@@ -58,7 +59,7 @@ static void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 		builtin_pipe(split_token[id], envp, old_in, 1);
 }
 
-void	verify_cat(char **cmd, t_list **envp)
+static void	verify_cat(char **cmd, t_list **envp)
 {
 	char	**c_test;
 	char	**c_test2;
@@ -79,7 +80,7 @@ void	verify_cat(char **cmd, t_list **envp)
 	}
 }
 
-void	builtin_pipe_to_all(char *cmd, t_list **envp)
+void	quotes_pipe_to_all(char *cmd, t_list **envp)
 {
 	int		old_in;
 	char	**split_token;

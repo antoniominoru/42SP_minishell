@@ -25,6 +25,7 @@ SRCS = test.c \
 		test_take_value_of_env.c \
 		test_change_value_of_env.c \
 		test_tokenizer.c \
+		test_split_quotes.c \
 		../src/builtin_export.c \
 		../src/builtin_env.c \
 		../src/print_list.c \
@@ -36,7 +37,9 @@ SRCS = test.c \
 		../src/status_error.c \
 		../src/change_value_of_env.c \
 		../src/tokenizer.c \
-		../src/redirect_verify.c 
+		../src/redirect_verify.c \
+		../src/split_quotes.c
+
 		
 
 OBJS = ${SRCS:.c=.o}

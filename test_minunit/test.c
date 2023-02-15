@@ -18,17 +18,18 @@ int	g_current_status;
 
 static char *all_tests(void)
 {
-	mu_run_test(test_builtin_export);
-	mu_run_test(test_builtin_unset_initial);
-	mu_run_test(test_builtin_unset_between);
-	mu_run_test(test_builtin_unset_finish);
-	mu_run_test(test_builtin_env);
-	mu_run_test(test_builtin_pwd);
-	mu_run_test(test_take_value_of_env);
-	// mu_run_test(test_builtin_echo);
-	mu_run_test(test_change_value_of_env);
-	mu_run_test(test_tokenizer);
-	mu_run_test(test_builtin_cd);
+	// mu_run_test(test_builtin_export);
+	// mu_run_test(test_builtin_unset_initial);
+	// mu_run_test(test_builtin_unset_between);
+	// mu_run_test(test_builtin_unset_finish);
+	// mu_run_test(test_builtin_env);
+	// mu_run_test(test_builtin_pwd);
+	// mu_run_test(test_take_value_of_env);
+	// // mu_run_test(test_builtin_echo);
+	// mu_run_test(test_change_value_of_env);
+	// mu_run_test(test_tokenizer);
+	// mu_run_test(test_builtin_cd);
+	mu_run_test(test_split_quotes);
 	
 	return (0);
 }

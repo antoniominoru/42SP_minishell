@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/08 01:47:54 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/14 16:39:03 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,9 @@ SRCS = 	./src/main.c \
 		./src/change_value_of_env.c \
 		./src/builtin_other.c  \
 		./src/redirect_verify.c  \
-		./src/builtin_pipe_to_all.c 
+		./src/builtin_pipe_to_all.c \
+		./src/quotes.c \
+		./src/quotes_pipe_to_all.c
 
 OBJS = ${SRCS:.c=.o}
 

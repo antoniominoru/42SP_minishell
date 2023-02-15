@@ -46,6 +46,7 @@ char	*test_change_value_of_env(void);
 char	*test_tokenizer(void);
 char	*test_builtin_other(void);
 char	*test_builtin_cd_ft_ispipe(void);
+char	*test_split_quotes(void);
 
 
 /* file: minunit.h */
