@@ -6,11 +6,27 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/11 01:06:24 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/17 01:35:04 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	job_builtin_export(char **cmd_args, t_list **envp, char	*tmp)
+{
+	if (count_vector(cmd_args) > 1)
+	{
+		builtin_unset(cmd_args[0], envp, F_INTERN);
+		tmp = ft_strjoin("=", cmd_args[1]);
+		ft_lstadd_back(envp, ft_lstnew(ft_strjoin(cmd_args[0], tmp)));
+	}
+	else
+	{
+		builtin_unset(cmd_args[0], envp, F_INTERN);
+		ft_lstadd_back(envp, ft_lstnew(ft_strdup(cmd_args[0])));
+	}
+	free(tmp);
+}
 
 void	builtin_export(char *cmd, t_list **envp, int flag)
 {
@@ -21,25 +37,12 @@ void	builtin_export(char *cmd, t_list **envp, int flag)
 		g_current_status = NO_ERROR;
 	cmd_args = NULL;
 	tmp = NULL;
+	cmd_args = ft_split(cmd, '=');
 	if (cmd)
-	{
-		cmd_args = ft_split(cmd, '=');
-		if (count_vector(cmd_args) > 1)
-		{
-			builtin_unset(cmd_args[0], envp, F_INTERN);
-			tmp = ft_strjoin("=", cmd_args[1]);
-			ft_lstadd_back(envp, ft_lstnew(ft_strjoin(cmd_args[0], tmp)));
-		}
-		else
-		{
-			builtin_unset(cmd_args[0], envp, F_INTERN);
-			ft_lstadd_back(envp, ft_lstnew(ft_strdup(cmd_args[0])));
-		}
-		free_tkn(cmd_args);
-		free(tmp);
-	}
+		job_builtin_export(cmd_args, envp, tmp);
 	else
 		print_env(*envp);
+	free_tkn(cmd_args);
 }
 
 void	print_env(t_list *lst)

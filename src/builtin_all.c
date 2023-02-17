@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/15 01:52:46 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/17 01:27:24 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 		builtin_echo(cmd_tkn);
 	else if (ft_strncmp(cmd_tkn[0], "cd", ft_strlen(cmd_tkn[0])) == 0)
 		builtin_cd(cmd_tkn[1], envp);
-	//else if (ft_strncmp(cmd_tkn[0], "clear", ft_strlen(cmd_tkn[0])) == 0)
-		//system("clear"); //precisa tirar isso daqui e entender o pq n ta funcionando o clearrrrrrrrr
 	else
 		builtin_other(cmd_tkn, envp);
 }
