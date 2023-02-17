@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   quotes_pipe_to_all.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:36:16 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/14 16:39:27 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/17 01:39:53 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "minishell.h"
 
