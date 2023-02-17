@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/15 01:52:14 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:21:44 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,37 +58,23 @@ static void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 		builtin_pipe(split_token[id], envp, old_in, 1);
 }
 
-void	verify_cat(char **cmd, t_list **envp)
-{
-	char	**c_test;
-	char	**c_test2;
-	char	*new_cmd;
-
-	c_test = NULL;
-	c_test2 = NULL;
-	new_cmd = NULL;
-	if (ft_is_caract(*cmd, "|"))
-	{
-		c_test = ft_split(*cmd, '|');
-		c_test2 = tokenizer(c_test[0], c_test2, envp);
-		if (ft_strncmp(c_test2[0], "cat", 3) == 0 && count_vector(c_test2) == 1)
-		{
-			new_cmd = ft_strjoin("echo | ", *cmd);
-			*cmd = new_cmd;
-		}
-	}
-}
-
 void	builtin_pipe_to_all(char *cmd, t_list **envp)
 {
 	int		old_in;
 	char	**split_token;
+	char	**cmd_tkn;
 
 	old_in = 0;
-	verify_cat(&cmd, envp);
-	split_token = ft_split(cmd, '|');
-	line_in_pipe(split_token, envp, &old_in, 0);
+	cmd_tkn = NULL;
+	cmd_tkn = tokenizer(cmd, cmd_tkn, envp);
+	if (verify_cmd(cmd_tkn) == -1)
+		status_error("Invalid caracter", ERROR);
+	else
+	{
+		split_token = ft_split(cmd, '|');	
+		line_in_pipe(split_token, envp, &old_in, 0);
+		free_tkn(split_token);
+	}		
 	if (old_in != 0)
 		close(old_in);
-	free_tkn(split_token);
 }

@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/16 00:57:12 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/17 23:24:53 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	minishell(char	*cmd, t_list *lst_env, char **path)
 {
 	char	buffer[2048];
-	int		have_quotes;
 
-	have_quotes = 0;
 	while (1)
 	{
 		define_signals();
@@ -30,11 +28,7 @@ void	minishell(char	*cmd, t_list *lst_env, char **path)
 		else if (have_cmd(cmd))
 		{
 			ft_add_history(cmd);
-			have_quotes = have_two_quotes(cmd);
-			if (have_quotes)
-				quotes_pipe_to_all(cmd, &lst_env);
-			else
-				builtin_pipe_to_all(cmd, &lst_env);
+			builtin_pipe_to_all(cmd, &lst_env);
 		}
 	}
 }

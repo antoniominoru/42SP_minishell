@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:23:46 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/14 23:08:19 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:38:03 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char *argv[], char *envp[])
 	path = NULL;
 	status_error(NULL, NO_ERROR);
 	lst_env = env_to_lst(envp);
+	set_path(&lst_env);
 	if (argc > 1 && argv && envp)
 		return (status_error("too many arguments. correct is: ./minishell",
 				ERROR), 1);
