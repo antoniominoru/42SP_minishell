@@ -82,12 +82,18 @@ static char	**remove_quotes(char **s, char q)
 	while(s[i])
 	{
 		if(s[i][0] == q)
-			tmp[i] = ft_strtrim(s[i], &q);
+		{
+			if (s[i][0] == q && s[i][1] == q)
+				tmp[i] = ft_strdup("");
+			else	
+				tmp[i] = ft_strtrim(s[i], &q);
+		}
 		else
-			tmp[i] = s[i];
+			tmp[i] = ft_strdup(s[i]);
 		i++;
 	}
 	tmp[i] = NULL;
+	free_tkn(s);
 	return (tmp);
 }
 
@@ -107,7 +113,7 @@ static char	**ssplit_space_quotes(char **s, char q)
 // # Arrage
 char	*test_split_quotes(void)
 {
-	char 	*teste = "um \'teste maluco\' lalaal | > >> << cat \'teste\'";
+	char 	*teste = "um asdfasdf asdfasdf \' asdfadf\'              dois";
 	char 	**quotes;
 	char 	**fin_quotes;
 	int		i;
