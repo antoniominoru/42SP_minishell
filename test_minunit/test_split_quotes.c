@@ -12,18 +12,13 @@ static int	ft_strlen_pp(char **str)
 	return (i);
 }
 
-static char	**ssplit_space_quotes(char **s, char q)
+static	int	count_space_quotes(char **s, char q)
 {
-	char	**tmp;
-	char	**tmp2;
 	int		i;
 	int		j;
-	int		k;
 
 	i = 0;
 	j = 0;
-	tmp = NULL;
-	tmp2 = NULL;
 	while(s[i])
 	{
 		if (s[i][0] != q)
@@ -32,34 +27,57 @@ static char	**ssplit_space_quotes(char **s, char q)
 			j++;
 		i++;
 	}
-	tmp = malloc((j + 1) * sizeof(char *));
-	printf("qtd malocada: %i\n", j + 1);
-	i = 0;
+	return (j);
+}
+
+static void	dvd_by_space(char **s, char **tmp, int *i, int *k)
+{
+	char	**tmp2;
+	int		j;
+
+	tmp2 = NULL;
+	j = 0;
+	tmp2 = ft_split(s[*i], ' ');
+	while (tmp2[j])
+	{
+		tmp[*k] = ft_substr(tmp2[j], 0, ft_strlen(tmp2[j]));
+		j++;
+		(*k)++;
+	}
+	(*i)++;
+}
+
+static char	**core_space_quotes(char **s, char **tmp, char q)
+{
+	int		i;
+	int		k;
+
 	k = 0;
+	i = 0;
 	while(s[i])
 	{
-		j = 0;
 		if (s[i][0] != q)
-		{
-			tmp2 = ft_split(s[i], ' ');
-			while (tmp2[j])
-			{
-				tmp[k] = ft_substr(tmp2[j], 0, ft_strlen(tmp2[j]));
-				j++;
-				k++;
-			}
-			i++;
-		}
-		else //if (s[i][0] == q)
+			dvd_by_space(s, tmp, &i, &k);
+		else
 		{
 			tmp[k] = ft_substr(s[i], 0, ft_strlen(s[i]));
 			k++;
 			i++;
 		}
-		printf("[i] %i\n", i);
-		printf("[k] %i\n", k);
 	}
 	tmp[k] = NULL;
+	return(tmp);
+}
+
+static char	**ssplit_space_quotes(char **s, char q)
+{
+	char	**tmp;
+	int		qt_mem_allocate;
+
+	tmp = NULL;
+	qt_mem_allocate = count_space_quotes(s, q);
+	tmp = malloc((qt_mem_allocate + 1) * sizeof(char *));
+	tmp = core_space_quotes(s, tmp, q);
 	return (tmp);
 }
 
@@ -67,7 +85,7 @@ static char	**ssplit_space_quotes(char **s, char q)
 // # Arrage
 char	*test_split_quotes(void)
 {
-	char 	*teste = "um \'teste maluco\'";
+	char 	*teste = "um \'teste maluco\' lalaal | > >> << cat \'teste\'";
 	char 	**quotes;
 	char 	**fin_quotes;
 	int		i;
@@ -83,6 +101,7 @@ char	*test_split_quotes(void)
 	printf("string: %s\n\n", teste);
 	while (quotes[i])
 		printf("posição [%i] ->%s\n\n", j++, quotes[i++]);
+	printf("----------------------\n");
 	i = 0;
 	j = 0;
 	fin_quotes = ssplit_space_quotes(quotes, '\'');

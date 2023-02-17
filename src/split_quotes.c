@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:03:59 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/16 21:55:37 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:59:35 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,47 +124,56 @@ static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 //	free(tmp_2);
 //}
 
-//char	**split_space_quotes(char **s, char q)
-//{
-//	char	**tmp;
-//	char	**tmp2;
-//	int		i;
-//	int		j;
-//
-//	i = 0;
-//	j = 0;
-//	tmp = NULL;
-//	while(s[i])
-//	{
-//		if (s[i][0] != q)
-//			j += count_words(s[i], ' ');
-//		else if (s[i][0] == q)
-//			j++;
-//	}
-//	tmp = malloc((j + 1) * sizeof(char *));
-//	i = 0;
-//	while(s[i])
-//	{
-//		j = 0;
-//		if (s[i][0] != q)
-//		{
-//			tmp2 = ft_split(s[i], ' ')
-//			while (tmp2[j])
-//			{
-//				tmp[i] = ft_substr(tmp2[j], 0, ft_strlen(tmp2[j]));
-//				i++;
-//				j++;
-//			}
-//		}
-//		else if (s[i][0] == q)
-//		{
-//			tmp[i] = ft_substr(s[i], 0, ft_strlen(s[i]));
-//			i++;
-//		}
-//	}
-//	tmp[i] = NULL;
-//	return (tmp)
-//}
+// static char	**split_space_quotes(char **s, char q)
+// {
+// 	char	**tmp;
+// 	char	**tmp2;
+// 	int		i;
+// 	int		j;
+// 	int		k;
+
+// 	i = 0;
+// 	j = 0;
+// 	tmp = NULL;
+// 	tmp2 = NULL;
+// 	while(s[i])
+// 	{
+// 		if (s[i][0] != q)
+// 			j += count_words(s[i], ' ');
+// 		else if (s[i][0] == q)
+// 			j++;
+// 		i++;
+// 	}
+// 	tmp = malloc((j + 1) * sizeof(char *));
+// 	printf("qtd malocada: %i\n", j + 1);
+// 	i = 0;
+// 	k = 0;
+// 	while(s[i])
+// 	{
+// 		j = 0;
+// 		if (s[i][0] != q)
+// 		{
+// 			tmp2 = ft_split(s[i], ' ');
+// 			while (tmp2[j])
+// 			{
+// 				tmp[k] = ft_substr(tmp2[j], 0, ft_strlen(tmp2[j]));
+// 				j++;
+// 				k++;
+// 			}
+// 			i++;
+// 		}
+// 		else //if (s[i][0] == q)
+// 		{
+// 			tmp[k] = ft_substr(s[i], 0, ft_strlen(s[i]));
+// 			k++;
+// 			i++;
+// 		}
+// 		printf("[i] %i\n", i);
+// 		printf("[k] %i\n", k);
+// 	}
+// 	tmp[k] = NULL;
+// 	return (tmp);
+// }
 
 //int	ft_strlen_pp(char **str)
 //{
