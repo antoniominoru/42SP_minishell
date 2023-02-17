@@ -1,7 +1,6 @@
 
 #include "minunit.h"
 
-
 static int	ft_strlen_pp(char **str)
 {
 	int	i;
@@ -19,7 +18,7 @@ static	int	count_space_quotes(char **s, char q)
 
 	i = 0;
 	j = 0;
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i][0] != q)
 			j += count_words(s[i], ' ');
@@ -45,6 +44,7 @@ static void	dvd_by_space(char **s, char **tmp, int *i, int *k)
 		(*k)++;
 	}
 	(*i)++;
+	free_tkn(tmp2);
 }
 
 static char	**core_space_quotes(char **s, char **tmp, char q)
@@ -54,7 +54,7 @@ static char	**core_space_quotes(char **s, char **tmp, char q)
 
 	k = 0;
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i][0] != q)
 			dvd_by_space(s, tmp, &i, &k);
@@ -66,7 +66,29 @@ static char	**core_space_quotes(char **s, char **tmp, char q)
 		}
 	}
 	tmp[k] = NULL;
-	return(tmp);
+	return (tmp);
+}
+
+static char	**remove_quotes(char **s, char q)
+{
+	char	**tmp;
+	int 	i;
+	int		pp_len;
+
+	i = 0;
+	pp_len = ft_strlen_pp(s);
+	tmp = NULL;
+	tmp = malloc((pp_len + 1) * sizeof(char *));
+	while(s[i])
+	{
+		if(s[i][0] == q)
+			tmp[i] = ft_strtrim(s[i], &q);
+		else
+			tmp[i] = s[i];
+		i++;
+	}
+	tmp[i] = NULL;
+	return (tmp);
 }
 
 static char	**ssplit_space_quotes(char **s, char q)
@@ -76,11 +98,11 @@ static char	**ssplit_space_quotes(char **s, char q)
 
 	tmp = NULL;
 	qt_mem_allocate = count_space_quotes(s, q);
-	tmp = malloc((qt_mem_allocate + 1) * sizeof(char *));
+	tmp = malloc((qt_mem_allocate + 1) * sizeof(char **));
 	tmp = core_space_quotes(s, tmp, q);
+	tmp = remove_quotes(tmp, q);
 	return (tmp);
 }
-
 
 // # Arrage
 char	*test_split_quotes(void)
@@ -106,11 +128,13 @@ char	*test_split_quotes(void)
 	j = 0;
 	fin_quotes = ssplit_space_quotes(quotes, '\'');
 	while (fin_quotes[i])
-		printf("posição [%i] ->%s\n\n", j++, fin_quotes[i++]);
+		printf("posição [%i] ->$%s\n\n", j++, fin_quotes[i++]);
 	k = ft_strlen_pp(quotes);
 	// printf("qtd: %i\n\n", k);
 
 	// // # Assert
 	// mu_assert("ERROR: test_split_quotes", !strcmp(teste, quotes[1]));
+	free_tkn(quotes);
+	free_tkn(fin_quotes);
 	return (0);
 }
