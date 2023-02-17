@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:03:59 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/15 02:17:55 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/16 21:55:37 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,87 @@ static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 	*table = NULL;
 	return (table_ptr);
 }
+
+//char	**split_space_quotes(char **s)
+//{
+//	char	**tmp;
+//	char	**tmp_2;
+//	int		i;
+//	int		j;
+//
+//	i = 0;
+//	j = 0;
+//	tmp = NULL;
+//	while(s[i])
+//	{
+//		if (s[i][0] == '\"' || s[i][0] == '\'')
+//		{
+//			i++;
+//			j++;
+//		}
+//		else
+//		{
+//			tmp = ft_split(s[i], ' ');
+//			j += ft_strlen_pp(tmp);
+//			free(tmp);
+//			i++;
+//		}
+//	}
+//	tmp_2 = malloc((j + 1) * sizeof(char *));
+//	free(tmp_2);
+//}
+
+//char	**split_space_quotes(char **s, char q)
+//{
+//	char	**tmp;
+//	char	**tmp2;
+//	int		i;
+//	int		j;
+//
+//	i = 0;
+//	j = 0;
+//	tmp = NULL;
+//	while(s[i])
+//	{
+//		if (s[i][0] != q)
+//			j += count_words(s[i], ' ');
+//		else if (s[i][0] == q)
+//			j++;
+//	}
+//	tmp = malloc((j + 1) * sizeof(char *));
+//	i = 0;
+//	while(s[i])
+//	{
+//		j = 0;
+//		if (s[i][0] != q)
+//		{
+//			tmp2 = ft_split(s[i], ' ')
+//			while (tmp2[j])
+//			{
+//				tmp[i] = ft_substr(tmp2[j], 0, ft_strlen(tmp2[j]));
+//				i++;
+//				j++;
+//			}
+//		}
+//		else if (s[i][0] == q)
+//		{
+//			tmp[i] = ft_substr(s[i], 0, ft_strlen(s[i]));
+//			i++;
+//		}
+//	}
+//	tmp[i] = NULL;
+//	return (tmp)
+//}
+
+//int	ft_strlen_pp(char **str)
+//{
+//	int	i;
+//
+//	i = 0;
+//	while (str[i])
+//		i++;
+//	return (i);
+//}
 
 char	**split_quotes(char const *s, char c)
 {
