@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 18:22:13 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:14:48 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		v_exit_hd(char	*term, char *eof);
 void	clear_tmp_file(void);
 void	make_tmp_file(void);
 
-char	**ft_split_token(char **cmd_tkn);
+char	**ft_split_token(char **ctkn);
 int		cont_pipe_token(char **cmd);
 void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id);
 void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last);
