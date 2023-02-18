@@ -44,16 +44,19 @@ char	**ft_split_token(char **ctkn)
 char	*ft_new_string(char **cmd_tkn)
 {
 	int		c_all;
+	char	*new_string;
 	char	*tmp;
 
 	c_all = 0;
-	tmp = NULL;
-	tmp = ft_strdup("");
+	new_string = NULL;
+	new_string = ft_strdup("");
 	while (*cmd_tkn)
 	{
-		tmp = ft_strjoin(tmp, " ");
-		tmp = ft_strjoin(tmp, *cmd_tkn);
+
+		tmp = ft_strjoin(new_string, " ");
+		new_string = ft_strjoin(tmp, *cmd_tkn);
 		cmd_tkn++;
+		free(tmp);
 	}
-	return (tmp);
+	return (new_string);
 }
