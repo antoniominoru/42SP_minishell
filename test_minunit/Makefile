@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/15 01:51:40 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/18 02:36:32 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRCS = test.c \
 		../src/tokenizer.c \
 		../src/redirect_verify.c \
 		../src/here_doc.c \
-		../src/split_quotes.c
+		../src/split_quotes.c \
+		../src/here_doc_complement.c
 
 		
 
