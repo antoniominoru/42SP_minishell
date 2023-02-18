@@ -91,7 +91,7 @@ static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 		}
 		table++;
 	}
-	*table = ft_strdup(NULL);
+	*table = NULL;
 	return (table_ptr);
 }
 
