@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/18 01:46:49 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/18 02:31:48 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,8 +204,8 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp)
 {
 	char	**cmd_tkn_new;
 	char	**quotes;
-	int		i = 0;
-	int		j = 0;
+	// int		i = 0;
+	// int		j = 0;
 	(void)envp;
 
 	if (cmd_tkn != NULL)
@@ -213,9 +213,9 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp)
 	//precisa colar um if pra verificar qual é a aspas desses comandos
 	quotes = split_quotes(cmd, '\"');
 	cmd_tkn_new = split_space_quotes(quotes, '\"');
-	while (cmd_tkn_new[i])
-		printf("posição [%i] ->$%s\n\n", j++, cmd_tkn_new[i++]);
+	// while (cmd_tkn_new[i])
+	// 	printf("posição [%i] ->$%s\n\n", j++, cmd_tkn_new[i++]);
 	//cmd_tkn_new = env_var(cmd_tkn_new, envp, count_words(cmd, ' '));
-	printf("---------------------\n");
+	// printf("---------------------\n");
 	return (cmd_tkn_new);
 }
