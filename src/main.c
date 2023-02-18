@@ -24,12 +24,12 @@ int	main(int argc, char *argv[], char *envp[])
 	path = NULL;
 	status_error(NULL, NO_ERROR);
 	lst_env = env_to_lst(envp);
+	if (lst_env == NULL)
+		status_error("Error", ERROR_ONE);
 	set_path(&lst_env);
 	if (argc > 1 && argv && envp)
 		return (status_error("too many arguments. correct is: ./minishell",
 				ERROR), ERROR_ONE);
-	if (lst_env == NULL)
-		printf("erro"); //essa verificação esta correta aqui?
 	minishell(cmd, lst_env, &path);
 	free_part(&lst_env, &cmd, &path);
 }
