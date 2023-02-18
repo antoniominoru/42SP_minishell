@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 01:12:11 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 02:16:30 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 		split_token = ft_split_token(cmd_tkn);
 		line_in_pipe(split_token, envp, &old_in, 0);
 		free_tkn(split_token);
-	}		
+	}
 	if (old_in != 0)
 		close(old_in);
 }
