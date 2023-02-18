@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 02:30:18 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 02:50:49 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	ft_tknredirect(char **cmd, char *cart, int flag)
 	tmp = cmd;
 	while (tmp[i])
 	{
-		if (ft_is_caract(tmp[i], cart) && flag == 0 && ft_strlen(cart) < 3)
+		if (ft_is_caract(tmp[i], cart) && flag == 0 && ft_strlen(tmp[i]) < 3)
 			return (ft_is_caract(tmp[i], cart));
-		if (ft_is_caract(tmp[i], cart) && flag == 1 && ft_strlen(cart) < 3)
+		if (ft_is_caract(tmp[i], cart) && flag == 1 && ft_strlen(tmp[i]) < 3)
 			return (i);
 		i++;
 	}
