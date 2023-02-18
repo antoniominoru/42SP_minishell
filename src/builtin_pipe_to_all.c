@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 20:15:55 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:33:26 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 
 	old_in = 0;
 	cmd_tkn = NULL;
+	cmd = verify_cat(cmd, envp);
 	cmd_tkn = tokenizer(cmd, cmd_tkn, envp);
 	if (verify_cmd(cmd_tkn) == -1)
 		status_error("Invalid caracter", ERROR);

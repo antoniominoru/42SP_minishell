@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 20:14:48 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:33:47 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ void	swap_env(char **cmd_tkn_env, t_list **envp, int i);
 int		hav_env_var(char **cmd, int i);
 char	**env_var(char **cmd_tkn, t_list **envp, int how_many);
 char	what_is_the_quote(char *cmd);
+char	*verify_cat(char *cmd, t_list **envp);
 
 #endif

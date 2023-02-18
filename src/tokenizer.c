@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/18 20:18:32 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:40:54 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp)
 	else
 		cmd_env_new = ft_strdup(cmd);
 	cmd_tkn_new = split_space_quotes(split_quotes(cmd_env_new, q), q);
-	cmd_tkn_new = remove_quotes(cmd_tkn_new, q);
 	cmd_tkn_new = remove_quotes(cmd_tkn_new, ';');
+	cmd_tkn_new = remove_quotes(cmd_tkn_new, q);
 	free(cmd_env_new);
 	return (cmd_tkn_new);
 }

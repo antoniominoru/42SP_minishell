@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 20:18:00 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:34:44 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,20 @@ char	*ft_new_string(char **cmd_tkn)
 		free(tmp);
 	}
 	return (new_string);
+}
+
+char	*verify_cat(char *cmd, t_list **envp)
+{
+	char	**tmp;
+	char	**cmd_tkn;
+
+	tmp = NULL;
+	cmd_tkn = NULL;
+	if (ft_is_caract(cmd, "|"))
+	{
+		tmp = tokenizer(cmd, cmd_tkn, envp);
+		if (ft_strncmp(tmp[0], "cat", 3) == 0 && ft_strlen(tmp[0]) == 3)
+			cmd = ft_strjoin("echo | ", cmd);
+	}
+	return (cmd);
 }
