@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 01:47:48 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:51:32 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,9 @@ int		cont_pipe_token(char **cmd);
 void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id);
 void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last);
 void	pipe_create(int *old_in, int last);
+char	**split_space_quotes(char **s, char q);
+int		ft_strlen_pp(char **str);
+char	**remove_quotes(char **s, char q);
+//existem funcoes q n existem mais aqui no header
 
 #endif

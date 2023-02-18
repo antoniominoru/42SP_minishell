@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/18 02:17:50 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/18 13:11:46 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,9 @@ SRCS = 	./src/main.c \
 		./src/here_doc_complement.c  \
 		./src/builtin_pipe_to_all_complement.c  \
 		./src/have_two_quotes.c \
-		./src/split_quotes.c 
+		./src/split_quotes.c \
+		./src/split_space_quotes.c \
+		./src/ft_strlen_pp.c
 
 OBJS = ${SRCS:.c=.o}
 
