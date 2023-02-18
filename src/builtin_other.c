@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/15 01:52:24 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 01:48:40 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	builtin_other(char **cmd, t_list **envp)
 	int		status;
 	pid_t	pid_dad;
 
-
 	g_current_status = NO_ERROR;
 	pid_dad = getpid();
 	define_signals_fork();
@@ -68,7 +67,7 @@ void	builtin_other(char **cmd, t_list **envp)
 	waitpid(pid, &status, 0);
 	if (WIFEXITED(status))
 	{
-		status	= WEXITSTATUS(status);
+		status = WEXITSTATUS(status);
 		status_error(NULL, status);
 	}
 }

@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/16 17:38:40 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/18 01:10:20 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ SRCS = 	./src/main.c \
 		./src/here_doc.c \
 		./src/verify_cmd.c \
 		./src/set_path.c \
+		./src/here_doc_complement.c  \
+		./src/builtin_pipe_to_all_complement.c  \
 		./src/have_two_quotes.c
 
 OBJS = ${SRCS:.c=.o}
@@ -79,6 +81,11 @@ test2:
 			make -C ./test_minunit
 			clear
 			./test_minunit/run_test
+
+test3:
+			make
+			clear
+			norminette -R CheckForbiddenSourceHeader ./src/ ./include/ ./lib/
 
 re: fclean all
 

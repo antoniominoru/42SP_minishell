@@ -106,7 +106,7 @@ static char	**ssplit_space_quotes(char **s, char q)
 	qt_mem_allocate = count_space_quotes(s, q);
 	tmp = malloc((qt_mem_allocate + 1) * sizeof(char **));
 	tmp = core_space_quotes(s, tmp, q);
-	tmp = remove_quotes(tmp, q);
+	remove_quotes(tmp);
 	return (tmp);
 }
 

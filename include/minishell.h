@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/17 19:05:39 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/18 01:47:48 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <fcntl.h>
+# include <errno.h>
+
+# define T_FILE "/tmp/minishell_tmp"
 
 # define ERROR 127
 # define ERROR_ONE 1
@@ -78,9 +81,7 @@ int		count_vector(char **cmd);
 char	*get_cmd(char *cmd, char **paths);
 void	print_env(t_list *lst);
 int		ft_is_caract(char *cmd, char *caract);
-void	here_doc(int *fd, char *eof);
 int		ft_tknredirect(char **cmd, char *caract, int flag);
-int		here_doc_main(int *fd, char **eof, char *redic);
 
 char	**split_quotes(char const *s, char c);
 int		have_two_quotes(char *cmd);
@@ -88,4 +89,20 @@ void	position_quotes(int pos, char q);
 void	remove_quotes(char **cmd);
 int		verify_cmd(char **cmd);
 void	set_path(t_list **envp);
+
+void	inter_here_doc(int signal);
+void	error_here_doc(void);
+void	here_doc_teminal(int fd_tmp, char *eof);
+int		here_doc_main(int *fd, char **eof, char *redic);
+int		tmp_file(void);
+int		v_exit_hd(char	*term, char *eof);
+void	clear_tmp_file(void);
+void	make_tmp_file(void);
+
+char	**ft_split_token(char **cmd_tkn);
+int		cont_pipe_token(char **cmd);
+void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id);
+void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last);
+void	pipe_create(int *old_in, int last);
+
 #endif
