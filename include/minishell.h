@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 14:38:20 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:22:13 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ int		ft_strlen_pp(char **str);
 char	**remove_quotes(char **s, char q);
 char	*ft_new_string(char **cmd_tkn);
 
-//existem funcoes q n existem mais aqui no header
+void	swap_env(char **cmd_tkn_env, t_list **envp, int i);
+int		hav_env_var(char **cmd, int i);
+char	**env_var(char **cmd_tkn, t_list **envp, int how_many);
+char	what_is_the_quote(char *cmd);
 
 #endif
