@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 02:31:30 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:29:26 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,45 @@
 
 char	**ft_split_token(char **cmd_tkn)
 {
-	int		c_pipe;
-	int		c_loop;
-	int		c_new_tkn;
+	int		c_all;
 	char	*tmp;
-	char	**fim;
+	char	**end;
 
-	c_loop = 0;
-	c_new_tkn = 0;
+	c_all = 0;
 	tmp = NULL;
-	fim = NULL;
-	c_pipe = cont_pipe_token(cmd_tkn);
-	fim = malloc((c_pipe + 2) * sizeof(char *));
-	while (cmd_tkn[c_loop] != NULL)
+	end = malloc((cont_pipe_token(cmd_tkn) + 2) * sizeof(char *));
+	while (*cmd_tkn)
 	{
-		if (!ft_strncmp(cmd_tkn[c_loop], "|", 1))
+		if (!ft_strncmp(*cmd_tkn, "|", 1))
 		{
-			fim[c_new_tkn] = tmp;
+			end[c_all] = tmp;
 			tmp = NULL;
-			c_new_tkn++;
-			c_loop++;
+			c_all++;
+			cmd_tkn++;
 		}
 		if (tmp == NULL)
 			tmp = ft_strdup(" \"");
 		else
 			tmp = ft_strjoin(tmp, " \"");
-		tmp = ft_strjoin(tmp, cmd_tkn[c_loop]);
-		tmp = ft_strjoin(tmp, "\" ");
-		c_loop++;
+		tmp = ft_strjoin(ft_strjoin(tmp, *cmd_tkn), "\" ");
+		cmd_tkn++;
 	}
-	fim[c_new_tkn] = tmp;
-	fim[c_new_tkn + 1] = NULL;
-	return (fim);
+	end[c_all] = tmp;
+	return (end);
+}
+
+char	*ft_new_string(char **cmd_tkn)
+{
+	int		c_all;
+	char	*tmp;
+
+	c_all = 0;
+	tmp = NULL;
+	tmp = ft_strdup("");
+	while (*cmd_tkn)
+	{
+		tmp = ft_strjoin(tmp, *cmd_tkn);
+		cmd_tkn++;
+	}
+	return (tmp);
 }

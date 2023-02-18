@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 02:50:49 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 12:26:08 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ char	**redirect_verify(char **cmd, int *old_in)
 	pos = 0;
 	if (!old_in)
 		printf("error\n");
+	if (count_vector(cmd) < 3)
+		return (cmd);
 	if (ft_tknredirect(cmd, ">", 0) == 1)
 		pos = io_redirect(cmd, O_WRONLY | O_CREAT | O_TRUNC, 1, ">");
 	else if (ft_tknredirect(cmd, ">>", 0) == 2)
