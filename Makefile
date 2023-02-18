@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/16 17:38:40 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/18 01:48:50 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRCS = 	./src/main.c \
 		./src/here_doc.c \
 		./src/verify_cmd.c \
 		./src/set_path.c \
-		./src/have_two_quotes.c
+		./src/have_two_quotes.c \
+		./src/split_quotes.c 
 
 OBJS = ${SRCS:.c=.o}
 

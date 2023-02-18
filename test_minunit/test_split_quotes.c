@@ -97,7 +97,7 @@ static char	**remove_quotes(char **s, char q)
 	return (tmp);
 }
 
-static char	**ssplit_space_quotes(char **s, char q)
+static char	**split_space_quotes(char **s, char q)
 {
 	char	**tmp;
 	int		qt_mem_allocate;
@@ -132,7 +132,7 @@ char	*test_split_quotes(void)
 	printf("----------------------\n");
 	i = 0;
 	j = 0;
-	fin_quotes = ssplit_space_quotes(quotes, '\'');
+	fin_quotes = split_space_quotes(quotes, '\'');
 	while (fin_quotes[i])
 		printf("posição [%i] ->$%s\n\n", j++, fin_quotes[i++]);
 	k = ft_strlen_pp(quotes);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/17 01:23:19 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 02:05:49 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int		cont_pipe_token(char **cmd)
 	return (i);
 }
 
-
 char	**ft_split_token(char **cmd_tkn)
 {
 	int		c_pipe;
@@ -110,7 +109,7 @@ char	**ft_split_token(char **cmd_tkn)
 	}
 	fim[c_new_tkn] = tmp;
 	fim[c_new_tkn + 1] = NULL;
-	printf("%s\n",fim[c_new_tkn]);
+	// printf("%s\n",fim[c_new_tkn]);
 	return (fim);
 }
 
@@ -127,11 +126,11 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 		status_error("Invalid caracter", ERROR);
 	else
 	{
-		split_token = ft_split_token(cmd_tkn);	
-		// split_token = ft_split(cmd, '|');	
+		split_token = ft_split_token(cmd_tkn);
+		// split_token = ft_split(cmd, '|');
 		line_in_pipe(split_token, envp, &old_in, 0);
 		free_tkn(split_token);
-	}		
+	}
 	if (old_in != 0)
 		close(old_in);
 }

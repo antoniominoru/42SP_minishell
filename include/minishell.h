@@ -85,7 +85,6 @@ int		here_doc_main(int *fd, char **eof, char *redic);
 char	**split_quotes(char const *s, char c);
 int		have_two_quotes(char *cmd);
 void	position_quotes(int pos, char q);
-void	remove_quotes(char **cmd);
 int		verify_cmd(char **cmd);
 void	set_path(t_list **envp);
 #endif
