@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/18 18:25:22 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/18 19:12:50 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRCS = 	./src/main.c \
 		./src/split_quotes.c \
 		./src/split_space_quotes.c \
 		./src/tokenizer_complement.c \
+		./src/cont_vector.c  \
 		./src/ft_strlen_pp.c
 
 OBJS = ${SRCS:.c=.o}

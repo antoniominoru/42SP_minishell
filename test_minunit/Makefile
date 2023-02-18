@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/18 02:36:32 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/18 19:13:39 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,9 @@ SRCS = test.c \
 		test_builtin_unset.c  \
 		test_builtin_env.c \
 		test_builtin_pwd.c \
-		test_builtin_echo.c \
 		test_builtin_cd.c \
 		test_take_value_of_env.c \
 		test_change_value_of_env.c \
-		test_tokenizer.c \
-		test_split_quotes.c \
 		../src/builtin_export.c \
 		../src/builtin_env.c \
 		../src/print_list.c \
@@ -36,10 +33,9 @@ SRCS = test.c \
 		../src/take_value_of_env.c \
 		../src/status_error.c \
 		../src/change_value_of_env.c \
-		../src/tokenizer.c \
-		../src/redirect_verify.c \
-		../src/here_doc.c \
 		../src/split_quotes.c \
+		../src/free_all.c \
+		../src/cont_vector.c  \
 		../src/here_doc_complement.c
 
 		

@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 12:26:08 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 19:11:59 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,6 @@ int	ft_tknredirect(char **cmd, char *cart, int flag)
 		i++;
 	}
 	return (0);
-}
-
-int	count_vector(char **cmd)
-{
-	int		i;
-	char	**tmp;
-
-	i = 0;
-	tmp = cmd;
-	while (tmp[i])
-		i++;
-	return (i);
 }
 
 static int	io_redirect(char **cmd, int config, int io_re, char *redic)
