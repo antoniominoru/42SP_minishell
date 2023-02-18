@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/18 02:31:48 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:28:37 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,131 +91,46 @@ char	**reallocate_cmd(char **s, int *j, int how_many)
 // 	return (cmd_tkn_env);
 // }
 
-static int	ft_strlen_pp(char **str)
+static char	what_is_the_quote(char *cmd)
 {
-	int	i;
-
+	int i;
+	
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-static	int	count_space_quotes(char **s, char q)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (s[i])
+	while (cmd[i])
 	{
-		if (s[i][0] != q)
-			j += count_words(s[i], ' ');
-		else if (s[i][0] == q)
-			j++;
+		if (cmd[i] == '\"')
+			return ('\"');
+		else if (cmd[i] == '\'')
+			return ('\'');
 		i++;
 	}
-	return (j);
-}
-
-static void	dvd_by_space(char **s, char **tmp, int *i, int *k)
-{
-	char	**tmp2;
-	int		j;
-
-	tmp2 = NULL;
-	j = 0;
-	tmp2 = ft_split(s[*i], ' ');
-	while (tmp2[j])
-	{
-		tmp[*k] = ft_substr(tmp2[j], 0, ft_strlen(tmp2[j]));
-		j++;
-		(*k)++;
-	}
-	(*i)++;
-	free_tkn(tmp2);
-}
-
-static char	**core_space_quotes(char **s, char **tmp, char q)
-{
-	int		i;
-	int		k;
-
-	k = 0;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i][0] != q)
-			dvd_by_space(s, tmp, &i, &k);
-		else
-		{
-			tmp[k] = ft_substr(s[i], 0, ft_strlen(s[i]));
-			k++;
-			i++;
-		}
-	}
-	tmp[k] = NULL;
-	return (tmp);
-}
-
-static char	**remove_quotes(char **s, char q)
-{
-	char	**tmp;
-	int 	i;
-	int		pp_len;
-
-	i = 0;
-	pp_len = ft_strlen_pp(s);
-	tmp = NULL;
-	tmp = malloc((pp_len + 1) * sizeof(char *));
-	while(s[i])
-	{
-		if(s[i][0] == q)
-		{
-			if (s[i][0] == q && s[i][1] == q)
-				tmp[i] = ft_strdup("");
-			else	
-				tmp[i] = ft_strtrim(s[i], &q);
-		}
-		else
-			tmp[i] = ft_strdup(s[i]);
-		i++;
-	}
-	tmp[i] = NULL;
-	free_tkn(s);
-	return (tmp);
-}
-
-static char	**split_space_quotes(char **s, char q)
-{
-	char	**tmp;
-	int		qt_mem_allocate;
-
-	tmp = NULL;
-	qt_mem_allocate = count_space_quotes(s, q);
-	tmp = malloc((qt_mem_allocate + 1) * sizeof(char **));
-	tmp = core_space_quotes(s, tmp, q);
-	tmp = remove_quotes(tmp, q);
-	return (tmp);
+	return ('\0');
 }
 
 char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp)
 {
 	char	**cmd_tkn_new;
 	char	**quotes;
-	// int		i = 0;
-	// int		j = 0;
+	char	q;
 	(void)envp;
 
 	if (cmd_tkn != NULL)
 		free_tkn(cmd_tkn);
 	//precisa colar um if pra verificar qual é a aspas desses comandos
-	quotes = split_quotes(cmd, '\"');
-	cmd_tkn_new = split_space_quotes(quotes, '\"');
+	q = what_is_the_quote(cmd);
+
+	//se não for aspas simples
+		//splitar por espacos
+		//cmd_tkn_new = env_var(cmd_tkn_new, envp, count_words(cmd, ' '));
+		
+	quotes = split_quotes(cmd, q);
+	cmd_tkn_new = split_space_quotes(quotes, q);
+	cmd_tkn_new = remove_quotes(cmd_tkn_new, q);
+
 	// while (cmd_tkn_new[i])
 	// 	printf("posição [%i] ->$%s\n\n", j++, cmd_tkn_new[i++]);
-	//cmd_tkn_new = env_var(cmd_tkn_new, envp, count_words(cmd, ' '));
+	
+	
 	// printf("---------------------\n");
 	return (cmd_tkn_new);
 }
