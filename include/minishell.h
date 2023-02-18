@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 13:51:32 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:38:20 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ void	pipe_create(int *old_in, int last);
 char	**split_space_quotes(char **s, char q);
 int		ft_strlen_pp(char **str);
 char	**remove_quotes(char **s, char q);
+char	*ft_new_string(char **cmd_tkn);
+
 //existem funcoes q n existem mais aqui no header
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all_complement.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 14:29:26 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:41:17 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	*ft_new_string(char **cmd_tkn)
 	tmp = ft_strdup("");
 	while (*cmd_tkn)
 	{
+		tmp = ft_strjoin(tmp, " ");
 		tmp = ft_strjoin(tmp, *cmd_tkn);
 		cmd_tkn++;
 	}
