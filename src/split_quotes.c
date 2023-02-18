@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:03:59 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/17 19:15:06 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:14:02 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 		}
 		table++;
 	}
-	*table = NULL;
+	*table = ft_strdup(NULL);
 	return (table_ptr);
 }
 
@@ -103,7 +103,7 @@ char	**split_quotes(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = count_words(s, c);
-	table = malloc((words + 1) * sizeof(char *));
+	table = malloc((words + 1) * sizeof(char **));
 	if (!table)
 		return (NULL);
 	table = allocates(s, c, table, table);
