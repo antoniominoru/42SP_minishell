@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 21:19:29 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 22:11:51 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,15 @@ static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 {
 	int		i;
 	char	**cmd_tv;
+	char	*tmp_trim;
+	char	*tmp_trim2;
 
 	i = 0;
 	cmd_tv = cmd_tkn;
-	if (!ft_strncmp(ft_strtrim(cmd_tv[0], "\""), "unset", \
-	len_builtin(ft_strlen(cmd_tv[0]), 5)))
-		cmd_tv[1] = ft_strtrim(ft_strtrim(cmd_tv[1], "\""), "$");
+	tmp_trim = ft_strtrim(cmd_tv[0], "\"");
+	tmp_trim2 = ft_strtrim(cmd_tv[1], "\"");
+	if (!ft_strncmp(tmp_trim, "unset", len_builtin(ft_strlen(cmd_tv[0]), 5)))
+		cmd_tv[1] = ft_strtrim(tmp_trim2, "$");
 	while (cmd_tv[i])
 	{
 		if (hav_env_var(cmd_tv, i))
@@ -73,6 +76,8 @@ static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 		}
 		i++;
 	}
+	free(tmp_trim);
+	free(tmp_trim2);
 	return (cmd_tv);
 }
 

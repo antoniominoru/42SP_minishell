@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 21:59:53 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 22:54:00 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 
 void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 {
-	if (split_token[id + 1])
+	if (split_token[id + 1] != NULL)
 	{
 		builtin_pipe(split_token[id], envp, old_in, 0);
 		line_in_pipe(split_token, envp, old_in, id + 1);
@@ -77,17 +77,20 @@ int	cont_pipe_token(char **cmd)
 void	builtin_pipe_to_all(char *cmd, t_list **envp)
 {
 	int		old_in;
+	int		id;
 	char	**split_token;
 	char	**cmd_tkn;
 
+	old_in = 0;
+	id = 0;
+	cmd_tkn = NULL;
+	cmd_tkn = tokenizer(cmd, cmd_tkn, envp, 0);
+	split_token = ft_split_token(cmd_tkn);
 	if (have_two_quotes(cmd) == -1)
 	{
 		status_error("Invalid caracter, aspas nao fechadas", ERROR);
 		return ;
 	}
-	old_in = 0;
-	cmd_tkn = NULL;
-	cmd_tkn = tokenizer(cmd, cmd_tkn, envp, 0);
 	if (verify_cmd(cmd_tkn) == -1)
 	{
 		status_error("Invalid caracter", ERROR);
@@ -95,9 +98,8 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 	}
 	else
 	{
-		split_token = ft_split_token(cmd_tkn);
-		line_in_pipe(split_token, envp, &old_in, 0);
-		free_tkn(split_token);
+		line_in_pipe(split_token, envp, &old_in, id);
+		// free_tkn(split_token);
 	}
 	if (old_in != 0)
 		close(old_in);
