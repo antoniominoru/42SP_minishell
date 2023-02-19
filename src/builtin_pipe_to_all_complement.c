@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all_complement.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 14:18:26 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 20:15:41 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	**ft_split_token(char **cmd_tkn)
 
 	c_all = 0;
 	tmp = NULL;
+	end = NULL;
 	end = malloc((cont_pipe_token(cmd_tkn) + 2) * sizeof(char *));
 	while (*cmd_tkn)
 	{
@@ -44,16 +45,21 @@ char	**ft_split_token(char **cmd_tkn)
 char	*ft_new_string(char **cmd_tkn)
 {
 	int		c_all;
+	char	*new_str;
 	char	*tmp;
+	char	*tmp2;
 
 	c_all = 0;
-	tmp = NULL;
-	tmp = ft_strdup("");
+	new_str = NULL;
+	new_str = ft_strdup("");
 	while (*cmd_tkn)
 	{
-		tmp = ft_strjoin(tmp, " ");
-		tmp = ft_strjoin(tmp, *cmd_tkn);
+		tmp2 = new_str;
+		tmp = ft_strjoin(new_str, " ");
+		new_str = ft_strjoin(tmp, *cmd_tkn);
 		cmd_tkn++;
+		free(tmp);
+		free(tmp2);
 	}
-	return (tmp);
+	return (new_str);
 }
