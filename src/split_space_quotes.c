@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 12:59:03 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/18 13:33:29 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 06:43:20 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ char	**remove_quotes(char **s, char q)
 	{
 		if (s[i][0] == q)
 		{
-			if (s[i][0] == q && s[i][1] == q)
-				tmp[i] = ft_strdup("");
+			if (s[i][0] == q && s[i][1] == q && !s[i][2])
+				tmp[i] = ft_strdup(" ");
 			else
 				tmp[i] = ft_strtrim(s[i], &q);
 		}

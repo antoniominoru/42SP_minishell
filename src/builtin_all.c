@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 01:37:06 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 06:01:02 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,36 @@ void	test_abs_path(char **cmd_tkn)
 	}
 }
 
+static	int	len_builtin(int len, int len_builtin)
+{
+	if (len == len_builtin)
+		return (len);
+	else if (len < len_builtin)
+		return (len_builtin);
+	else
+		return (len);
+}
+
 void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 {
+	int	len;
+
+	len = ft_strlen(cmd_tkn[0]);
 	test_abs_path(cmd_tkn);
-	printf("builtin all string: %s\n\n", cmd_tkn[0]);
-	if (ft_strncmp(cmd_tkn[0], "export", ft_strlen(cmd_tkn[0])) == 0)
+	if (!ft_strncmp(cmd_tkn[0], "export", len_builtin(len, 6)))
 		builtin_export(cmd_tkn[1], envp, F_BUILTIN);
-	else if (ft_strncmp(cmd_tkn[0], "unset", ft_strlen(cmd_tkn[0])) == 0)
+	else if (!ft_strncmp(cmd_tkn[0], "unset", len_builtin(len, 5)))
 		builtin_unset(cmd_tkn[1], envp, F_BUILTIN);
-	else if (ft_strncmp(cmd_tkn[0], "env", ft_strlen(cmd_tkn[0])) == 0)
+	else if (!ft_strncmp(cmd_tkn[0], "env", len_builtin(len, 3)))
 		builtin_env(*envp);
-	else if (ft_strncmp(cmd_tkn[0], "exit", ft_strlen(cmd_tkn[0])) == 0)
+	else if (!ft_strncmp(cmd_tkn[0], "exit", len_builtin(len, 4)))
 		builtin_exit(envp, cmd, cmd_tkn);
-	else if (ft_strncmp(cmd_tkn[0], "pwd", ft_strlen(cmd_tkn[0])) == 0)
+	else if (!ft_strncmp(cmd_tkn[0], "pwd", len_builtin(len, 3)))
 		builtin_pwd();
-	else if (ft_strncmp(cmd_tkn[0], "echo", ft_strlen(cmd_tkn[0])) == 0)
+	else if (!ft_strncmp(cmd_tkn[0], "echo", len_builtin(len, 4)))
 		builtin_echo(cmd_tkn);
-	else if (ft_strncmp(cmd_tkn[0], "cd", ft_strlen(cmd_tkn[0])) == 0)
+	else if (!ft_strncmp(cmd_tkn[0], "cd", len_builtin(len, 2)))
 		builtin_cd(cmd_tkn[1], envp);
 	else
 		builtin_other(cmd_tkn, envp);
-	
 }

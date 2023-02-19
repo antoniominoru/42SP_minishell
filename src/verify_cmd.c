@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verify_cmd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:17 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/17 01:52:10 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 07:02:30 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int	initial_verify_cmd(char **cmd)
 
 int	verify_cmd(char **cmd)
 {
-	if (have_two_quotes(*cmd) == -1)
-		return (-1);
 	if (ft_strlen(cmd[0]) < 3 && count_vector(cmd) == 1)
 		if (initial_verify_cmd(cmd) == -1)
 			return (-1);

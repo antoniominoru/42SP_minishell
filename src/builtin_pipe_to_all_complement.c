@@ -6,73 +6,57 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 01:24:14 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 04:48:01 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	**ft_split_token(char **ctkn)
+char	**ft_split_token(char **cmd_tkn)
 {
 	int		c_all;
-	char	*t;
+	char	*tmp;
 	char	**end;
+	// int i = 0;
 
 	c_all = 0;
-	t = NULL;
-	end = malloc((cont_pipe_token(ctkn) + 2) * sizeof(char *));
-	while (*ctkn)
+	tmp = NULL;
+	end = malloc((cont_pipe_token(cmd_tkn) + 2) * sizeof(char *));
+	// while (cmd_tkn[i])
+	// 	printf("comando dentro do split token ->$%s\n\n", cmd_tkn[i++]);
+	while (*cmd_tkn)
 	{
-		if (!ft_strncmp(*ctkn, "|", 1))
+		if (!ft_strncmp(*cmd_tkn, "|", 1))
 		{
-			end[c_all] = t;
-			t = NULL;
+			end[c_all] = tmp;
+			tmp = NULL;
 			c_all++;
-			ctkn++;
+			cmd_tkn++;
 		}
-		if (t == NULL)
-			t = ft_strjoin(" ", ft_strdup("\""));
+		if (tmp == NULL)
+			tmp = ft_strdup("");
 		else
-			t = ft_strjoin(t, ft_strjoin(" ", ft_strdup("\"")));
-		t = ft_strjoin(ft_strjoin(t, *ctkn), ft_strjoin(ft_strdup("\""), " "));
-		ctkn++;
+			tmp = ft_strjoin(tmp, " ");
+		tmp = ft_strjoin(tmp, *cmd_tkn);
+		cmd_tkn++;
 	}
-	end[c_all] = t;
+	end[c_all] = tmp;
 	return (end);
 }
 
 char	*ft_new_string(char **cmd_tkn)
 {
 	int		c_all;
-	char	*new_string;
 	char	*tmp;
 
 	c_all = 0;
-	new_string = NULL;
-	new_string = ft_strdup("");
+	tmp = NULL;
+	tmp = ft_strdup("");
 	while (*cmd_tkn)
 	{
-
-		tmp = ft_strjoin(new_string, " ");
-		new_string = ft_strjoin(tmp, *cmd_tkn);
+		tmp = ft_strjoin(tmp, " ");
+		tmp = ft_strjoin(tmp, *cmd_tkn);
 		cmd_tkn++;
-		free(tmp);
 	}
-	return (new_string);
-}
-
-char	*verify_cat(char *cmd, t_list **envp)
-{
-	char	**tmp;
-	char	**cmd_tkn;
-
-	tmp = NULL;
-	cmd_tkn = NULL;
-	if (ft_is_caract(cmd, "|"))
-	{
-		tmp = tokenizer(cmd, cmd_tkn, envp);
-		if (ft_strncmp(tmp[0], "cat", 3) == 0 && ft_strlen(tmp[0]) == 3)
-			cmd = ft_strjoin("echo | ", cmd);
-	}
-	return (cmd);
+	return (tmp);
 }

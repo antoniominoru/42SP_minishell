@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/17 01:35:04 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 05:47:49 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	builtin_export(char *cmd, t_list **envp, int flag)
 		job_builtin_export(cmd_args, envp, tmp);
 	else
 		print_env(*envp);
-	free_tkn(cmd_args);
+	if (cmd)
+		free_tkn(cmd_args);
 }
 
 void	print_env(t_list *lst)

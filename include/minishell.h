@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 01:24:18 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 06:57:15 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	builtin_cd(char *cmd, t_list **envp);
 void	builtin_echo(char **cmd_tkn);
 
 char	*take_value_of_env(char *cmd, t_list **envp);
-char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp);
+char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag);
 int		count_words(char const *s, char c);
 int		change_value_of_env(char *cmd, char *val, t_list **envp, int flag);
 void	builtin_other(char **cmd, t_list **envp);
@@ -98,7 +98,7 @@ int		v_exit_hd(char	*term, char *eof);
 void	clear_tmp_file(void);
 void	make_tmp_file(void);
 
-char	**ft_split_token(char **ctkn);
+char	**ft_split_token(char **cmd_tkn);
 int		cont_pipe_token(char **cmd);
 void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id);
 void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last);
@@ -108,10 +108,6 @@ int		ft_strlen_pp(char **str);
 char	**remove_quotes(char **s, char q);
 char	*ft_new_string(char **cmd_tkn);
 
-void	swap_env(char **cmd_tkn_env, t_list **envp, int i);
-int		hav_env_var(char **cmd, int i);
-char	**env_var(char **cmd_tkn, t_list **envp, int how_many);
-char	what_is_the_quote(char *cmd);
-char	*verify_cat(char *cmd, t_list **envp);
+//existem funcoes q n existem mais aqui no header
 
 #endif
