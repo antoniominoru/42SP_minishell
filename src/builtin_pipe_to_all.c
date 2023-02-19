@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 22:54:00 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 23:09:01 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,12 @@ int	cont_pipe_token(char **cmd)
 void	builtin_pipe_to_all(char *cmd, t_list **envp)
 {
 	int		old_in;
-	int		id;
 	char	**split_token;
 	char	**cmd_tkn;
 
 	old_in = 0;
-	id = 0;
 	cmd_tkn = NULL;
+	split_token = NULL;
 	cmd_tkn = tokenizer(cmd, cmd_tkn, envp, 0);
 	split_token = ft_split_token(cmd_tkn);
 	if (have_two_quotes(cmd) == -1)
@@ -97,10 +96,8 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 		return ;
 	}
 	else
-	{
-		line_in_pipe(split_token, envp, &old_in, id);
-		// free_tkn(split_token);
-	}
+		line_in_pipe(split_token, envp, &old_in, 0);
 	if (old_in != 0)
 		close(old_in);
+	free_tkn(cmd_tkn);
 }

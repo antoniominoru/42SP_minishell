@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 20:15:41 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 22:23:38 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	*ft_new_string(char **cmd_tkn)
 	{
 		tmp2 = new_str;
 		tmp = ft_strjoin(new_str, " ");
+		// free(new_str);
 		new_str = ft_strjoin(tmp, *cmd_tkn);
 		cmd_tkn++;
 		free(tmp);
