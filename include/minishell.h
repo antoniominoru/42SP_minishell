@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 15:33:14 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 17:56:48 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	status_error(char *msg, int error_status);
 
 void	builtin_exit(t_list **lst_env, char *cmd, char **cmd_tkn);
 void	exit_m_sh(t_list **lst_env, char *cmd, char **cmd_tkn, int arg_exit);
+void	initialize_var(char **cmd, t_list **lst_env, char **path, char **envp);
 void	builtin_env(t_list *lst);
 void	builtin_export(char *cmd, t_list **envp, int flag);
 int		builtin_unset(char *cmd, t_list **envp, int flag);
