@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 23:02:47 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 23:18:11 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ int	hav_env_var(char **cmd, int i)
 	{
 		tmp = cmd[i];
 		cmd[i] = ft_strtrim(cmd[i], "\"");
+		free(tmp);
 		return (1);
 	}
 	else if (!ft_strncmp(cmd[i], "$", 1) && ft_strchr(cmd[i], '\"'))
 	{
 		tmp = cmd[i];
 		cmd[i] = ft_strtrim(cmd[i], "\"");
+		free(tmp);
 		return (1);
 	}
 	return (0);
@@ -103,7 +105,9 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
 	char	**quotes;
 	char	q;
 	char	*cmd_env_new;
+	char	**tmp;
 
+	tmp = NULL;
 	cmd_tkn_new = NULL;
 	if (cmd_tkn != NULL)
 		free_tkn(cmd_tkn);
@@ -111,6 +115,7 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
 	if (q != '\'')
 	{
 		cmd_tkn_new = ft_split(cmd, ' ');
+		tmp = cmd_tkn_new;
 		cmd_tkn_new = env_var(cmd_tkn_new, envp, count_words(cmd, ' '));
 		cmd_env_new = ft_new_string(cmd_tkn_new);
 	}
@@ -121,5 +126,6 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
 	if (flag)
 		cmd_tkn_new = remove_quotes(cmd_tkn_new, q);
 	free(cmd_env_new);
+	free(tmp);
 	return (cmd_tkn_new);
 }
