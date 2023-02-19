@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 00:09:26 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 00:35:48 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ char	**ft_split_token(char **cmd_tkn)
 	int		c_all;
 	char	*tmp;
 	char	**end;
+	int		test;
 
 	c_all = 0;
 	tmp = NULL;
 	end = NULL;
-	end = malloc((cont_pipe_token(cmd_tkn) + 2) * sizeof(char *));
+	test = cont_pipe_token(cmd_tkn);
+	end = malloc(( test + 2) * sizeof(char *));
 	while (*cmd_tkn)
 	{
 		if (!ft_strncmp(*cmd_tkn, "|", 1))
@@ -32,7 +34,7 @@ char	**ft_split_token(char **cmd_tkn)
 			cmd_tkn++;
 		}
 		if (tmp == NULL)
-			tmp = ft_strdup("");
+			tmp = "";
 		else
 			tmp = ft_strjoin(tmp, " ");
 		tmp = ft_strjoin(tmp, *cmd_tkn);
