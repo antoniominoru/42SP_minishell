@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 16:14:41 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:06:21 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
 	}
 	else
 		cmd_env_new = ft_strdup(cmd);
+	printf("%s\n", cmd_env_new);
 	quotes = split_quotes(cmd_env_new, q);
 	cmd_tkn_new = split_space_quotes(quotes, q);
 	if (flag)

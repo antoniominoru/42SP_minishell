@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/19 17:57:22 by jvictor-         ###   ########.fr        #
+#    Updated: 2023/02/19 21:16:33 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SRCS = 	./src/main.c \
 		./src/builtin_pipe_to_all.c \
 		./src/here_doc.c \
 		./src/verify_cmd.c \
-		./src/set_path.c \
 		./src/here_doc_complement.c  \
 		./src/builtin_pipe_to_all_complement.c  \
 		./src/have_two_quotes.c \

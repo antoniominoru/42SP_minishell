@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 17:56:48 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:16:48 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ char	**split_quotes(char const *s, char c);
 int		have_two_quotes(char *cmd);
 void	position_quotes(int pos, char q);
 int		verify_cmd(char **cmd);
-void	set_path(t_list **envp);
 
 void	inter_here_doc(int signal);
 void	error_here_doc(void);
