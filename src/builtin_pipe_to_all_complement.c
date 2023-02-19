@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all_complement.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 23:34:44 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 01:24:14 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ char	**ft_split_token(char **ctkn)
 			ctkn++;
 		}
 		if (t == NULL)
-			t = ft_strjoin(" ", ft_strdup(";"));
+			t = ft_strjoin(" ", ft_strdup("\""));
 		else
-			t = ft_strjoin(t, ft_strjoin(" ", ft_strdup(";")));
-		t = ft_strjoin(ft_strjoin(t, *ctkn), ft_strjoin(ft_strdup(";"), " "));
+			t = ft_strjoin(t, ft_strjoin(" ", ft_strdup("\"")));
+		t = ft_strjoin(ft_strjoin(t, *ctkn), ft_strjoin(ft_strdup("\""), " "));
 		ctkn++;
 	}
 	end[c_all] = t;
