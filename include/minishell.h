@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 14:08:10 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:33:14 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,10 @@ int		ft_strlen_pp(char **str);
 char	**remove_quotes(char **s, char q);
 char	*ft_new_string(char **cmd_tkn);
 
+int		hav_env_var(char **cmd, int i);
+char	*take_env_of_value(char *cmd, t_list **envp);
+int		len_builtin(int len, int len_builtin);
+char	what_is_the_quote(char *cmd);
 //existem funcoes q n existem mais aqui no header
 
 #endif

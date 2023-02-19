@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 14:07:47 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:14:41 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	swap_env(char **cmd_tkn_env, t_list **envp, int i)
 	free(swap_cmd);
 }
 
-static int	hav_env_var(char **cmd, int i)
+int	hav_env_var(char **cmd, int i)
 {
 	char	*tmp;
 
@@ -50,32 +50,33 @@ static int	hav_env_var(char **cmd, int i)
 static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 {
 	int		i;
-	char	**cmd_tkn_env;
+	char	**cmd_tv;
 
 	i = 0;
-	if (envp == NULL)
-		return (NULL);
-	cmd_tkn_env = cmd_tkn;
-	while (cmd_tkn_env[i])
+	cmd_tv = cmd_tkn;
+	if (!ft_strncmp(ft_strtrim(cmd_tv[0], "\""), "unset", \
+	len_builtin(ft_strlen(cmd_tv[0]), 5)))
+		cmd_tv[1] = ft_strtrim(ft_strtrim(cmd_tv[1], "\""), "$");
+	while (cmd_tv[i])
 	{
-		if (hav_env_var(cmd_tkn_env, i))
+		if (hav_env_var(cmd_tv, i))
 		{
-			if (take_value_of_env(&cmd_tkn_env[i][1], envp))
-				swap_env(cmd_tkn_env, envp, i);
-			else if (!ft_strncmp(cmd_tkn_env[i], "$?", 2))
+			if (take_value_of_env(&cmd_tv[i][1], envp))
+				swap_env(cmd_tv, envp, i);
+			else if (!ft_strncmp(cmd_tv[i], "$?", 2))
 			{
-				free(cmd_tkn_env[i]);
-				cmd_tkn_env[i] = ft_itoa(g_current_status);
+				free(cmd_tv[i]);
+				cmd_tv[i] = ft_itoa(g_current_status);
 			}
 			else
-				cmd_tkn_env = reallocate_cmd(cmd_tkn_env, &i, how_many--);
+				cmd_tv = reallocate_cmd(cmd_tv, &i, how_many--);
 		}
 		i++;
 	}
-	return (cmd_tkn_env);
+	return (cmd_tv);
 }
 
-static char	what_is_the_quote(char *cmd)
+char	what_is_the_quote(char *cmd)
 {
 	int	i;
 
