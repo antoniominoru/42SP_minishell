@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 17:05:01 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 17:07:05 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	test_abs_path(char **cmd_tkn)
 	}
 }
 
-static	int	len_builtin(int len, int len_builtin)
+int	len_builtin(int len, int len_builtin)
 {
 	if (len == len_builtin)
 		return (len);

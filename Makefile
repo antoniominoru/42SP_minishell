@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/18 13:11:46 by jvictor-         ###   ########.fr        #
+#    Updated: 2023/02/19 14:08:24 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCS = 	./src/main.c \
 		./src/have_two_quotes.c \
 		./src/split_quotes.c \
 		./src/split_space_quotes.c \
+		./src/tokenizer_complement.c \
 		./src/ft_strlen_pp.c
 
 OBJS = ${SRCS:.c=.o}
