@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:05:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 23:18:11 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 23:26:46 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
 	if (flag)
 		cmd_tkn_new = remove_quotes(cmd_tkn_new, q);
 	free(cmd_env_new);
+	free_tkn(quotes);
 	free(tmp);
 	return (cmd_tkn_new);
 }
