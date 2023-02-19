@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirect_verify.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 12:26:08 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/19 23:00:20 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static int	io_redirect(char **cmd, int config, int io_re, char *redic)
 		fd = open(cmd[pos], config, 0777);
 	dup2(fd, io_re);
 	close(fd);
+	free(command);
 	return (pos);
 }
 
