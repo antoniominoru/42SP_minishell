@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/19 14:08:24 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/19 17:57:22 by jvictor-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = 	./src/main.c \
 		./src/builtin_echo.c \
 		./src/builtin_cd.c \
 		./src/take_value_of_env.c \
+		./src/initialize_var.c \
 		./src/tokenizer.c \
 		./src/change_value_of_env.c \
 		./src/builtin_other.c  \
