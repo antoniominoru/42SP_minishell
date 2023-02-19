@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/19 14:00:45 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/19 14:08:51 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS = test.c \
 		../src/builtin_exit.c \
 		../src/ft_strlen_pp.c \
 		../src/free_all.c \
+		../src/tokenizer_complement.c \
 		../src/here_doc_complement.c
 
 		
