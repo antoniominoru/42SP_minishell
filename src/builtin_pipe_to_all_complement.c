@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all_complement.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 04:48:01 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/19 14:18:26 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ char	**ft_split_token(char **cmd_tkn)
 	int		c_all;
 	char	*tmp;
 	char	**end;
-	// int i = 0;
 
 	c_all = 0;
 	tmp = NULL;
 	end = malloc((cont_pipe_token(cmd_tkn) + 2) * sizeof(char *));
-	// while (cmd_tkn[i])
-	// 	printf("comando dentro do split token ->$%s\n\n", cmd_tkn[i++]);
 	while (*cmd_tkn)
 	{
 		if (!ft_strncmp(*cmd_tkn, "|", 1))
