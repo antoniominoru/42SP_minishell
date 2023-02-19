@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 15:19:37 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/18 19:13:39 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/19 14:00:45 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,20 @@ SRCS = test.c \
 		../src/status_error.c \
 		../src/change_value_of_env.c \
 		../src/split_quotes.c \
+		../src/split_space_quotes.c \
+		../src/builtin_pipe_to_all_complement.c \
+		../src/here_doc.c \
+		../src/builtin_pipe_to_all.c \
+		../src/redirect_verify.c \
+		../src/have_two_quotes.c \
+		../src/verify_cmd.c \
+		../src/builtin_all.c \
+		../src/builtin_other.c \
+		../src/tokenizer.c \
+		../src/signals.c \
+		../src/builtin_exit.c \
+		../src/ft_strlen_pp.c \
 		../src/free_all.c \
-		../src/cont_vector.c  \
 		../src/here_doc_complement.c
 
 		
