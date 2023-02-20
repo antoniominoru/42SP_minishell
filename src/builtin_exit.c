@@ -22,16 +22,6 @@ static	int	count_args(char **cmd_tkn)
 	return (i);
 }
 
-static	int	arg_not_num(char *cmd_tkn)
-{
-	if (!cmd_tkn)
-		return (0);
-	while (*cmd_tkn)
-		if (!ft_isdigit(*cmd_tkn++))
-			return (1);
-	return (0);
-}
-
 void	exit_m_sh(t_list **lst_env, char *cmd,
 								char **cmd_tkn, int arg_exit)
 {
@@ -83,7 +73,7 @@ void	builtin_exit1(t_all *all, char **cmd_tkn)
 void	exit_m_sh1(t_all *all, char **cmd_tkn, int arg_exit)
 {
 	free_all(all->envp, all->cmd, cmd_tkn);
-    free_tkn(all->split_token);
+	free_tkn(all->split_token);
 	printf("exit\n");
 	exit(arg_exit);
 }

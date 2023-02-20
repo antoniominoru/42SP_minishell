@@ -86,35 +86,12 @@ static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 	return (cmd_tv);
 }
 
-char	what_is_the_quote(char *cmd)
+char	*make_new_cmd(char **cmd_tkn_new, char *cmd, t_list **envp, char q)
 {
-	int	i;
-
-	i = 0;
-	while (cmd[i])
-	{
-		if (cmd[i] == '\"')
-			return ('\"');
-		else if (cmd[i] == '\'')
-			return ('\'');
-		i++;
-	}
-	return ('\0');
-}
-
-char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
-{
-	char	**cmd_tkn_new;
-	char	**quotes;
-	char	q;
 	char	*cmd_env_new;
 	char	**tmp;
 
 	tmp = NULL;
-	cmd_tkn_new = NULL;
-	if (cmd_tkn != NULL)
-		free_tkn(cmd_tkn);
-	q = what_is_the_quote(cmd);
 	if (q != '\'')
 	{
 		cmd_tkn_new = ft_split(cmd, ' ');
@@ -124,13 +101,28 @@ char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
 	}
 	else
 		cmd_env_new = ft_strdup(cmd);
+	if (tmp)
+		free_tkn(tmp);
+	return (cmd_env_new);
+}
+
+char	**tokenizer(char *cmd, char **cmd_tkn, t_list **envp, int flag)
+{
+	char	**cmd_tkn_new;
+	char	**quotes;
+	char	q;
+	char	*cmd_env_new;
+
+	cmd_tkn_new = NULL;
+	if (cmd_tkn != NULL)
+		free_tkn(cmd_tkn);
+	q = what_is_the_quote(cmd);
+	cmd_env_new = make_new_cmd(cmd_tkn_new, cmd, envp, q);
 	quotes = split_quotes(cmd_env_new, q);
 	cmd_tkn_new = split_space_quotes(quotes, q);
 	if (flag)
 		cmd_tkn_new = remove_quotes(cmd_tkn_new, q);
 	free(cmd_env_new);
 	free_tkn(quotes);
-	if (tmp)
-		free_tkn(tmp);
 	return (cmd_tkn_new);
 }

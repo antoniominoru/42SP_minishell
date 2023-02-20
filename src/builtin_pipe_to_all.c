@@ -77,41 +77,12 @@ void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 		builtin_pipe(split_token[id], envp, old_in, 1);
 }
 
-void	line_in_pipe1(t_all *all, int id)
-{
-	if (all->split_token[id + 1] != NULL)
-	{
-		builtin_pipe1(all, 0, id);
-		line_in_pipe1(all, id + 1);
-	}
-	else
-		builtin_pipe1(all, 1, id);
-}
-
-int	cont_pipe_token(char **cmd)
-{
-	int		i;
-	char	**tmp;
-
-	i = 0;
-	tmp = cmd;
-	while (*tmp)
-	{
-		if (!ft_strncmp(*tmp, "|", 1))
-			i++;
-		tmp++;
-	}
-	return (i);
-}
-
 void	builtin_pipe_to_all(char *cmd, t_list **envp)
 {
-	int		old_in;
 	char	**split_token;
 	char	**cmd_tkn;
-    t_all   all;
+	int		old_in;
 
-	old_in = 0;
 	cmd_tkn = NULL;
 	split_token = NULL;
 	cmd_tkn = tokenizer(cmd, cmd_tkn, envp, 0);
@@ -121,19 +92,7 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 		status_error("Invalid caracter, aspas nao fechadas", ERROR);
 		return ;
 	}
-	if (verify_cmd(cmd_tkn) == -1)
-	{
-		status_error("Invalid caracter", ERROR);
-		return ;
-	}
-	else
-    {
-        all.cmd = cmd;
-		all.split_token = split_token;
-        all.envp = envp;
-        all.old_in = &old_in;
-        line_in_pipe1(&all, 0);
-    }
+	old_in = init_verify_cmd(envp, split_token, cmd_tkn, cmd);
 	if (old_in != 0)
 		close(old_in);
 	free_tkn(cmd_tkn);

@@ -129,4 +129,8 @@ void	builtin_all1(t_all *all, char **cmd_tkn);//
 void	builtin_exit1(t_all *all, char **cmd_tkn);//
 void	exit_m_sh1(t_all *all, char **cmd_tkn, int arg_exit);//
 
+int	init_verify_cmd(t_list **envp, char **split_token,
+						char **cmd_tkn, char *cmd);
+int	arg_not_num(char *cmd_tkn);
+
 #endif
