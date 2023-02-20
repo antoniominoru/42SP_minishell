@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:17 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 11:25:14 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:41:39 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	verify_cmd(char **cmd)
 		if (initial_verify_cmd(cmd) == -1)
 			return (-1);
 	if (!ft_strncmp(cmd[0], "|", 1))
-		return (-1);
-	if (!ft_strncmp(cmd[0], "/", 1))
 		return (-1);
 	if (!ft_strncmp(cmd[0], "$", 1))
 		return (-1);
