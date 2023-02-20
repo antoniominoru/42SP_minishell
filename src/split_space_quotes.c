@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_space_quotes.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 12:59:03 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 06:43:20 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 08:55:39 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	**split_space_quotes(char **s, char q)
 
 	tmp = NULL;
 	qt_mem_allocate = count_space_quotes(s, q);
-	tmp = malloc((qt_mem_allocate + 1) * sizeof(char **));
+	tmp = malloc((qt_mem_allocate + 1) * sizeof(char *));
 	tmp = core_space_quotes(s, tmp, q);
 	return (tmp);
 }

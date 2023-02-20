@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/20 08:09:29 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:00:15 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ void	builtin_all1(t_all *all, char **cmd_tkn)
 		builtin_env(*(all->envp));
 	else if (!ft_strncmp(cmd_tkn[0], "exit", len_builtin(len, 4)))
 		builtin_exit1(all, cmd_tkn);
-	// else if (!ft_strncmp(cmd_tkn[0], "pwd", len_builtin(len, 3)))
-	// 	builtin_pwd();
-	// else if (!ft_strncmp(cmd_tkn[0], "echo", len_builtin(len, 4)))
-	// 	builtin_echo(cmd_tkn);
-	// else if (!ft_strncmp(cmd_tkn[0], "cd", len_builtin(len, 2)))
-	// 	builtin_cd(cmd_tkn[1], envp);
-	// else
-	// 	builtin_other(cmd_tkn, envp);
+	else if (!ft_strncmp(cmd_tkn[0], "pwd", len_builtin(len, 3)))
+		builtin_pwd();
+	else if (!ft_strncmp(cmd_tkn[0], "echo", len_builtin(len, 4)))
+		builtin_echo(cmd_tkn);
+	else if (!ft_strncmp(cmd_tkn[0], "cd", len_builtin(len, 2)))
+		builtin_cd(cmd_tkn[1], all->envp);
+	else
+		builtin_other(cmd_tkn, all->envp);
 }
