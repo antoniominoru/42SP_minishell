@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/20 00:58:43 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 02:32:07 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ static void	make_pipe(char *cmd, t_list **lst_env)
 
 void	minishell(char	*cmd, t_list *lst_env, char **path)
 {
-	char	buffer[2048];
-
+	// char	buffer[2048];
 	while (1)
 	{
 		define_signals();
 		if (*path)
 			free(*path);
-		*path = ft_strjoin(getcwd(buffer, 2048), " | (~~miniHELL~~)> ");
+		// *path = ft_strjoin(getcwd(buffer, 2048), " | (~~miniHELL~~)> ");
+		*path = ft_strdup(" | (~~miniHELL~~)> ");
 		cmd = readline(*path);
 		if (cmd == NULL)
 			exit_m_sh(&lst_env, cmd, NULL, g_current_status);
