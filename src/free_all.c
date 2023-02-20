@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 02:38:52 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/03 22:11:47 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 06:56:27 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	free_lst_env(t_list **lst_env)
 		free(aux);
 		aux = temp;
 	}
+	free(aux);
 	*lst_env = NULL;
 }
 

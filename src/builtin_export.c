@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 02:02:38 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 05:47:49 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 07:04:04 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 void	job_builtin_export(char **cmd_args, t_list **envp, char	*tmp)
 {
+	char	*tmp_var;
+
+	tmp_var = NULL;
 	if (count_vector(cmd_args) > 1)
 	{
 		builtin_unset(cmd_args[0], envp, F_INTERN);
 		tmp = ft_strjoin("=", cmd_args[1]);
-		ft_lstadd_back(envp, ft_lstnew(ft_strjoin(cmd_args[0], tmp)));
+		tmp_var = ft_strjoin(cmd_args[0], tmp);
+		ft_lstadd_back(envp, ft_lstnew(tmp_var));
 	}
 	else
 	{
 		builtin_unset(cmd_args[0], envp, F_INTERN);
-		ft_lstadd_back(envp, ft_lstnew(ft_strdup(cmd_args[0])));
+		tmp_var = ft_strdup(cmd_args[0]);
+		ft_lstadd_back(envp, ft_lstnew(tmp_var));
 	}
 	free(tmp);
 }
@@ -42,7 +47,7 @@ void	builtin_export(char *cmd, t_list **envp, int flag)
 		job_builtin_export(cmd_args, envp, tmp);
 	else
 		print_env(*envp);
-	if (cmd)
+	if (cmd_args)
 		free_tkn(cmd_args);
 }
 
