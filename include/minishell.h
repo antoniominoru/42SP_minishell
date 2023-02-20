@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 02:40:55 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:49:52 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@
 # define F_INTERN 1
 # define F_BUILTIN 0
 
-typedef struct s_all{
-    char    *cmd;
-    char    **split_token;
-    t_list  **envp;
-    int     *old_in;
-}               t_all;
+typedef struct s_all
+{
+	char	*cmd;
+	char	**split_token;
+	t_list	**envp;
+	int		*old_in;
+}	t_all;
 
 extern int	g_current_status;
 
@@ -126,6 +127,5 @@ void	line_in_pipe1(t_all *all, int id);//
 void	builtin_all1(t_all *all, char **cmd_tkn);//
 void	builtin_exit1(t_all *all, char **cmd_tkn);//
 void	exit_m_sh1(t_all *all, char **cmd_tkn, int arg_exit);//
-
 
 #endif
