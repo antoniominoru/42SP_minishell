@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_other.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/18 01:48:40 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 03:44:02 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,15 @@ int	builtin_other_int(char **cmd, t_list **envp, pid_t pid_dad)
 	char	**cmd_args;
 	char	*comand;
 	char	**path_env;
+	char	*temp_path;
+	char	*tmp;
 
 	path_env = NULL;
-	path_env = ft_split(ft_strdup(take_value_of_env("PATH", envp)), ':');
+	temp_path = ft_strdup(take_value_of_env("PATH", envp));
+	path_env = ft_split(temp_path, ':');
 	cmd_args = cmd;
-	comand = get_cmd(cmd_args[0], path_env);
+	tmp = ft_strdup(cmd_args[0]);
+	comand = get_cmd(tmp, path_env);
 	if (!comand)
 	{
 		kill(pid_dad, SIGUSR1);
@@ -49,6 +53,8 @@ int	builtin_other_int(char **cmd, t_list **envp, pid_t pid_dad)
 	free_tkn(cmd_args);
 	free_tkn(path_env);
 	free(comand);
+	free(tmp);
+	free(temp_path);
 	return (1);
 }
 

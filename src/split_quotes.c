@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:03:59 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/17 19:15:06 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 04:52:51 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,47 @@ static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 		}
 		table++;
 	}
-	*table = NULL;
+	// if (*table)
+		*table = NULL;
 	return (table_ptr);
+}
+
+static int	count_words_quotes(char const *s, char c)
+{
+	int	is_word;
+	int	how_many;
+	int	i;
+
+	i = 0;
+	is_word = 0;
+	how_many = 0;
+	while (s[i])
+	{
+		if (is_word == 0 && s[i] != c)
+		{
+			is_word = 1;
+			how_many++;
+		}
+		else if (is_word && s[i] == c && s[i + 1] == c)
+		{
+			is_word = 1;
+			how_many++;
+		}
+		else if (is_word && s[i] == c)
+			is_word = 0;
+		i++;
+	}
+	return (how_many);
 }
 
 char	**split_quotes(char const *s, char c)
 {
 	char	**table;
-	size_t	words;
+	int		words;
 
 	if (!s)
 		return (NULL);
-	words = count_words(s, c);
+	words = count_words_quotes(s, c);
 	table = malloc((words + 1) * sizeof(char *));
 	if (!table)
 		return (NULL);
