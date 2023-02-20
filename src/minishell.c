@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/20 02:41:14 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 08:36:15 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ static void	make_pipe(char *cmd, t_list **lst_env)
 	&& !ft_strncmp(tmp2, "ls", 2) && cec(test))
 		pipe_to_all(tmp, tmp2, lst_env);
 	else
+	{
+		free_tkn(test);
 		builtin_pipe_to_all(cmd, lst_env);
+	}
 	free_tkn(test);
 }
 
