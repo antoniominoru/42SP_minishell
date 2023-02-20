@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_quotes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:03:59 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/20 04:52:51 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:10:22 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,6 @@ static size_t	length_word_2(char const *s, char c)
 	return (counter + hmany_c);
 }
 
-static void	free_table(char **s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		free(s[i]);
-		i++;
-	}
-	free(s);
-}
-
 static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 {
 	int	i;
@@ -91,8 +78,7 @@ static char	**allocates(char const *s, char c, char **table, char **table_ptr)
 		}
 		table++;
 	}
-	// if (*table)
-		*table = NULL;
+	*table = NULL;
 	return (table_ptr);
 }
 

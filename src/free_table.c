@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_value_of_env.c                              :+:      :+:    :+:   */
+/*   free_table.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 01:41:41 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 10:01:57 by aminoru-         ###   ########.fr       */
+/*   Created: 2023/02/20 10:10:15 by aminoru-          #+#    #+#             */
+/*   Updated: 2023/02/20 10:14:05 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	change_value_of_env(char *cmd, char *val, t_list **envp, int flag)
+void	free_table(char **s)
 {
-	char	*tmp_join;
-	char	*tmp_join_2;
+	int	i;
 
-	tmp_join = ft_strjoin("=", val);
-	tmp_join_2 = ft_strjoin(cmd, tmp_join);
-	builtin_export(tmp_join_2, envp, flag);
-	free(tmp_join);
-	free(tmp_join_2);
-	return (1);
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
 }

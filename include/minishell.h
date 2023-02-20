@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 09:49:52 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:10:53 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ int		hav_env_var(char **cmd, int i);
 char	*take_env_of_value(char *cmd, t_list **envp);
 int		len_builtin(int len, int len_builtin);
 char	what_is_the_quote(char *cmd);
+void	free_table(char **s);
 
 // ALTERAÇÕES
 void	builtin_pipe1(t_all *all, int last, int id);//
