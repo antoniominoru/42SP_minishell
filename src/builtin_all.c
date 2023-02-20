@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/20 02:42:37 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 03:17:41 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	test_abs_path(char **cmd_tkn)
 	{
 		new_cmd = ft_split(cmd_tkn[0], '/');
 		last = count_vector(new_cmd) - 1;
+		free(cmd_tkn[0]);
 		cmd_tkn[0] = ft_strdup(new_cmd[last]);
 	}
 	if (new_cmd)
