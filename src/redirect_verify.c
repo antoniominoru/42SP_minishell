@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirect_verify.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 01:06:40 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 23:00:20 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 02:12:15 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,12 @@
 int	ft_is_caract(char *cmd, char *caract)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (cmd[i])
-	{
-		if (cmd[i] == caract[0] && \
-			cmd[i - 1] != caract[0] && \
-			cmd[i + 1] != caract[0]
-		)
-			return (1);
-		if (cmd[i] == caract[0] && \
-			cmd[i - 1] != caract[0] && \
-			cmd[i + 1] == caract[0] && \
-			cmd[i + 2] != caract[0]
-		)
-			return (2);
-		i++;
-	}
+	i = ft_strlen(cmd);
+	j = ft_strlen(caract);
+	if (i == j && !ft_strncmp(cmd, caract, j))
+		return (j);
 	return (0);
 }
 
