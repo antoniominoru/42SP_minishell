@@ -16,7 +16,7 @@ int	change_value_of_env(char *cmd, char *val, t_list **envp, int flag)
 {
 	char	*tmp_join;
 	char	*tmp_join_2;
-	
+
 	tmp_join = ft_strjoin("=", val);
 	tmp_join_2 = ft_strjoin(cmd, tmp_join);
 	builtin_export(tmp_join_2, envp, flag);

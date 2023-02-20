@@ -86,7 +86,6 @@ void	line_in_pipe1(t_all *all, int id)
 	}
 	else
 		builtin_pipe1(all, 1, id);
-		// builtin_pipe(all->split_token[id], all->envp, all->old_in, 1);
 }
 
 int	cont_pipe_token(char **cmd)
@@ -105,27 +104,16 @@ int	cont_pipe_token(char **cmd)
 	return (i);
 }
 
-void	builtin_pipe_to_all(char *cmd, t_list **envp)
+int	init_verify_cmd(t_list **envp, char **split_token, char **cmd_tkn, char *cmd)
 {
 	int		old_in;
-	char	**split_token;
-	char	**cmd_tkn;
     t_all   all;
-
 	old_in = 0;
-	cmd_tkn = NULL;
-	split_token = NULL;
-	cmd_tkn = tokenizer(cmd, cmd_tkn, envp, 0);
-	split_token = ft_split_token(cmd_tkn);
-	if (have_two_quotes(cmd) == -1)
-	{
-		status_error("Invalid caracter, aspas nao fechadas", ERROR);
-		return ;
-	}
+
 	if (verify_cmd(cmd_tkn) == -1)
 	{
 		status_error("Invalid caracter", ERROR);
-		return ;
+		return (0);
 	}
 	else
     {
@@ -135,6 +123,25 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
         all.old_in = &old_in;
         line_in_pipe1(&all, 0);
     }
+	return (old_in);
+}
+
+void	builtin_pipe_to_all(char *cmd, t_list **envp)
+{
+	char	**split_token;
+	char	**cmd_tkn;
+	int		old_in;
+
+	cmd_tkn = NULL;
+	split_token = NULL;
+	cmd_tkn = tokenizer(cmd, cmd_tkn, envp, 0);
+	split_token = ft_split_token(cmd_tkn);
+	if (have_two_quotes(cmd) == -1)
+	{
+		status_error("Invalid caracter, aspas nao fechadas", ERROR);
+		return ;
+	}
+	old_in = init_verify_cmd(envp, split_token, cmd_tkn, cmd);
 	if (old_in != 0)
 		close(old_in);
 	free_tkn(cmd_tkn);
