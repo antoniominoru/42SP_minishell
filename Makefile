@@ -66,12 +66,10 @@ ${NAME}: ${OBJS}
 
 clean:
 			make clean -C ./lib/libft
-			make clean -C ./test_minunit
 			rm -f ${OBJS}
 
 fclean: clean
 			make fclean -C ./lib/libft
-			make fclean -C ./test_minunit
 			rm -f ${NAME}
 
 re: fclean all
