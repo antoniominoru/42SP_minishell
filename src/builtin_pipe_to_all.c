@@ -6,7 +6,11 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/02/20 01:06:33 by jvictor-         ###   ########.fr       */
+=======
+/*   Updated: 2023/02/20 01:04:32 by aminoru-         ###   ########.fr       */
+>>>>>>> 6123623aebab99260fe44e7ec6d29f3cb60780d7
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +53,7 @@ void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 
 void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 {
-	if (split_token[id + 1] != NULL)
+	if (ft_strdup(split_token[id + 1]) != NULL)
 	{
 		builtin_pipe(split_token[id], envp, old_in, 0);
 		line_in_pipe(split_token, envp, old_in, id + 1);
