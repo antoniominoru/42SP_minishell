@@ -73,3 +73,19 @@ int	init_verify_cmd(t_list **envp, char **split_token,
 	}
 	return (old_in);
 }
+
+char	what_is_the_quote(char *cmd)
+{
+	int	i;
+
+	i = 0;
+	while (cmd[i])
+	{
+		if (cmd[i] == '\"')
+			return ('\"');
+		else if (cmd[i] == '\'')
+			return ('\'');
+		i++;
+	}
+	return ('\0');
+}
