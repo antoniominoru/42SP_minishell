@@ -12,6 +12,22 @@
 
 #include "minishell.h"
 
+int	cont_pipe_token(char **cmd)
+{
+	int		i;
+	char	**tmp;
+
+	i = 0;
+	tmp = cmd;
+	while (*tmp)
+	{
+		if (!ft_strncmp(*tmp, "|", 1))
+			i++;
+		tmp++;
+	}
+	return (i);
+}
+
 char	**ft_split_token(char **cmd_tkn)
 {
 	int		c_all;
@@ -72,4 +88,15 @@ char	*ft_new_string(char **cmd_tkn)
 		free(tmp2);
 	}
 	return (new_str);
+}
+
+void	line_in_pipe1(t_all *all, int id)
+{
+	if (all->split_token[id + 1] != NULL)
+	{
+		builtin_pipe1(all, 0, id);
+		line_in_pipe1(all, id + 1);
+	}
+	else
+		builtin_pipe1(all, 1, id);
 }

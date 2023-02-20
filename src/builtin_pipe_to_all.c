@@ -77,55 +77,6 @@ void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 		builtin_pipe(split_token[id], envp, old_in, 1);
 }
 
-void	line_in_pipe1(t_all *all, int id)
-{
-	if (all->split_token[id + 1] != NULL)
-	{
-		builtin_pipe1(all, 0, id);
-		line_in_pipe1(all, id + 1);
-	}
-	else
-		builtin_pipe1(all, 1, id);
-}
-
-int	cont_pipe_token(char **cmd)
-{
-	int		i;
-	char	**tmp;
-
-	i = 0;
-	tmp = cmd;
-	while (*tmp)
-	{
-		if (!ft_strncmp(*tmp, "|", 1))
-			i++;
-		tmp++;
-	}
-	return (i);
-}
-
-int	init_verify_cmd(t_list **envp, char **split_token, char **cmd_tkn, char *cmd)
-{
-	int		old_in;
-    t_all   all;
-	old_in = 0;
-
-	if (verify_cmd(cmd_tkn) == -1)
-	{
-		status_error("Invalid caracter", ERROR);
-		return (0);
-	}
-	else
-    {
-        all.cmd = cmd;
-		all.split_token = split_token;
-        all.envp = envp;
-        all.old_in = &old_in;
-        line_in_pipe1(&all, 0);
-    }
-	return (old_in);
-}
-
 void	builtin_pipe_to_all(char *cmd, t_list **envp)
 {
 	char	**split_token;
