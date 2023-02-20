@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_other.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:17:36 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 03:44:02 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:39:42 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*get_cmd(char *cmd, char **paths)
 	char	*tmp;
 	char	*command;
 
+	if (access(cmd, X_OK) == 0)
+		return (cmd);
 	while (*paths)
 	{
 		tmp = ft_strjoin(*paths, "/");
