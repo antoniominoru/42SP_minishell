@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 21:16:48 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 02:40:55 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 
 extern int	g_current_status;
 
-void	minishell(char	*cmd, t_list *lst_env, char **path);
+void	minishell(char	*cmd, t_list *lst_env, char *path);
 t_list	*env_to_lst(char *envp[]);
 void	print_list(t_list *lst);
 void	define_signals(void);

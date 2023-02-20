@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/20 02:32:07 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 02:41:14 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,17 @@ static void	make_pipe(char *cmd, t_list **lst_env)
 	free_tkn(test);
 }
 
-void	minishell(char	*cmd, t_list *lst_env, char **path)
+void	minishell(char	*cmd, t_list *lst_env, char *path)
 {
 	// char	buffer[2048];
 	while (1)
 	{
 		define_signals();
-		if (*path)
-			free(*path);
+		// if (*path)
 		// *path = ft_strjoin(getcwd(buffer, 2048), " | (~~miniHELL~~)> ");
-		*path = ft_strdup(" | (~~miniHELL~~)> ");
-		cmd = readline(*path);
+		path = ft_strdup(" | (~~miniHELL~~)> ");
+		cmd = readline(path);
+		free(path);
 		if (cmd == NULL)
 			exit_m_sh(&lst_env, cmd, NULL, g_current_status);
 		else if (have_cmd(cmd))
