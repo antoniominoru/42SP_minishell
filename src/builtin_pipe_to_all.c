@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 02:42:02 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 08:10:52 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,25 @@ void	builtin_pipe(char *cmd, t_list **envp, int *old_in, int last)
 	free_tkn(cmd_tkn);
 }
 
+void	builtin_pipe1(t_all *all, int last, int id)
+{
+	int		fd_saved[2];
+	char	**cmd_tkn;
+
+	cmd_tkn = NULL;
+	fd_saved[0] = dup(STDIN_FILENO);
+	fd_saved[1] = dup(STDOUT_FILENO);
+	pipe_create(all->old_in, last);
+	cmd_tkn = tokenizer(all->split_token[id], cmd_tkn, all->envp, 1);
+	cmd_tkn = redirect_verify(cmd_tkn, all->old_in);
+	builtin_all1(all, cmd_tkn);
+	dup2(fd_saved[0], STDIN_FILENO);
+	close(fd_saved[0]);
+	dup2(fd_saved[1], STDOUT_FILENO);
+	close(fd_saved[1]);
+	free_tkn(cmd_tkn);
+}
+
 void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 {
 	if (ft_strdup(split_token[id + 1]) != NULL)
@@ -56,6 +75,18 @@ void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 	}
 	else
 		builtin_pipe(split_token[id], envp, old_in, 1);
+}
+
+void	line_in_pipe1(t_all *all, int id)
+{
+	if (ft_strdup(all->split_token[id + 1]) != NULL)
+	{
+		builtin_pipe1(all, 0, id);
+		line_in_pipe1(all, id + 1);
+	}
+	else
+		builtin_pipe1(all, 1, id);
+		// builtin_pipe(all->split_token[id], all->envp, all->old_in, 1);
 }
 
 int	cont_pipe_token(char **cmd)
@@ -79,6 +110,7 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 	int		old_in;
 	char	**split_token;
 	char	**cmd_tkn;
+    t_all   all;
 
 	old_in = 0;
 	cmd_tkn = NULL;
@@ -96,7 +128,13 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 		return ;
 	}
 	else
-		line_in_pipe(split_token, envp, &old_in, 0);
+    {
+        all.cmd = cmd;
+		all.split_token = split_token;
+        all.envp = envp;
+        all.old_in = &old_in;
+        line_in_pipe1(&all, 0);
+    }
 	if (old_in != 0)
 		close(old_in);
 	free_tkn(cmd_tkn);

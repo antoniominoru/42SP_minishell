@@ -40,6 +40,13 @@
 # define F_INTERN 1
 # define F_BUILTIN 0
 
+typedef struct s_all{
+    char    *cmd;
+    char    **split_token;
+    t_list  **envp;
+    int     *old_in;
+}               t_all;
+
 extern int	g_current_status;
 
 void	minishell(char	*cmd, t_list *lst_env, char *path);
@@ -112,6 +119,13 @@ int		hav_env_var(char **cmd, int i);
 char	*take_env_of_value(char *cmd, t_list **envp);
 int		len_builtin(int len, int len_builtin);
 char	what_is_the_quote(char *cmd);
-//existem funcoes q n existem mais aqui no header
+
+// ALTERAÇÕES
+void	builtin_pipe1(t_all *all, int last, int id);//
+void	line_in_pipe1(t_all *all, int id);//
+void	builtin_all1(t_all *all, char **cmd_tkn);//
+void	builtin_exit1(t_all *all, char **cmd_tkn);//
+void	exit_m_sh1(t_all *all, char **cmd_tkn, int arg_exit);//
+
 
 #endif

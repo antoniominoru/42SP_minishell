@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/20 03:17:41 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 08:09:29 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,28 @@ void	builtin_all(char *cmd, t_list **envp, char **cmd_tkn)
 		builtin_cd(cmd_tkn[1], envp);
 	else
 		builtin_other(cmd_tkn, envp);
+}
+
+void	builtin_all1(t_all *all, char **cmd_tkn)
+{
+	int	len;
+
+	len = ft_strlen(cmd_tkn[0]);
+	test_abs_path(cmd_tkn);
+	if (!ft_strncmp(cmd_tkn[0], "export", len_builtin(len, 6)))
+		builtin_export(cmd_tkn[1], all->envp, F_BUILTIN);
+	else if (!ft_strncmp(cmd_tkn[0], "unset", len_builtin(len, 5)))
+		builtin_unset(cmd_tkn[1], all->envp, F_BUILTIN);
+	else if (!ft_strncmp(cmd_tkn[0], "env", len_builtin(len, 3)))
+		builtin_env(*(all->envp));
+	else if (!ft_strncmp(cmd_tkn[0], "exit", len_builtin(len, 4)))
+		builtin_exit1(all, cmd_tkn);
+	// else if (!ft_strncmp(cmd_tkn[0], "pwd", len_builtin(len, 3)))
+	// 	builtin_pwd();
+	// else if (!ft_strncmp(cmd_tkn[0], "echo", len_builtin(len, 4)))
+	// 	builtin_echo(cmd_tkn);
+	// else if (!ft_strncmp(cmd_tkn[0], "cd", len_builtin(len, 2)))
+	// 	builtin_cd(cmd_tkn[1], envp);
+	// else
+	// 	builtin_other(cmd_tkn, envp);
 }
