@@ -17,8 +17,6 @@ char	*get_cmd(char *cmd, char **paths)
 	char	*tmp;
 	char	*command;
 
-	if (access(cmd, X_OK) == 0)
-		return (cmd);
 	while (*paths)
 	{
 		tmp = ft_strjoin(*paths, "/");
