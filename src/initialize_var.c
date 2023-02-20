@@ -19,3 +19,13 @@ void	initialize_var(char **cmd, t_list **lst_env, char **path, char **envp)
 	*lst_env = env_to_lst(envp);
 	rl_bind_key ('\t', rl_insert);
 }
+
+int	arg_not_num(char *cmd_tkn)
+{
+	if (!cmd_tkn)
+		return (0);
+	while (*cmd_tkn)
+		if (!ft_isdigit(*cmd_tkn++))
+			return (1);
+	return (0);
+}
