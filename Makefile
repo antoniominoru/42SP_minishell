@@ -74,14 +74,6 @@ fclean: clean
 			make fclean -C ./test_minunit
 			rm -f ${NAME}
 
-test:
-			clear
-			norminette -R CheckForbiddenSourceHeader ./src/ ./include/ ./lib/
-
-val: $(NAME)
-	make
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
-
 re: fclean all
 
 .PHONY: all clean fclean re
