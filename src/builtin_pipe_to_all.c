@@ -68,7 +68,7 @@ void	builtin_pipe1(t_all *all, int last, int id)
 
 void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 {
-	if (ft_strdup(split_token[id + 1]) != NULL)
+	if (split_token[id + 1] != NULL)
 	{
 		builtin_pipe(split_token[id], envp, old_in, 0);
 		line_in_pipe(split_token, envp, old_in, id + 1);
