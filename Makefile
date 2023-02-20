@@ -6,7 +6,7 @@
 #    By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:18:27 by aminoru-          #+#    #+#              #
-#    Updated: 2023/02/20 10:11:15 by aminoru-         ###   ########.fr        #
+#    Updated: 2023/02/20 11:09:02 by aminoru-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ test:
 
 val: $(NAME)
 	make
-	valgrind --leak-check=full --show-leak-kinds=all --suppressions=readline.supp ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 re: fclean all
 

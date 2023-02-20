@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 10:08:18 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:07:54 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,10 @@ int	cont_pipe_token(char **cmd)
 	return (i);
 }
 
-char	**ft_split_token(char **cmd_tkn)
+char	**ft_s_token(int c_all, char *tmp, char	**end, char **cmd_tkn)
 {
-	int		c_all;
-	char	*tmp;
 	char	*swap;
-	char	**end;
 
-	c_all = 0;
-	tmp = NULL;
-	end = NULL;
-	end = malloc((cont_pipe_token(cmd_tkn) + 2) * sizeof(char *));
 	while (*cmd_tkn)
 	{
 		if (!ft_strncmp(*cmd_tkn, "|", 1))
@@ -61,6 +54,20 @@ char	**ft_split_token(char **cmd_tkn)
 	}
 	end[c_all] = tmp;
 	end[c_all + 1] = NULL;
+	return (end);
+}
+
+char	**ft_split_token(char **cmd_tkn)
+{
+	int		c_all;
+	char	*tmp;
+	char	**end;
+
+	c_all = 0;
+	tmp = NULL;
+	end = NULL;
+	end = malloc((cont_pipe_token(cmd_tkn) + 2) * sizeof(char *));
+	end = ft_s_token(c_all, tmp, end, cmd_tkn);
 	return (end);
 }
 
