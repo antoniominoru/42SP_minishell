@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 10:10:53 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:44:22 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,5 +134,14 @@ int	init_verify_cmd(t_list **envp, char **split_token,
 int	arg_not_num(char *cmd_tkn);
 void	swap_env(char **cmd_tkn_env, t_list **envp, int i);
 
+void	builtin_pipe1(t_all *all, int last, int id);
+void	line_in_pipe1(t_all *all, int id);
+void	builtin_all1(t_all *all, char **cmd_tkn);
+void	builtin_exit1(t_all *all, char **cmd_tkn);
+void	exit_m_sh1(t_all *all, char **cmd_tkn, int arg_exit);
+
+int		init_verify_cmd(t_list **envp, char **split, char **tkn, char *cmd);
+int		arg_not_num(char *cmd_tkn);
+>>>>>>> cefb81497bdd3bfe31ec73d444ea9dd1b7af2d6f
 
 #endif
