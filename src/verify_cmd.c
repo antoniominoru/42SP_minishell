@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:17 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 10:44:49 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:59:59 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	init_verify_cmd(t_list **envp, char **split, char **tkn, char *cmd)
 	t_all	all;
 
 	old_in = 0;
-	if (verify_cmd(cmd_tkn) == -1)
+	if (verify_cmd(tkn) == -1)
 	{
 		status_error("Invalid caracter", ERROR);
 		return (0);
@@ -65,7 +65,7 @@ int	init_verify_cmd(t_list **envp, char **split, char **tkn, char *cmd)
 	else
 	{
 		all.cmd = cmd;
-		all.split_token = split_token;
+		all.split_token = split;
 		all.envp = envp;
 		all.old_in = &old_in;
 		line_in_pipe1(&all, 0);

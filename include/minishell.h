@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 10:51:03 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:59:02 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	line_in_pipe1(t_all *all, int id);
 void	builtin_all1(t_all *all, char **cmd_tkn);
 void	builtin_exit1(t_all *all, char **cmd_tkn);
 void	exit_m_sh1(t_all *all, char **cmd_tkn, int arg_exit);
+void	swap_env(char **cmd_tkn_env, t_list **envp, int i);
 
 int		init_verify_cmd(t_list **envp, char **split, char **tkn, char *cmd);
 int		arg_not_num(char *cmd_tkn);
