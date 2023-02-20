@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:04:00 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 17:07:05 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 02:37:34 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ void	test_abs_path(char **cmd_tkn)
 	char	**new_cmd;
 	int		last;
 
+	new_cmd = NULL;
 	if (ft_strncmp(cmd_tkn[0], "\\", 1) && access(cmd_tkn[0], 0) == 0)
 	{
 		new_cmd = ft_split(cmd_tkn[0], '/');
 		last = count_vector(new_cmd) - 1;
-		cmd_tkn[0] = new_cmd[last];
+		cmd_tkn[0] = ft_strdup(new_cmd[last]);
 	}
+	if (new_cmd)
+		free_tkn(new_cmd);
 }
 
 int	len_builtin(int len, int len_builtin)
