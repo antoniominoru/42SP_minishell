@@ -12,16 +12,6 @@
 
 #include "minishell.h"
 
-static void	swap_env(char **cmd_tkn_env, t_list **envp, int i)
-{
-	char	*swap_cmd;
-
-	swap_cmd = ft_strdup(&cmd_tkn_env[i][1]);
-	free(cmd_tkn_env[i]);
-	cmd_tkn_env[i] = ft_strdup(take_value_of_env(swap_cmd, envp));
-	free(swap_cmd);
-}
-
 int	hav_env_var(char **cmd, int i)
 {
 	char	*tmp;
@@ -49,22 +39,11 @@ int	hav_env_var(char **cmd, int i)
 	return (0);
 }
 
-static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
+void	loop_env_var(char **cmd_tv, t_list **envp, int how_many)
 {
 	int		i;
-	char	**cmd_tv;
-	char	*tmp_trim;
-	char	*tmp_trim2;
 
 	i = 0;
-	cmd_tv = cmd_tkn;
-	tmp_trim = ft_strtrim(cmd_tv[0], "\"");
-	tmp_trim2 = ft_strtrim(cmd_tv[1], "\"");
-	if (!ft_strncmp(tmp_trim, "unset", len_builtin(ft_strlen(cmd_tv[0]), 5)))
-	{
-		free(cmd_tv[1]);
-		cmd_tv[1] = ft_strtrim(tmp_trim2, "$");
-	}
 	while (cmd_tv[i])
 	{
 		if (hav_env_var(cmd_tv, i))
@@ -81,6 +60,23 @@ static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
 		}
 		i++;
 	}
+}
+
+static	char	**env_var(char **cmd_tkn, t_list **envp, int how_many)
+{
+	char	**cmd_tv;
+	char	*tmp_trim;
+	char	*tmp_trim2;
+
+	cmd_tv = cmd_tkn;
+	tmp_trim = ft_strtrim(cmd_tv[0], "\"");
+	tmp_trim2 = ft_strtrim(cmd_tv[1], "\"");
+	if (!ft_strncmp(tmp_trim, "unset", len_builtin(ft_strlen(cmd_tv[0]), 5)))
+	{
+		free(cmd_tv[1]);
+		cmd_tv[1] = ft_strtrim(tmp_trim2, "$");
+	}
+	loop_env_var(cmd_tv, envp, how_many);
 	free(tmp_trim);
 	free(tmp_trim2);
 	return (cmd_tv);

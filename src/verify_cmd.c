@@ -89,3 +89,13 @@ char	what_is_the_quote(char *cmd)
 	}
 	return ('\0');
 }
+
+void	swap_env(char **cmd_tkn_env, t_list **envp, int i)
+{
+	char	*swap_cmd;
+
+	swap_cmd = ft_strdup(&cmd_tkn_env[i][1]);
+	free(cmd_tkn_env[i]);
+	cmd_tkn_env[i] = ft_strdup(take_value_of_env(swap_cmd, envp));
+	free(swap_cmd);
+}
