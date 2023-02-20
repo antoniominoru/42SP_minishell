@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 09:13:39 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:35:19 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	line_in_pipe1(t_all *all, int id)
 	}
 	else
 		builtin_pipe1(all, 1, id);
-		// builtin_pipe(all->split_token[id], all->envp, all->old_in, 1);
 }
 
 int	cont_pipe_token(char **cmd)
