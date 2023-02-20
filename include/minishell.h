@@ -142,6 +142,5 @@ void	exit_m_sh1(t_all *all, char **cmd_tkn, int arg_exit);
 
 int		init_verify_cmd(t_list **envp, char **split, char **tkn, char *cmd);
 int		arg_not_num(char *cmd_tkn);
->>>>>>> cefb81497bdd3bfe31ec73d444ea9dd1b7af2d6f
 
 #endif
