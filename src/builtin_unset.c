@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_unset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:53:42 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 15:10:15 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 07:43:07 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	ft_del(char *content)
-{
-	(void)content;
-}
 
 int	builtin_unset_2(char *cmd, t_list *tmp, t_list *to_remove)
 {
@@ -31,7 +26,7 @@ int	builtin_unset_2(char *cmd, t_list *tmp, t_list *to_remove)
 	ft_strncmp(to_remove->content, cmd, ft_strlen(cmd)) == 0)
 	{
 		tmp->next = tmp->next->next;
-		ft_del(to_remove->content);
+		free(to_remove->content);
 		free(to_remove);
 	}
 	return (1);
@@ -53,7 +48,7 @@ int	builtin_unset(char *cmd, t_list **envp, int flag)
 	{
 		*envp = tmp->next;
 		to_remove = tmp;
-		ft_del(to_remove->content);
+		free(to_remove->content);
 		free(to_remove);
 		return (1);
 	}
