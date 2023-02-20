@@ -6,7 +6,7 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 08:10:52 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:13:39 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	line_in_pipe(char **split_token, t_list **envp, int *old_in, int id)
 
 void	line_in_pipe1(t_all *all, int id)
 {
-	if (ft_strdup(all->split_token[id + 1]) != NULL)
+	if (all->split_token[id + 1] != NULL)
 	{
 		builtin_pipe1(all, 0, id);
 		line_in_pipe1(all, id + 1);
