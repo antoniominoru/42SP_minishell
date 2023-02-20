@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 21:41:53 by jvictor-          #+#    #+#             */
-/*   Updated: 2023/02/19 23:21:31 by jvictor-         ###   ########.fr       */
+/*   Updated: 2023/02/20 00:58:43 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ void	minishell(char	*cmd, t_list *lst_env, char **path)
 			ft_add_history(cmd);
 			make_pipe(cmd, &lst_env);
 		}
+		free(cmd);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all_complement.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 01:09:31 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 00:35:48 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 01:46:29 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	**ft_split_token(char **cmd_tkn)
 {
 	int		c_all;
 	char	*tmp;
+	char	*swap;
 	char	**end;
 	int		test;
 
@@ -23,7 +24,7 @@ char	**ft_split_token(char **cmd_tkn)
 	tmp = NULL;
 	end = NULL;
 	test = cont_pipe_token(cmd_tkn);
-	end = malloc(( test + 2) * sizeof(char *));
+	end = malloc((test + 2) * sizeof(char *));
 	while (*cmd_tkn)
 	{
 		if (!ft_strncmp(*cmd_tkn, "|", 1))
@@ -34,14 +35,19 @@ char	**ft_split_token(char **cmd_tkn)
 			cmd_tkn++;
 		}
 		if (tmp == NULL)
-			tmp = "";
+			swap = ft_strdup("");
 		else
-			tmp = ft_strjoin(tmp, " ");
-		tmp = ft_strjoin(tmp, *cmd_tkn);
+		{
+			swap = ft_strjoin(tmp, " ");
+			free(tmp);
+		}
+		tmp = ft_strjoin(swap, *cmd_tkn);
+		free(swap);
 		cmd_tkn++;
 	}
 	end[c_all] = tmp;
 	end[c_all + 1] = NULL;
+	// free(swap);
 	return (end);
 }
 

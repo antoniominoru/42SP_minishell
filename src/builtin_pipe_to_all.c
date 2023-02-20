@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pipe_to_all.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 23:10:20 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/19 23:09:01 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/20 01:06:33 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,5 @@ void	builtin_pipe_to_all(char *cmd, t_list **envp)
 	if (old_in != 0)
 		close(old_in);
 	free_tkn(cmd_tkn);
+	free_tkn(split_token);
 }
