@@ -6,18 +6,16 @@
 /*   By: aminoru- <aminoru-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:56:27 by aminoru-          #+#    #+#             */
-/*   Updated: 2023/02/20 10:59:02 by aminoru-         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:51:22 by aminoru-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-// lib of 42 projects
 # include "../lib/libft/libft.h"
 # include "../lib/libft/get_next_line.h"
 
-// lib of readline
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
@@ -36,7 +34,6 @@
 # define ERROR_TWO 2
 # define NO_ERROR 0
 
-//EXECUTION FLAGS
 # define F_INTERN 1
 # define F_BUILTIN 0
 
