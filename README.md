@@ -1,6 +1,6 @@
 # Minishell
 
-##About
+## About
 
 > As beautiful as a shell
 
